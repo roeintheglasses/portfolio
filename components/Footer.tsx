@@ -1,5 +1,4 @@
 import Link from 'next/link';
-
 import NowPlaying from 'components/NowPlaying';
 
 const ExternalLink = ({ href, children }) => (
@@ -28,25 +27,25 @@ export default function Footer() {
               About
             </a>
           </Link>
-          <Link href="/newsletter">
+          {/* <Link href="/newsletter">
             <a className="text-gray-500 hover:text-gray-600 transition">
               Newsletter
             </a>
-          </Link>
+          </Link> */}
         </div>
         <div className="flex flex-col space-y-4">
-          <ExternalLink href="https://twitter.com/leeerob">
-            Twitter
+          <ExternalLink href="https://twitter.com">LinkedIn</ExternalLink>
+          <ExternalLink href="https://github.com/roeintheglasses">
+            GitHub
           </ExternalLink>
-          <ExternalLink href="https://github.com/leerob">GitHub</ExternalLink>
-          <ExternalLink href="https://www.youtube.com/channel/UCZMli3czZnd1uoc1ShTouQw">
+          {/* <ExternalLink href="https://www.youtube.com/channel/UCZMli3czZnd1uoc1ShTouQw">
             YouTube
-          </ExternalLink>
+          </ExternalLink> */}
         </div>
         <div className="flex flex-col space-y-4">
-          <Link href="/uses">
+          {/* <Link href="/uses">
             <a className="text-gray-500 hover:text-gray-600 transition">Uses</a>
-          </Link>
+          </Link> */}
           <Link href="/guestbook">
             <a className="text-gray-500 hover:text-gray-600 transition">
               Guestbook
@@ -57,11 +56,11 @@ export default function Footer() {
               Snippets
             </a>
           </Link>
-          <Link href="/tweets">
+          {/* <Link href="/tweets">
             <a className="text-gray-500 hover:text-gray-600 transition">
               Tweets
             </a>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </footer>

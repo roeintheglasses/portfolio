@@ -1,12 +1,12 @@
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes';
-import NextLink from 'next/link';
-import cn from 'classnames';
+import { useEffect, useState } from 'react';
 
 import Footer from 'components/Footer';
+import Head from 'next/head';
 import MobileMenu from 'components/MobileMenu';
+import NextLink from 'next/link';
+import cn from 'classnames';
+import { useRouter } from 'next/router';
+import { useTheme } from 'next-themes';
 
 function NavItem({ href, text }) {
   const router = useRouter();
@@ -38,7 +38,7 @@ export default function Container(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: 'Lee Robinson – Developer, writer, creator.',
+    title: 'Hrishikesh Jangir - Developer, writer, creator.',
     description: `Front-end developer, JavaScript enthusiast, and course creator.`,
     image: 'https://leerob.io/static/images/lee-banner.png',
     type: 'website',
@@ -76,9 +76,9 @@ export default function Container(props) {
             <MobileMenu />
             <NavItem href="/" text="Home" />
             <NavItem href="/guestbook" text="Guestbook" />
-            <NavItem href="/dashboard" text="Dashboard" />
-            <NavItem href="/blog" text="Blog" />
-            <NavItem href="/snippets" text="Snippets" />
+            <NavItem href="/dashboard" text="About" />
+            {/* <NavItem href="/blog" text="Blog" />
+            <NavItem href="/snippets" text="Snippets" /> */}
           </div>
           <button
             aria-label="Toggle Dark Mode"

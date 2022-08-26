@@ -24,7 +24,7 @@ export default function Home() {
                 development, serverless, and React / Next.js.
               </p>
             </div>
-            <div className="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
+            <div className="w-[100px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
               <Image
                 alt="Lee Robinson"
                 height={176}
@@ -32,13 +32,13 @@ export default function Home() {
                 src="/avatar.jpg"
                 sizes="30vw"
                 priority
-                className="rounded-full filter grayscale"
+                className="rounded-full"
               />
             </div>
           </div>
 
           <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
-            Featured Posts
+            Stuff I Made
           </h3>
           <div className="flex gap-6 flex-col md:flex-row">
             <BlogPostCard
