@@ -3,9 +3,9 @@ import { deskTool } from 'sanity/desk';
 import { markdownSchema } from 'sanity-plugin-markdown';
 
 export default createConfig({
-  name: 'default',
+  name: 'portfolio',
   title: 'portfolio',
-  projectId: '56a8ffnw',
+  projectId: 'pw7qay1o',
   dataset: 'production',
   plugins: [deskTool(), markdownSchema()],
   schema: {
