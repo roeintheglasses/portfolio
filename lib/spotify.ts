@@ -8,37 +8,56 @@ const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 const getAccessToken = async () => {
-  const response = await fetch(TOKEN_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      Authorization: `Basic ${basic}`,
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: new URLSearchParams({
-      grant_type: 'refresh_token',
-      refresh_token
+  try{
+    const response = await fetch(TOKEN_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        Authorization: `Basic ${basic}`,
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams({
+        grant_type: 'refresh_token',
+        refresh_token
+      })
     })
-  });
-
-  return response.json();
+  
+    return response.json();
+  }catch (err){
+    console.log('====================================');
+    console.log(err);
+    console.log('====================================');
+  }
+ 
 };
 
 export const getNowPlaying = async () => {
-  const { access_token } = await getAccessToken();
+  try{
+    const { access_token } = await getAccessToken();
 
-  return fetch(NOW_PLAYING_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${access_token}`
-    }
-  });
+    return fetch(NOW_PLAYING_ENDPOINT, {
+      headers: {
+        Authorization: `Bearer ${access_token}`
+      }
+    });
+  }catch (err){
+    console.log('====================================');
+    console.log(err);
+    console.log('====================================');
+  }
 };
 
 export const getTopTracks = async () => {
-  const { access_token } = await getAccessToken();
+  try{
+    const { access_token } = await getAccessToken();
 
-  return fetch(TOP_TRACKS_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${access_token}`
-    }
-  });
+    return fetch(TOP_TRACKS_ENDPOINT, {
+      headers: {
+        Authorization: `Bearer ${access_token}`
+      }
+    });
+  }catch (err){
+    console.log('====================================');
+    console.log(err);
+    console.log('====================================');
+  }
 };

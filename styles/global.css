@@ -18,6 +18,26 @@
   src: url(/fonts/ibm-plex-sans-var-italic.woff2) format('woff2');
 }
 
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3f5555;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
@@ -230,3 +250,4 @@ table {
 .prose .callout > p {
   margin: 0 !important;
 }
+
