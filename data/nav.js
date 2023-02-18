@@ -1,25 +1,13 @@
 export const navigation = {
-    pages: [
-      { name: 'Home', href: '/' },
-      { name: 'About', href: '/about' },
-      { name: 'Timeline', href: '/timeline' },
-      { name: 'Guestbook', href: '/guestbook' },
-      { name: 'Projects', href: '/projects' },
-      { name: 'Contact', href: '/contact' },
-      { name: 'Blog', href: '/blog' },
-      { name: 'Snippets', href: '/snippets' },
-      { name: 'Uses', href: '/uses' },
-      { name: 'Now', href: '/now' },
-      { name: 'Activity', href: '/activity' },
-      { name: 'Recommends', href: '/recommends' },
-      { name: 'RSS', href: '/feed.xml' },
-      { name: 'Anime', href: '/anime' },
-      { name: 'Games', href: '/games' },
-      // { name: 'Guestbook', href: '/guestbook' },
-      // { name: 'Bookmarks', href: '/bookmarks' },
-      // { name: 'Todo', href: '/todo' },
-      // { name: 'Music', href: '/music' },
-      // { name: 'Movies', href: '/movies' },
-    ],
-  }
-  
+  pages: [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Timeline', href: '/timeline' },
+    { name: 'Guestbook', href: '/guestbook' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Snippets', href: '/snippets' },
+    { name: 'Anime', href: '/anime' },
+    { name: 'Games', href: '/games' },
+    { name: 'Contact', href: '/contact' }
+  ]
+};
