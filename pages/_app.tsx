@@ -1,5 +1,5 @@
 import 'styles/global.css';
-import 'styles/timeline.css'
+import 'styles/timeline.css';
 
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';

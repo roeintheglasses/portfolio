@@ -9,7 +9,9 @@
     "sanity-start": "sanity start",
     "sanity-dev": "sanity dev",
     "sanity-help": "sanity help",
-    "sanity-login": "sanity login"
+    "sanity-login": "sanity login",
+    "sanity-deploy": "sanity deploy",
+    "sanity-build": "sanity build"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.0",
@@ -42,7 +44,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.10.4",
-    "@types/react": "^18.0.15",
+    "@types/react": "^18.2.43",
     "autoprefixer": "10.4.7",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.2",
