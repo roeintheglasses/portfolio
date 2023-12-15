@@ -38,41 +38,16 @@ export default function About() {
           </ul>
           <h2>Bio</h2>
           <h3>Job Title</h3>
-          <p>Hrishikesh Jangir, VP of Developer Experience at Vercel</p>
-          <h3>Long, 3rd Person</h3>
-          <p>
-            Hrishikesh Jangir is the VP of Developer Experience at{' '}
-            <a href="http://vercel.com/">Vercel</a>, where he helps developers
-            build a faster web and leads the Next.js community. He leads the
-            community for the React framework Next.js and is an open-source
-            contributor. An educator, writer, and speaker, Lee has created
-            courses on React, Next.js, and web development.
-          </p>
+          <p>Hrishikesh Jangir, SDE at Zelto</p>
           <h3>Long, 1st Person</h3>
           <p>
-            Hey, I'm Lee. I'm the VP of Developer Experience at{' '}
-            <a href="https://vercel.com/">Vercel</a>, where my team helps
-            developers build a faster web. I'm a Next.js contributor and help
-            lead our open-source communities. I've passionate about frontend
-            development and have created courses on React, Next.js, and web
-            development. I'm an advisor and investor in early stage startups.
-          </p>
-          <h3>Short, 3rd Person</h3>
-          <p>
-            Hrishikesh Jangir is the VP of Developer Experience at{' '}
-            <a href="http://vercel.com/">Vercel</a>, where he helps developers
-            build a faster web.
-          </p>
-          <h3>Short, 1st Person</h3>
-          <p>
-            Hey, I'm Lee. I'm the VP of Developer Experience at{' '}
-            <a href="https://vercel.com/">Vercel</a>, where my team helps
-            developers build a faster web.
+            Hey, I'm Hrishi. I'm SDE at <a href="https://vercel.com/">Zelto</a>,
+            where my team helps developers build a faster web.
           </p>
           <h3>Education</h3>
           <p>
-            Hrishikesh Jangir graduated from Iowa State University with a B.S.
-            in Computer Engineering.
+            Hrishikesh Jangir graduated from MRIIRS with a B.Tech degree in
+            Computer Engineering.
           </p>
           <h2>Headshots</h2>
           <div className="flex space-x-8">
