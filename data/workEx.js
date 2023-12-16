@@ -12,7 +12,7 @@ export const workEx = {
     role: 'SDE',
     company: 'Quikie Apps',
     companylogo:
-      'https://roeintheglasses.tech/static/images/companies/quikieApps.jpg',
+      'https://roeintheglasses.tech/static/images/companies/QuikieApps.jpg',
     color: '#6fc8e8',
     date: 'August 2020 - July 2021',
     desc: 'QuikieApps is a IT services and consulting company specialzing in fullstack development. Here I Worked as an SDE on multiple MERN Stack & React Native Projects for various different Clients.'

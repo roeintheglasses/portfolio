@@ -40,6 +40,8 @@ export default function WorkCard({ cardInfo, isDark, gradient }) {
             crossOrigin={'anonymous'}
             className={styles.experienceRoundedimg}
             src={cardInfo.companylogo}
+            width={100}
+            height={100}
             alt={cardInfo.company}
           />
         </div>
