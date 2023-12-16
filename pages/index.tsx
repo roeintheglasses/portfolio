@@ -1,6 +1,6 @@
 import BlogPostCard from '../components/BlogPostCard';
 import Container from '../components/Container';
-import WorkCard from '../components/WorkCard/WorkCard';
+import WorkCard from '../components/WorkCard';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
@@ -10,11 +10,7 @@ let cardInfo = {
   company: 'Facebook',
   companylogo: require('public/avatar.jpg'),
   date: 'June xxxx – Present',
-  desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  descBullets: [
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
-  ]
+  desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 };
 
 export default function Home() {
@@ -54,7 +50,7 @@ export default function Home() {
             <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
               Work Experience
             </h3>
-            <div className="flex gap-6 flex-col md:flex-row">
+            <div className="flex gap-10 flex-col md:flex-row">
               <WorkCard
                 cardInfo={cardInfo}
                 isDark={true}
@@ -63,7 +59,12 @@ export default function Home() {
               <WorkCard
                 cardInfo={cardInfo}
                 isDark={true}
-                gradient="from-[#D8B4FE] to-[#818CF8]"
+                gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
+              />
+              <WorkCard
+                cardInfo={cardInfo}
+                isDark={true}
+                gradient="from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
               />
             </div>
 
@@ -112,8 +113,10 @@ export default function Home() {
             </div>
             <Link
               href="/blog"
-              className="flex mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg hover:text-gray-800 dark:hover:text-gray-200 transition-all h-6">
-              Read all posts<svg
+              className="flex mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg hover:text-gray-800 dark:hover:text-gray-200 transition-all h-6"
+            >
+              Read all posts
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -127,7 +130,6 @@ export default function Home() {
                   d="M17.5 12h-15m11.667-4l3.333 4-3.333-4zm3.333 4l-3.333 4 3.333-4z"
                 />
               </svg>
-
             </Link>
           </div>
         </div>
