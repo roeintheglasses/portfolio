@@ -18,7 +18,7 @@ export default function Home() {
                 Hrishikesh Jangir
               </h1>
               <h2 className="text-gray-700 text-xl dark:text-gray-200 mb-4">
-                SDE at <span className="font-semibold">Zelto</span>
+                SDE at <span className="font-semibold">Adpushup</span>
               </h2>
               <p className="text-gray-600 text-l dark:text-gray-400 mb-16">
                 Solving ad-tech problems at scale, one bugfix at a time.I'm
@@ -26,7 +26,7 @@ export default function Home() {
                 products.I code for passion & design for fun.
               </p>
             </div>
-            <div className="w-[300px] sm:w-[176px] relative mr-10 mb-10 sm:mb-0">
+            <div className="w-[250px] sm:w-[176px] relative mr-0  md:mr-10 mb-10 sm:mb-0">
               <Image
                 alt="Hrishikesh Jangir"
                 height={200}
@@ -44,7 +44,7 @@ export default function Home() {
             <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
               Work Experience
             </h3>
-            <div className="mt-8 flex flex-row flex-wrap gap-8 w-[90vw]">
+            <div className="mt-8 flex flex-row flex-wrap gap-8 w-[90vw] lg:w-[102vw]">
               <WorkCard
                 cardInfo={workEx.adpushup}
                 isDark={true}
@@ -68,7 +68,7 @@ export default function Home() {
             <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
               My Recent Posts
             </h3>
-            <div className="mt-8 flex flex-row flex-wrap gap-8 w-[90vw]">
+            <div className="mt-8 flex flex-row flex-wrap gap-8 w-[90vw] lg:w-[102vw]">
               <BlogPostCard
                 title="JavaScript's Back-End Future: Why Rust is Stealing the Show & the Tools Shaping the Landscape"
                 slug="javascript-s-back-end-future-is-rust"
