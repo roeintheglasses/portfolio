@@ -10,7 +10,7 @@ export default function WorkCard({ cardInfo, isDark, gradient }) {
       href={`/work`}
       className={cn(
         'transform hover:-translate-y-2 transition-all',
-        'rounded-xl w-11/12 lg:w-[18rem] xl:w-2/12 bg-gradient-to-r p-1',
+        'rounded-xl w-11/12 lg:w-[18rem] xl:w-[20rem] bg-gradient-to-r p-1',
         gradient
       )}
     >
