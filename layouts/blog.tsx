@@ -22,8 +22,16 @@ export default function BlogLayout({
     >
       <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
+          <Image
+            alt="Hrishikesh Jangir"
+            height={300}
+            width={900}
+            src={urlForImage(post.coverImage).url()}
+            className="bg-slate-600 dark:bg-slate-800 w-full rounded-2xl mb-8"
+          />
           {post.title}
         </h1>
+
         <div className="flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center">
           <div className="flex items-center">
             <Image
@@ -49,28 +57,9 @@ export default function BlogLayout({
           <div className="w-full mt-4 prose dark:prose-dark max-w-none">
             {children}
           </div>
-          <div className="mt-8">
+          {/* <div className="mt-8">
             <Subscribe />
-          </div>
-          <div className="text-sm text-gray-700 dark:text-gray-300">
-            <a
-              href={`https://mobile.twitter.com/search?q=${encodeURIComponent(
-                `https://leerob.io/blog/${post.slug}`
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {'Discuss on Twitter'}
-            </a>
-            {` • `}
-            <a
-              href="https://github.com/leerob/leerob.io/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {'Suggest Change'}
-            </a>
-          </div>
+          </div> */}
         </Suspense>
       </article>
     </Container>
