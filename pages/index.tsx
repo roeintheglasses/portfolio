@@ -5,13 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
-let cardInfo = {
-  role: 'your role',
-  company: 'Facebook',
-  companylogo: require('public/avatar.jpg'),
-  date: 'June xxxx – Present',
-  desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-};
+import { workEx } from '../data/workEx';
 
 export default function Home() {
   return (
@@ -50,19 +44,19 @@ export default function Home() {
             <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
               Work Experience
             </h3>
-            <div className="flex gap-10 flex-col md:flex-row">
+            <div className="mt-8 flex flex-row flex-wrap gap-8 w-screen">
               <WorkCard
-                cardInfo={cardInfo}
+                cardInfo={workEx.adpushup}
                 isDark={true}
                 gradient="from-[#D8B4FE] to-[#818CF8]"
               />
               <WorkCard
-                cardInfo={cardInfo}
+                cardInfo={workEx.quikieApps}
                 isDark={true}
                 gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
               />
               <WorkCard
-                cardInfo={cardInfo}
+                cardInfo={workEx.safe}
                 isDark={true}
                 gradient="from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
               />
@@ -94,7 +88,7 @@ export default function Home() {
             <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
               My Recent Posts
             </h3>
-            <div className="flex gap-6 flex-col md:flex-row">
+            <div className="mt-8 flex flex-row flex-wrap gap-8 w-screen">
               <BlogPostCard
                 title="Everything I Know About Style Guides, Design Systems, and Component Libraries"
                 slug="style-guides-component-libraries-design-systems"

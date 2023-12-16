@@ -5,35 +5,35 @@ import cn from 'classnames';
 import styles from 'styles/work-card.module.css';
 
 export default function WorkCard({ cardInfo, isDark, gradient }) {
-  const GetDescBullets = ({ descBullets, isDark }) => {
-    return descBullets
-      ? descBullets.map((item, i) => (
-          <li key={i} className={isDark ? 'text-white' : 'text-black'}>
-            {item}
-          </li>
-        ))
-      : null;
-  };
-
   return (
     <Link
       href={`/work`}
       className={cn(
-        'transform hover:scale-[1.01] transition-all',
-        'rounded-xl w-full md:w-1/3 bg-gradient-to-r p-1',
+        'transform hover:-translate-y-2 transition-all',
+        'rounded-xl w-11/12 lg:w-[18rem] xl:w-2/12 bg-gradient-to-r p-1',
         gradient
       )}
     >
       <div
-        className={isDark ? styles.experienceCardDark : styles.experienceCard}
+        className={cn(
+          styles.experienceCard,
+          'bg-white dark:bg-gray-950 h-full rounded-lg'
+        )}
       >
         <div
           style={{ background: cardInfo.color }}
-          className={styles.experienceBanner}
+          className={cn(styles.experienceBanner, 'rounded-t-lg')}
         >
           <div className={styles.experienceBlurredDiv}></div>
           <div className={styles.experienceDivCompany}>
-            <h5 className={styles.experienceTextCompany}>{cardInfo.company}</h5>
+            <h5
+              className={cn(
+                styles.experienceTextCompany,
+                'text-center p-5 text-white mb-10 font-sans text-3xl font-semibold '
+              )}
+            >
+              {cardInfo.company}
+            </h5>
           </div>
 
           <Image
@@ -46,27 +46,24 @@ export default function WorkCard({ cardInfo, isDark, gradient }) {
         <div className={styles.experienceTextDetails}>
           <h5
             className={
-              isDark ? styles.experienceTextRoleDark : styles.experienceTextRole
+              'text-black dark:text-white text-center font-sans text-3xl font-semibold'
             }
           >
             {cardInfo.role}
           </h5>
           <h5
-            className={
-              isDark ? styles.experienceTextDateDark : styles.experienceTextDate
-            }
+            className={cn(
+              styles.experienceTextDate,
+              'text-black dark:text-white'
+            )}
           >
             {cardInfo.date}
           </h5>
-          <p
-            className={
-              isDark ? styles.experienceTextDescDark : styles.experienceTextDesc
-            }
-          >
+          <p className={'text-black dark:text-white text-center'}>
             {cardInfo.desc}
           </p>
         </div>
-        <p className="text-right text-white font-light text-sm mx-4 my-2">
+        <p className="text-right text-black dark:text-white  font-light text-sm px-4 py-2">
           Read More
         </p>
       </div>
