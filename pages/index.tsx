@@ -44,7 +44,7 @@ export default function Home() {
             <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
               Work Experience
             </h3>
-            <div className="mt-8 flex flex-row flex-wrap gap-8 w-screen">
+            <div className="mt-8 flex flex-row flex-wrap gap-8 w-[90vw]">
               <WorkCard
                 cardInfo={workEx.adpushup}
                 isDark={true}
@@ -68,7 +68,7 @@ export default function Home() {
             <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
               My Recent Posts
             </h3>
-            <div className="mt-8 flex flex-row flex-wrap gap-8 w-screen">
+            <div className="mt-8 flex flex-row flex-wrap gap-8 w-[90vw]">
               <BlogPostCard
                 title="JavaScript's Back-End Future: Why Rust is Stealing the Show & the Tools Shaping the Landscape"
                 slug="javascript-s-back-end-future-is-rust"
