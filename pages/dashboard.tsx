@@ -19,10 +19,12 @@ export default function Dashboard() {
         <div className="mb-8">
           <p className="text-gray-600 dark:text-gray-400 mb-4">
            About Me. My&nbsp;
-            <Link href="/blog/fetching-data-with-swr">
-              <a className="text-gray-900 dark:text-gray-100 underline">
+            <Link
+              href="/blog/fetching-data-with-swr"
+              className="text-gray-900 dark:text-gray-100 underline">
+              
                 blog series.
-              </a>
+              
             </Link>
           </p>
         </div>
