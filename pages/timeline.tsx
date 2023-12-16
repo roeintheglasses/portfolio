@@ -3,7 +3,7 @@ import {
   VerticalTimelineElement
 } from 'react-vertical-timeline-component';
 import Link from 'next/link';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import { HiSun, HiMoon } from 'react-icons/hi';
 
 import Container from 'components/Container';
