@@ -1,4 +1,4 @@
-const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
+const { spacing, fontFamily, screens } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: ['./pages/**/*.tsx', './components/**/*.tsx', './layouts/**/*.tsx'],
@@ -88,7 +88,11 @@ module.exports = {
             }
           }
         }
-      })
+      }),
+      screens: {
+        xs: '300px',
+        ...screens
+      }
     }
   },
   variants: {
