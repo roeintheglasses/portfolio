@@ -5,20 +5,22 @@ export const config = {
 };
 
 export default async function handler(req: NextRequest) {
-  const accessToken = process.env.UNSPLASH_ACCESS_KEY;
+  const valoPlayerUUID =
+    process.env.VALORANT_PUUID || 'f08db3f6-25ac-51d1-8b79-043233cfcd77';
+  //
   const response = await fetch(
-    `https://api.unsplash.com/users/roeintheglasses/statistics?client_id=${accessToken}`,
+    `https://api.henrikdev.xyz/valorant/v2/by-puuid/mmr/ap/${valoPlayerUUID}`,
     {
       method: 'GET'
     }
   );
 
-  const unsplashdata = await response.json();
+  const valoData = await response.json();
 
   return new Response(
     JSON.stringify({
-      downloads: unsplashdata.downloads.total,
-      views: unsplashdata.views.total
+      downloads: valoData.downloads.total,
+      views: valoData.views.total
     }),
     {
       status: 200,
