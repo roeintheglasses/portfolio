@@ -85,7 +85,6 @@ html {
 
 .prose .anchor {
   @apply absolute invisible no-underline;
-
   margin-left: -1em;
   padding-right: 0.5em;
   width: 80%;
@@ -98,11 +97,11 @@ html {
 }
 
 .prose a {
-  @apply transition-all;
+  @apply transition-all text-neutral-800 dark:text-neutral-200 decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
 }
 
 .prose .anchor:after {
-  @apply text-gray-300 dark:text-gray-700;
+  @apply text-neutral-300 dark:text-neutral-700;
   content: '#';
 }
 
@@ -250,4 +249,3 @@ table {
 .prose .callout > p {
   margin: 0 !important;
 }
-

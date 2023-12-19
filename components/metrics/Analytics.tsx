@@ -8,11 +8,11 @@ export default function AnalyticsCard() {
   const { data } = useSWR<Views>('/api/views', fetcher);
 
   const pageViews = new Number(data?.total);
-  const link = 'https://leerob.io';
+  const link = 'https://roeintheglasses.tech';
 
   return (
     <MetricCard
-      header="All-Time Views"
+      header="All-Time Blog Views"
       link={link}
       metric={pageViews}
       isCurrency={false}

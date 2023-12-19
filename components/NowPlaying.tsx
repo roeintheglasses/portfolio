@@ -101,11 +101,11 @@ export default function NowPlaying() {
           </a>
         ) : (
           <p className="capsize text-gray-800 dark:text-gray-200 font-medium">
-            Not Playing
+            Not Listening
           </p>
         )}
         <span className="capsize mx-2 text-gray-500 dark:text-gray-300 hidden sm:block">
-          {' – '}
+          {' - '}
         </span>
         <p className="capsize text-gray-500 dark:text-gray-300 max-w-max truncate">
           {data?.artist ?? 'Spotify'}

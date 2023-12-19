@@ -19,49 +19,51 @@ export default function Footer() {
       <NowPlaying />
       <div className="w-full max-w-5xl grid grid-cols-1 gap-4 pb-16 sm:grid-cols-3">
         <div className="flex flex-col space-y-4">
-          <Link href="/" className="text-gray-500 hover:text-gray-600 transition">
+          <Link
+            href="/"
+            className="text-gray-500 hover:text-gray-600 transition"
+          >
             Home
           </Link>
-          <Link href="/about" className="text-gray-500 hover:text-gray-600 transition">
-            
-              About
-            
+          <Link
+            href="/work"
+            className="text-gray-500 hover:text-gray-600 transition"
+          >
+            Work
           </Link>
-          {/* <Link href="/newsletter">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Newsletter
-            </a>
-          </Link> */}
+          <Link
+            href="/about"
+            className="text-gray-500 hover:text-gray-600 transition"
+          >
+            About
+          </Link>
         </div>
         <div className="flex flex-col space-y-4">
-          <ExternalLink href="https://twitter.com">LinkedIn</ExternalLink>
+          <ExternalLink href="https://linkedin.com/roeintheglasses">
+            LinkedIn
+          </ExternalLink>
           <ExternalLink href="https://github.com/roeintheglasses">
             GitHub
           </ExternalLink>
-          {/* <ExternalLink href="https://www.youtube.com/channel/UCZMli3czZnd1uoc1ShTouQw">
-            YouTube
-          </ExternalLink> */}
         </div>
         <div className="flex flex-col space-y-4">
-          <Link href="/uses" className="text-gray-500 hover:text-gray-600 transition">
-            Uses
+          <Link
+            href="/blog"
+            className="text-gray-500 hover:text-gray-600 transition"
+          >
+            Blog
           </Link>
           <Link
             href="/guestbook"
-            className="text-gray-500 hover:text-gray-600 transition">
-            
-              Guestbook
-            
+            className="text-gray-500 hover:text-gray-600 transition"
+          >
+            Guestbook
           </Link>
-          <Link href="/snippets" className="text-gray-500 hover:text-gray-600 transition">
-            
-              Snippets
-            
-          </Link>
-          <Link href="/tweets" className="text-gray-500 hover:text-gray-600 transition">
-            
-              Tweets
-            
+          <Link
+            href="/snippets"
+            className="text-gray-500 hover:text-gray-600 transition"
+          >
+            Snippets
           </Link>
         </div>
       </div>

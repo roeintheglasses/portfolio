@@ -19,10 +19,11 @@ export default function Home() {
             <h2 className="text-gray-700 text-xl dark:text-gray-200 mb-4">
               SDE at <span className="font-semibold">Adpushup</span>
             </h2>
-            <p className="text-gray-600 text-l dark:text-gray-400 mb-16">
-              Solving ad-tech problems at scale, one bugfix at a time.I'm
-              learning about designing, building & shipping great tech
-              products.I code for passion & design for fun.
+            <p className="text-gray-700 text-xl dark:text-gray-300 mb-16">
+              Currently taming ad-tech beasts, one bug at a time. I'm learning
+              about coding, designing, building & shipping great tech products.
+              Code runs my fingers, fun fuels my designs. On a Journey to build
+              accessible and future-proof products that empower others.
             </p>
           </div>
           <div className="w-[250px] sm:w-[176px] relative mr-0  md:mr-10 mb-10 sm:mb-0">
