@@ -4,6 +4,7 @@ import Link from 'next/link';
 import cn from 'classnames';
 import styles from 'styles/mobile-menu.module.css';
 import useDelayedRender from 'use-delayed-render';
+import { navigation } from '../data/nav';
 
 export default function MobileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,83 +32,43 @@ export default function MobileMenu() {
     };
   }, []);
 
-  return <>
-    <button
-      className={cn(styles.burger, 'visible md:hidden')}
-      aria-label="Toggle menu"
-      type="button"
-      onClick={toggleMenu}
-    >
-      <MenuIcon data-hide={isMenuOpen} />
-      <CrossIcon data-hide={!isMenuOpen} />
-    </button>
-    {isMenuMounted && (
-      <ul
-        className={cn(
-          styles.menu,
-          'flex flex-col absolute bg-gray-100 dark:bg-gray-900',
-          isMenuRendered && styles.menuRendered
-        )}
+  return (
+    <>
+      <button
+        className={cn(styles.burger, 'visible md:hidden')}
+        aria-label="Toggle menu"
+        type="button"
+        onClick={toggleMenu}
       >
-        <li
-          className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
-          style={{ transitionDelay: '150ms' }}
+        <MenuIcon data-hide={isMenuOpen} />
+        <CrossIcon data-hide={!isMenuOpen} />
+      </button>
+      {isMenuMounted && (
+        <ul
+          className={cn(
+            styles.menu,
+            'flex flex-col absolute bg-gray-100 dark:bg-gray-900',
+            isMenuRendered && styles.menuRendered
+          )}
         >
-          <Link href="/" className="flex w-auto pb-4">
-            Home
-          </Link>
-        </li>
-        <li
-          className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
-          style={{ transitionDelay: '175ms' }}
-        >
-          <Link href="/guestbook" className="flex w-auto pb-4">
-            Guestbook
-          </Link>
-        </li>
-        <li
-          className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
-          style={{ transitionDelay: '200ms' }}
-        >
-          <Link href="/dashboard" className="flex w-auto pb-4">
-            Dashboard
-          </Link>
-        </li>
-        <li
-          className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
-          style={{ transitionDelay: '250ms' }}
-        >
-          <Link href="/blog" className="flex w-auto pb-4">
-            Blog
-          </Link>
-        </li>
-        <li
-          className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
-          style={{ transitionDelay: '275ms' }}
-        >
-          <Link href="/snippets" className="flex w-auto pb-4">
-            Snippets
-          </Link>
-        </li>
-        <li
-          className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
-          style={{ transitionDelay: '300ms' }}
-        >
-          <Link href="/newsletter" className="flex w-auto pb-4">
-            Newsletter
-          </Link>
-        </li>
-        <li
-          className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
-          style={{ transitionDelay: '350ms' }}
-        >
-          <Link href="/uses" className="flex w-auto pb-4">
-            Uses
-          </Link>
-        </li>
-      </ul>
-    )}
-  </>;
+          {navigation &&
+            navigation.pages.map((page, index) => {
+              return (
+                <li
+                  key={index}
+                  className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
+                  style={{ transitionDelay: '150ms' }}
+                >
+                  <Link href={page.href} className="flex w-auto pb-4">
+                    {page.name}
+                  </Link>
+                </li>
+              );
+            })}
+        </ul>
+      )}
+    </>
+  );
 }
 
 function MenuIcon(props: JSX.IntrinsicElements['svg']) {

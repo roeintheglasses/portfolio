@@ -40,8 +40,8 @@ export default function Container(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: 'Hrishikesh Jangir - Developer, writer, creator.',
-    description: `Front-end developer, JavaScript enthusiast, and course creator.`,
+    title: 'Hrishikesh Jangir - Developer, writer, designer.',
+    description: `Front-end developer, JavaScript enthusiast, and an avid valorant player.`,
     image: 'https://roeintheglasses.tech/static/images/roe-banner.png',
     type: 'website',
     ...customMeta
@@ -82,9 +82,10 @@ export default function Container(props) {
           <div className="ml-[-0.60rem]">
             <MobileMenu />
             <NavItem href="/" text="Home" />
-            <NavItem href="/guestbook" text="Guestbook" />
+            <NavItem href="/work" text="Work" />
             <NavItem href="/dashboard" text="About" />
             <NavItem href="/blog" text="Blog" />
+            <NavItem href="/guestbook" text="Guestbook" />
             <NavItem href="/snippets" text="Snippets" />
           </div>
           <div className="flex items-center justify-between gap-2">
@@ -97,7 +98,9 @@ export default function Container(props) {
         id="skip"
         className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900"
       >
-        {children}
+        <div className="flex flex-col justify-center items-start max-w-5xl border-gray-200 dark:border-gray-700 mx-auto pb-16">
+          {children}
+        </div>
         <Footer />
       </main>
     </div>
