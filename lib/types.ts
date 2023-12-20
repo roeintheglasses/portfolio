@@ -69,6 +69,10 @@ export type GitHub = {
   stars: number;
 };
 
+export type Valorant = {
+  valData: any;
+};
+
 export type Unsplash = {
   downloads: number;
   views: number;

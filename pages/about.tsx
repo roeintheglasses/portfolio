@@ -3,6 +3,7 @@ import Container from 'components/Container';
 import GitHub from 'components/metrics/Github';
 import Link from 'next/link';
 import TopTracks from 'components/TopTracks';
+import Valorant from 'components/metrics/Valorant';
 import Unsplash from 'components/metrics/Unsplash';
 import YouTube from 'components/metrics/Youtube';
 
@@ -43,6 +44,7 @@ export default function Dashboard() {
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
         <Analytics />
         <GitHub />
+        <Valorant />
       </div>
       <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
         Top Tracks
