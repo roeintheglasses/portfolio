@@ -19,7 +19,7 @@ export default function Home() {
             <h2 className="text-gray-700 text-xl dark:text-gray-200 mb-4">
               SDE at <span className="font-semibold">Adpushup</span>
             </h2>
-            <p className="text-gray-700 text-xl dark:text-gray-300 mb-16">
+            <p className="text-gray-700 text-lg dark:text-gray-300 mb-16">
               Currently taming ad-tech beasts, one bug at a time. I'm learning
               about coding, designing, building & shipping great tech products.
               Code runs my fingers, fun fuels my designs. On a Journey to build

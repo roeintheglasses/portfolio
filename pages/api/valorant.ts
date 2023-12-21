@@ -1,5 +1,7 @@
 import { type NextRequest } from 'next/server';
 
+import { Valorant, CurrentRank, HighestRank } from 'lib/types';
+
 export const config = {
   runtime: 'edge'
 };
@@ -17,6 +19,27 @@ function fetchTotalNumberOfMatchesPlayed(seasonData: any) {
   return { wins, games };
 }
 
+function fetchTierData(
+  currRankData: CurrentRank,
+  highestRankData: HighestRank
+) {
+  if (!currRankData || !highestRankData || !currRankData?.images) return null;
+  let imageData = currRankData.images;
+  let imageUrlSplitter = `/${currRankData.currenttier}/`;
+
+  let currentRankImage = imageData.large;
+
+  let baseImageUrl = imageData.large.split(imageUrlSplitter)[0];
+  let highestRankImage = `${baseImageUrl}/${highestRankData.tier}/largeicon.png`;
+
+  return {
+    currentRankImage,
+    highestRankImage,
+    currentRank: currRankData.currenttierpatched,
+    highestRank: highestRankData.patched_tier
+  };
+}
+
 export default async function handler(req: NextRequest) {
   try {
     const valoPlayerUUID =
@@ -28,36 +51,47 @@ export default async function handler(req: NextRequest) {
         method: 'GET'
       }
     );
-    let valoData = {};
+    let valoData = {
+      name: '',
+      tag: '',
+      highestRank: '',
+      currentRank: '',
+      currentRankImage: '',
+      highestRankImage: '',
+      totalWins: 0,
+      totalGames: 0
+    };
     const data = await response.json();
 
     if (data?.status === 200) {
       let fetchedData = data.data;
-
       let { name, tag, highest_rank, current_data, by_season } = fetchedData;
       let { wins, games } = fetchTotalNumberOfMatchesPlayed(by_season);
+      let { currentRankImage, highestRankImage, currentRank, highestRank } =
+        fetchTierData(current_data, highest_rank);
       valoData = {
         name,
         tag,
-        highestRank: highest_rank.patched_tier,
-        currentRank: current_data.currenttierpatched,
+        currentRankImage,
+        highestRankImage,
+        currentRank,
+        highestRank,
         totalWins: wins,
         totalGames: games
       };
+      console.log(valoData);
     }
-    console.log(valoData);
 
-    return new Response(
-      JSON.stringify({
-        data: valoData
-      }),
-      {
-        status: 200,
-        headers: {
-          'content-type': 'application/json',
-          'cache-control': 'public, s-maxage=1200, stale-while-revalidate=600'
-        }
+    return new Response(JSON.stringify(valoData), {
+      status: 200,
+      headers: {
+        'content-type': 'application/json',
+        'cache-control': 'public, s-maxage=1200, stale-while-revalidate=600'
       }
-    );
-  } catch (error) {}
+    });
+  } catch (err) {
+    console.log('====================================');
+    console.log(err);
+    console.log('====================================');
+  }
 }

@@ -70,7 +70,40 @@ export type GitHub = {
 };
 
 export type Valorant = {
-  valData: any;
+  name: string;
+  tag: string;
+  currentRankImage: string;
+  highestRankImage: string;
+  currentRank: string;
+  highestRank: string;
+  totalWins: number;
+  totalGames: number;
+};
+
+export type CurrentRank = {
+  currenttier: number;
+  currenttierpatched: string;
+  images: ValImages;
+  ranking_in_tier: number;
+  mmr_change_to_last_game: number;
+  elo: number;
+  games_needed_for_rating: number;
+  old: boolean;
+};
+
+export type ValImages = {
+  small: string;
+  large: string;
+  triangle_down: string;
+  triangle_up: string;
+};
+
+export type HighestRank = {
+  old: boolean;
+  tier: number;
+  patched_tier: string;
+  season: string;
+  converted: number;
 };
 
 export type Unsplash = {

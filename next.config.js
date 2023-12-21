@@ -9,7 +9,8 @@ module.exports = {
       'i.scdn.co', // Spotify Album Art
       'pbs.twimg.com', // Twitter Profile Picture
       'cdn.sanity.io',
-      'roeintheglasses.tech'
+      'roeintheglasses.tech',
+      'media.valorant-api.com'
     ]
   },
   async headers() {

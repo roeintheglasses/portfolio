@@ -26,13 +26,13 @@ export default function Dashboard() {
           <li>
             Website:{' '}
             <Link href="https://roeintheglasses.tech">
-              https://roeintheglasses.tech
+              roeintheglasses.tech
             </Link>
           </li>
           <li>
             LinkedIn:{' '}
-            <a href="https://www.linkedin.com/in/roeintheglasses/">
-              https://www.linkedin.com/in/roeintheglasses
+            <a href="https://www.linkedin.com/in/hrishikesh-jangir/">
+              Hrishikesh Jangir
             </a>
           </li>
         </ul>
@@ -44,8 +44,19 @@ export default function Dashboard() {
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
         <Analytics />
         <GitHub />
-        <Valorant />
       </div>
+      {/* <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+        Valorant Stats
+      </h2>
+      <p className="text-gray-600 dark:text-gray-400 mb-4 max-w-4xl">
+        Sometimes, spreadsheets just don't cut it. When I need a brain break, I
+        head to Valorant for some good old-fashioned gamer-y mayhem. Chamber's
+        my architect of chaos, and Jett's the queen of outplays. My stats might
+        not scream pro-gamer, but hey, the K/D ratio isn't everything (wink
+        wink):
+      </p>
+      <Valorant /> */}
+
       <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
         Top Tracks
       </h2>
