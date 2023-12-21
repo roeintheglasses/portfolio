@@ -51,7 +51,7 @@ export default function Guestbook({ fallbackData }) {
   const { mutate } = useSWRConfig();
   const [form, setForm] = useState<FormState>({ state: Form.Initial });
   const inputEl = useRef(null);
-  const { data: entries } = useSWR('/api/guestbook', fetcher, {
+  const { data: entries } = useSWR<any>('/api/guestbook', fetcher, {
     fallbackData
   });
 
