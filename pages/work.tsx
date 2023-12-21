@@ -14,7 +14,7 @@ export default function WorkPage() {
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
           My work
         </h1>
-        <div className="text-gray-700 text-l dark:text-gray-300 mb-16 prose prose-neutral dark:prose-invert">
+        <div className="text-gray-700 text-l dark:text-gray-300 mb-16 prose prose-lg prose-neutral prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:prose-a:text-gray-200 dark:prose-invert dark:hover:prose-a:text-blue-400 max-w-5xl">
           <p>
             Working on solving ad-tech problems at scale. I code for passion &
             design for fun. On a mission to build efficient and accessible
@@ -33,46 +33,20 @@ export default function WorkPage() {
             </h4>
             <p>
               I joined <a href="https://adpushup.com/">Adpushup</a> in 2021 as
-              <b className="text-neutral-600 dark:text-neutral-200">
-                {' '}
-                Associate Software Developer
-              </b>
-              . Initially I worked on building the
-              <b className="text-neutral-600 dark:text-neutral-300">
-                {' '}
-                AMP Yeild
-              </b>
-              , an in-house{' '}
-              <b className="text-neutral-600 dark:text-neutral-300">
-                Ad analytics & performance monitoring system
-              </b>{' '}
-              for AMP based sites which allowed the company to reach out to over
-              <b className="text-neutral-600 dark:text-neutral-300">
-                {' '}
-                200+
-              </b>{' '}
-              new publishers with credible analytics data for onboarding.
+              <strong> Associate Software Developer</strong>. Initially I worked
+              on building the
+              <strong> AMP Yeild</strong>, an in-house{' '}
+              <strong>Ad analytics & performance monitoring system</strong> for
+              AMP based sites which allowed the company to reach out to over
+              <strong> 200+</strong> new publishers with credible analytics data
+              for onboarding.
             </p>
             <ul>
               <li>
                 In 2022,
-                <b className="text-neutral-600 dark:text-neutral-300">
-                  {' '}
-                  I was promoted to SDE
-                </b>{' '}
-                and the worked on the{' '}
-                <a
-                  className="text-neutral-600 dark:text-neutral-300"
-                  href="https://www.adpushup.com/glimpse/"
-                >
-                  {' '}
-                  Glimpse{' '}
-                </a>
-                &
-                <a
-                  className="text-neutral-600 dark:text-neutral-300"
-                  href="https://www.adpushup.com/glimpse-for-ads/"
-                >
+                <strong> I was promoted to SDE</strong> and the worked on the{' '}
+                <a href="https://www.adpushup.com/glimpse/"> Glimpse </a>&
+                <a href="https://www.adpushup.com/glimpse-for-ads/">
                   {' '}
                   Glimpse for Ads{' '}
                 </a>
@@ -88,32 +62,16 @@ export default function WorkPage() {
                 Towards the end of 2022 and further in 2023, I started leading
                 the development of our in-house video player solution and the
                 Floor Engine. My team of 4 engineers and worked on the
-                development of a
-                <a
-                  className="text-neutral-600 dark:text-neutral-300"
-                  href="https://videojs.com/"
-                >
-                  {' '}
-                  VideoJS{' '}
-                </a>
+                development of a<a href="https://videojs.com/"> VideoJS </a>
                 based player with support for
-                <b className="text-neutral-600 dark:text-neutral-300">
-                  {' '}
-                  Instream Video Ads{' '}
-                </b>
+                <strong> Instream Video Ads </strong>
                 utilizing
-                <a
-                  className="text-neutral-600 dark:text-neutral-300"
-                  href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side"
-                >
+                <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side">
                   {' '}
                   Interactive Media Ads SDK{' '}
                 </a>
                 and
-                <a
-                  className="text-neutral-600 dark:text-neutral-300"
-                  href="https://docs.prebid.org/prebid/prebidjs.html"
-                >
+                <a href="https://docs.prebid.org/prebid/prebidjs.html">
                   {' '}
                   PrebidJS{' '}
                 </a>
@@ -121,13 +79,7 @@ export default function WorkPage() {
               <li>
                 In 2023, I also worked on our product AI-powered floor price
                 optimization engine designed specifically for video ads called{' '}
-                <a
-                  className="text-neutral-600 dark:text-neutral-300"
-                  href="https://www.adpushup.com/floor-sense/"
-                >
-                  {' '}
-                  FloorSense{' '}
-                </a>
+                <a href="https://www.adpushup.com/floor-sense/"> FloorSense </a>
               </li>
             </ul>
             <p>
@@ -158,63 +110,25 @@ export default function WorkPage() {
             </p>
             <p>
               On the team, I worked over 6 different client projects with
-              <a
-                className="text-neutral-600 dark:text-neutral-300"
-                href="https://react.dev/"
-              >
-                {' '}
-                React{' '}
-              </a>
-              ,
-              <a
-                className="text-neutral-600 dark:text-neutral-300"
-                href="https://reactnative.dev/"
-              >
-                {' '}
-                React Native{' '}
-              </a>
+              <a href="https://react.dev/"> React </a>,
+              <a href="https://reactnative.dev/"> React Native </a>
               and
-              <a
-                className="text-neutral-600 dark:text-neutral-300"
-                href="https://nodejs.org/en"
-              >
-                {' '}
-                NodeJS{' '}
-              </a>
+              <a href="https://nodejs.org/en"> NodeJS </a>
               based codebases. I even worked on moving projects from a custom
               webpack and React configuration to
-              <a
-                className="text-neutral-600 dark:text-neutral-300"
-                href="https://nextjs.org/"
-              >
-                {' '}
-                Next.js{' '}
-              </a>
+              <a href="https://nextjs.org/"> Next.js </a>
               and the latest React patterns.
             </p>
             <p>
               At QuikieApps, I was able to work on some hard problems:
               decoupling a decade old monolith into microservices, working on
               payment gateway integration such as
-              <a
-                className="text-neutral-600 dark:text-neutral-300"
-                href="https://razorpay.com/docs/#home-payments"
-              >
-                {' '}
-                Razorpay{' '}
-              </a>
-              &
-              <a
-                className="text-neutral-600 dark:text-neutral-300"
-                href="https://docs.billdesk.io/"
-              >
-                {' '}
-                BillDesk{' '}
-              </a>
-              , learning and occasionally managing a docker container, building
-              and implementing a design system for our client apps,
-              incrementally migrating individual components and routes to a new
-              framework and infrastructure, and more.
+              <a href="https://razorpay.com/docs/#home-payments"> Razorpay </a>&
+              <a href="https://docs.billdesk.io/"> BillDesk </a>, learning and
+              occasionally managing a docker container, building and
+              implementing a design system for our client apps, incrementally
+              migrating individual components and routes to a new framework and
+              infrastructure, and more.
             </p>
           </>
 

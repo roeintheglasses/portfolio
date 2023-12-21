@@ -20,7 +20,7 @@ export default function Blog({
       title="Blog - Hrishikesh Jangir"
       description="Thoughts on the software industry, programming, tech, videography, music, and my personal life."
     >
-      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
+      <div className="flex flex-col items-start justify-center max-w-5xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Blog
         </h1>
@@ -58,19 +58,16 @@ export default function Blog({
               Most Popular
             </h3>
             <BlogPost
-              title="Rust Is The Future of JavaScript Infrastructure"
-              excerpt="Why is Rust being used to replace parts of the JavaScript web ecosystem like minification (Terser), transpilation (Babel), formatting (Prettier), bundling (webpack), linting (ESLint), and more?"
-              slug="rust"
-            />
-            <BlogPost
-              title="Everything I Know About Style Guides, Design Systems, and Component Libraries"
-              excerpt="A deep-dive on everything I've learned in the past year building style guides, design systems, component libraries, and their best practices."
-              slug="style-guides-component-libraries-design-systems"
-            />
-            <BlogPost
-              title="Building a Design System Monorepo with Turborepo"
-              excerpt="Manage multiple packages with a shared build, test, and release process using Turborepo, Changesets, Storybook, and more."
-              slug="turborepo-design-system-monorepo"
+              key={
+                "JavaScript's Back-End Future: Why rust is stealing the show & the tools shaping the future"
+              }
+              slug={'javascript-s-back-end-future-is-rust'}
+              title={
+                "JavaScript's Back-End Future: Why rust is stealing the show & the tools shaping the future"
+              }
+              excerpt={
+                " JavaScript's front-end throne is secure, but the back-end whispers revolution. Enter Rust, a speed demon with memory of steel and concurrency tamed. Tools like Rspack and Biome bridge the gap, forging a hybrid future where JavaScript and Rust shine together. Dive in, explore, and build a web faster, safer, and brighter than ever. The future awaits."
+              }
             />
           </>
         )}

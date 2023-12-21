@@ -13,9 +13,11 @@ export default function Tracks() {
 
   return (
     <>
-      {data.tracks.map((track, index) => (
-        <Track ranking={index + 1} key={track.songUrl} {...track} />
-      ))}
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 gap-x-6 w-full">
+        {data.tracks.map((track, index) => (
+          <Track ranking={index + 1} key={track.songUrl} {...track} />
+        ))}
+      </div>
     </>
   );
 }
