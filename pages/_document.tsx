@@ -36,6 +36,13 @@ export default function Document(props) {
           rel="mask-icon"
         />
 
+        <link
+          rel="preload"
+          href="/api/valorant"
+          as="fetch"
+          crossOrigin="anonymous"
+        />
+
         <meta content="#ffffff" name="theme-color" />
         <meta content="#ffffff" name="msapplication-TileColor" />
         <meta
