@@ -74,16 +74,6 @@ export default function Home() {
               slug="javascript-s-back-end-future-is-rust"
               gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
             />
-            <BlogPostCard
-              title="JavaScript's Back-End Future: Why Rust is Stealing the Show & the Tools Shaping the Landscape"
-              slug="javascript-s-back-end-future-is-rust"
-              gradient="from-[#D8B4FE] to-[#818CF8]"
-            />
-            <BlogPostCard
-              title="Past, Present, and Future of React State Management"
-              slug="react-state-management"
-              gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
-            />
           </div>
           <Link
             href="/blog"
