@@ -249,3 +249,8 @@ table {
 .prose .callout > p {
   margin: 0 !important;
 }
+
+.rgbTextUtil {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

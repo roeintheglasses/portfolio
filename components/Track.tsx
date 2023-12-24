@@ -14,17 +14,14 @@ export default function Track(track) {
       />
       <div className="flex flex-col my-2">
         <a
-          className="font-medium text-gray-900 dark:text-gray-100 truncate w-60 sm:w-96"
+          className="font-medium text-gray-900 dark:text-gray-100 truncate w-60 xl:w-96"
           href={track.songUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
           {track.title}
         </a>
-        <p
-          className="text-gray-500 truncate w-60 sm:w-96 md:w-full"
-          color="gray.500"
-        >
+        <p className="text-gray-500 truncate w-60 xl:w-96" color="gray.500">
           {track.artist}
         </p>
       </div>

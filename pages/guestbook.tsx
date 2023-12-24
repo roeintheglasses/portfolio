@@ -12,7 +12,12 @@ export default function GuestbookPage({ fallbackData }) {
         Guestbook
       </h1>
       <p className="text-gray-600 dark:text-gray-400 mb-4">
-        Leave a note below. It could be anything - appreciation, information,
+        Code warrior by day, design enthusiast by night, I'm the fullstack dev
+        who can talk pixels and algorithms in the same breath. I'm on a mission
+        to build products that aren't just cool, but also make a positive
+        impact. Think accessible tech that empowers, future-proof solutions that
+        last, and a sprinkle of fun along the way. So grab a virtual cookie,
+        leave a message below. Could be anything - appreciation, information,
         recommendation, or even humor. Surprise me!
       </p>
       <Guestbook fallbackData={fallbackData} />

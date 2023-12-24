@@ -46,7 +46,7 @@ export default function Dashboard() {
           <Analytics />
           <GitHub />
         </div>
-        {/* <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+        <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
           Valorant Stats
         </h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
@@ -56,7 +56,7 @@ export default function Dashboard() {
           stats might not scream pro-gamer, but hey, the K/D ratio isn't
           everything (wink wink):
         </p>
-        <Valorant /> */}
+        <Valorant />
 
         <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
           Top Tracks
