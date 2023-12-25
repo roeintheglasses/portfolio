@@ -98,11 +98,11 @@ export default function Guestbook({ fallbackData }) {
         {!session && (
           // eslint-disable-next-line @next/next/no-html-link-for-pages
           <a
-            href="/api/auth/signin/github"
+            href="/api/auth/signin"
             className="flex items-center justify-center my-4 font-bold h-8 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28"
             onClick={(e) => {
               e.preventDefault();
-              signIn('github');
+              signIn();
             }}
           >
             Login

@@ -12,9 +12,9 @@ export default function SnippetLayout({
   return (
     <Container
       title={`${snippet.title} - Code Snippet`}
-      description="A collection of code snippets – including serverless functions, Node.js scripts, and CSS tricks."
+      description="A collection of code snippets - including serverless functions, Node.js scripts, and CSS tricks."
     >
-      <article className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
+      <article className="flex flex-col justify-center items-start w-80 md:w-full mx-auto mb-16 overflow-x-auto whitespace-pre-wrap break-words">
         <div className="flex justify-between w-full mb-8">
           <div>
             <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
