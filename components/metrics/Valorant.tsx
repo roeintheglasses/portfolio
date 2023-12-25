@@ -42,10 +42,10 @@ export default function ValorantStats() {
             height={120}
             objectFit="contain"
           />
-          <h4 className="font-bold text-2xl mt-2 bg-gradient-to-r from-[#eaf3ef] via-[#cd99f7] to-[#fa6cff] rgbTextUtil">
+          <h4 className="font-bold text-2xl mt-2 bg-gradient-to-r from-[#becdd3] via-[#c2a2db] to-[#f2a0f5]   rgbTextUtil">
             {currentRank}
           </h4>
-          <p className="font-bold text-lg bg-gradient-to-r from-[#eaf3ef] via-[#cd99f7] to-[#fa6cff] rgbTextUtil">
+          <p className="font-bold text-lg bg-gradient-to-r  from-[#becdd3] via-[#c2a2db] to-[#f2a0f5]  rgbTextUtil">
             Current Rank
           </p>
         </div>
@@ -85,10 +85,10 @@ export default function ValorantStats() {
             height={120}
             objectFit="contain"
           />
-          <h4 className="font-bold text-2xl mt-2 bg-gradient-to-r from-[#eaf3ef] via-[#cd99f7] to-[#fa6cff] rgbTextUtil">
+          <h4 className="font-bold text-2xl mt-2 bg-gradient-to-r  from-[#becdd3] via-[#c2a2db] to-[#f2a0f5]   rgbTextUtil">
             {highestRank}
           </h4>
-          <p className="font-bold text-lg bg-gradient-to-r from-[#eaf3ef] via-[#cd99f7] to-[#fa6cff]  rgbTextUtil">
+          <p className="font-bold text-lg bg-gradient-to-r  from-[#becdd3] via-[#c2a2db] to-[#f2a0f5]   rgbTextUtil">
             Highest Rank
           </p>
         </div>

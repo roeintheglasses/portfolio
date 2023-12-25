@@ -79,7 +79,6 @@ export default async function handler(req: NextRequest) {
         totalWins: wins,
         totalGames: games
       };
-      console.log(valoData);
     }
 
     return new Response(JSON.stringify(valoData), {

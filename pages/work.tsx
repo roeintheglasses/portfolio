@@ -16,10 +16,10 @@ export default function WorkPage() {
         </h1>
         <div className="text-gray-700 text-l dark:text-gray-300 mb-16 prose prose-lg prose-neutral prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:prose-a:text-gray-200 dark:prose-invert dark:hover:prose-a:text-blue-400 max-w-5xl">
           <p>
-            Working on solving ad-tech problems at scale. I code for passion &
-            design for fun. On a mission to build efficient and accessible
-            products and help the next generation of devs along the way. Here's
-            a summary of my work so far :
+            Currently working on solving ad-tech problems at scale. I code for
+            passion & design for fun. On a mission to build efficient and
+            accessible products and help the next generation of devs along the
+            way. Here's a summary of my work so far :
           </p>
 
           {/* Adpushup */}
@@ -33,13 +33,13 @@ export default function WorkPage() {
             </h4>
             <p>
               I joined <a href="https://adpushup.com/">Adpushup</a> in 2021 as
-              <strong> Associate Software Developer</strong>. Initially I worked
-              on building the
-              <strong> AMP Yeild</strong>, an in-house{' '}
+              an <strong> Associate Software Developer</strong>. Initially, I
+              worked on building the <strong> AMP Yield</strong> project, an
+              in-house{' '}
               <strong>Ad analytics & performance monitoring system</strong> for
-              AMP based sites which allowed the company to reach out to over
-              <strong> 200+</strong> new publishers with credible analytics data
-              for onboarding.
+              AMP based sites AMP-based sites which allowed the company to reach
+              out to over <strong> 200+</strong> new publishers with credible
+              analytics data for onboarding.
             </p>
             <ul>
               <li>
@@ -50,19 +50,19 @@ export default function WorkPage() {
                   {' '}
                   Glimpse for Ads{' '}
                 </a>
-                Project. Where we made publisher links come to life with
-                stunning previews.
+                project where we made publisher links come to life with stunning
+                link previews.
               </li>
               <li>
-                In 2022, I also led an internal leading our product
-                documentation team, Creating standards for our internal
-                documentation on JIRA and Notion.
+                In 2022, I also led an internal product documentation team,
+                Creating standards for our internal documentation on JIRA and
+                Notion.
               </li>
               <li>
                 Towards the end of 2022 and further in 2023, I started leading
                 the development of our in-house video player solution and the
-                Floor Engine. My team of 4 engineers and worked on the
-                development of a<a href="https://videojs.com/"> VideoJS </a>
+                Floor Engine. My team of 4 engineers worked on the development
+                of a<a href="https://videojs.com/"> VideoJS </a>
                 based player with support for
                 <strong> Instream Video Ads </strong>
                 utilizing
@@ -77,20 +77,25 @@ export default function WorkPage() {
                 </a>
               </li>
               <li>
-                In 2023, I also worked on our product AI-powered floor price
-                optimization engine designed specifically for video ads called{' '}
-                <a href="https://www.adpushup.com/floor-sense/"> FloorSense </a>
+                In 2023, I also worked on Adpushup's floor price optimization
+                engine designed specifically for video ads called{' '}
+                <a href="https://www.adpushup.com/floor-sense/"> FloorSense </a>{' '}
+                which utilized <strong>PySpark, TypeScript and NodeJs</strong>{' '}
+                to dynamically generate price floors for ad bids based on
+                historical data trends.
               </li>
             </ul>
             <p>
               Since I joined Adpushup in 2021, I have actively worked on and
-              contributed to our AdTech & the developer community within
-              Adpushup. I've worked up creating new products from ground up
-              which have contributed to an uplift of around 30% Gross Revenue. I
-              even got to work on some complex problems such as Building an
-              end-to-end video transcoding pipeline, Building a video player
-              catered for instream ads from ground up, Even Creating custom
-              videoJs plugins.
+              contributed to our internal ad-tech & the developer community. I
+              got to work on creating new products from ground up (which have
+              contributed to an{' '}
+              <strong>uplift of around 30% in Gross Revenue.</strong>) while
+              solving complex problems such as Building an end-to-end video
+              transcoding pipeline, Building a video player catered for instream
+              ads from ground up, Creating a dynamic floor price engine,
+              Building a large scale system to crawl websites and generate
+              previews for links and Even Creating custom videoJs plugins.
             </p>
             <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
           </>
@@ -103,10 +108,10 @@ export default function WorkPage() {
               SDE, 2020 — 2021
             </h4>
             <p>
-              QuikieApps is a IT services and consulting company specializing in
-              fullstack development. Here I I joined a team of Developers
-              working across web and mobile on various client projects based on
-              MERN Stack and React Native .
+              QuikieApps is a IT service and consulting company specializing in
+              fullstack development. Here I joined a team of Developers working
+              across web and mobile platforms on various client projects based
+              on MERN Stack and React Native.
             </p>
             <p>
               On the team, I worked over 6 different client projects with
@@ -114,7 +119,7 @@ export default function WorkPage() {
               <a href="https://reactnative.dev/"> React Native </a>
               and
               <a href="https://nodejs.org/en"> NodeJS </a>
-              based codebases. I even worked on moving projects from a custom
+              based codebase. I even worked on moving projects from a custom
               webpack and React configuration to
               <a href="https://nextjs.org/"> Next.js </a>
               and the latest React patterns.
@@ -124,7 +129,7 @@ export default function WorkPage() {
               decoupling a decade old monolith into microservices, working on
               payment gateway integration such as
               <a href="https://razorpay.com/docs/#home-payments"> Razorpay </a>&
-              <a href="https://docs.billdesk.io/"> BillDesk </a>, learning and
+              <a href="https://docs.billdesk.io/"> BillDesk</a>, learning and
               occasionally managing a docker container, building and
               implementing a design system for our client apps, incrementally
               migrating individual components and routes to a new framework and
@@ -142,11 +147,12 @@ export default function WorkPage() {
               Testing Automation Intern, 2019 — 2019
             </h4>
             <p>
-              Safe Security is Cybersecurity and Digital Business Risk Assesment
+              Safe Security is a Cybersecurity and Digital Risk Assessment
               platform that helps organizations measure and mitigate
               enterprise-wide cyber risk in real-time. At Safe I worked as an
               testing automation intern over the summer of 2019 and automated
-              their core test cases and raised test coverage by 16%.
+              their core test cases using <strong>TestCafe</strong> and raised
+              test coverage by 16%.
             </p>
           </>
         </div>

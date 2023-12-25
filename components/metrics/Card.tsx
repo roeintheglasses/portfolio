@@ -16,7 +16,7 @@ export default function MetricCard({
         gradient
       )}
     >
-      <div className="flex flex-col justify-between h-full bg-white dark:bg-gray-900 rounded-lg p-4">
+      <div className="flex flex-col justify-between h-full bg-white dark:bg-gray-900 rounded-md p-4">
         <a
           aria-label={header}
           target="_blank"
