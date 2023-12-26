@@ -7,10 +7,14 @@ import Valorant from 'components/metrics/Valorant';
 import Unsplash from 'components/metrics/Unsplash';
 import YouTube from 'components/metrics/Youtube';
 
+import { preload } from 'swr';
+import fetcher from 'lib/fetcher';
+
+preload('/api/valorant', fetcher);
 export default function Dashboard() {
   return (
     <Container
-      title="About - Hrishi"
+      title="About - Hrishikesh Jangir"
       description="All the info you can need about me."
     >
       <div className="max-w-5xl mx-auto mb-16">

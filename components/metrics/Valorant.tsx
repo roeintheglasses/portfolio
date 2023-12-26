@@ -40,7 +40,6 @@ export default function ValorantStats() {
             alt="Valorant Rank"
             width={120}
             height={120}
-            objectFit="contain"
           />
           <h4 className="font-bold text-2xl mt-2 bg-gradient-to-r from-[#becdd3] via-[#c2a2db] to-[#f2a0f5]   rgbTextUtil">
             {currentRank}
@@ -83,7 +82,6 @@ export default function ValorantStats() {
             alt="Valorant Rank"
             width={120}
             height={120}
-            objectFit="contain"
           />
           <h4 className="font-bold text-2xl mt-2 bg-gradient-to-r  from-[#becdd3] via-[#c2a2db] to-[#f2a0f5]   rgbTextUtil">
             {highestRank}
