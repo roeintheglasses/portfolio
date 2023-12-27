@@ -10,7 +10,6 @@ import YouTube from 'components/metrics/Youtube';
 import { preload } from 'swr';
 import fetcher from 'lib/fetcher';
 
-preload('/api/valorant', fetcher);
 export default function Dashboard() {
   return (
     <Container
