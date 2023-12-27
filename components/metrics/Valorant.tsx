@@ -3,8 +3,10 @@ import useSWR, { preload } from 'swr';
 import fetcher from 'lib/fetcher';
 import Image from 'next/image';
 import MetricCard from './Card';
-
 import { Valorant } from 'lib/types';
+import cn from 'classnames';
+
+let valGradient = 'from-[#a96ff1] via-[#fa71ff] to-[#ff71b8]';
 
 export default function ValorantStats() {
   const { data, error, isLoading } = useSWR<Valorant>('/api/valorant', fetcher);
@@ -32,8 +34,7 @@ export default function ValorantStats() {
       {/* Stats */}
       <div className="flex flex-row items-center mt-4 w-11/12 mb-10 ">
         {/* Current */}
-        <div className="hidden md:block w-1/6"></div>
-        <div className="flex flex-col items-center justify-center w-full md:w-1/5 xl:w-1/6 md:mr-7 md:mt-28">
+        <div className="flex flex-col items-center justify-center w-full md:w-1/3 md:mr-7 md:mt-28">
           <Image
             src={currentRankImage}
             placeholder="empty"
@@ -41,41 +42,51 @@ export default function ValorantStats() {
             width={120}
             height={120}
           />
-          <h4 className="font-bold text-2xl mt-2 bg-gradient-to-r from-[#becdd3] via-[#c2a2db] to-[#f2a0f5]   rgbTextUtil">
+          <h4
+            className={`font-bold text-2xl mt-2 bg-gray-900 dark:bg-gray-50 hover:bg-gradient-to-r ${valGradient} rgbTextUtil`}
+          >
             {currentRank}
           </h4>
-          <p className="font-bold text-lg bg-gradient-to-r  from-[#becdd3] via-[#c2a2db] to-[#f2a0f5]  rgbTextUtil">
+          <p
+            className={`font-bold text-lg bg-gray-900 dark:bg-gray-50 hover:bg-gradient-to-r ${valGradient} rgbTextUtil`}
+          >
             Current Rank
           </p>
         </div>
 
         {/* playerTag */}
-        <div className="hidden md:flex flex-col items-center justify-center w-2/6 mt-4">
-          <Image
-            className="md:ml-9"
-            src={'/static/images/valorant/CxJ.webp'}
-            placeholder="empty"
-            alt="Valorant Mains"
-            width={320}
-            height={320}
-            quality={80}
-          />
-          <div className="w-3/4 h-full relative flex flex-row">
-            <div className="text-center w-[52px] h-[52px] bg-gray-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-40 border border-transparent border-b-gray-800 border-l-gray-800 top-0 left-0 -mt-[53px] -ml-[25px] rotate-45 z-10 absolute"></div>
-            <div className="text-center w-full bg-gray-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-40 border border-y-gray-800 border-x-transparent -mt-16 ">
-              <h1 className="font-bold text-4xl md:text-5xl bg-gradient-to-r from-[#eaf3ef] via-[#cd99f7] to-[#fa6cff]  rgbTextUtil -mt-1">
-                {name}
-              </h1>
-              <h3 className="font-bold text-2xl md:text-lg bg-gradient-to-r from-[#eaf3ef] via-[#cd99f7] to-[#fa6cff] rgbTextUtil">
-                #{tag}
-              </h3>
+        <div
+          className={cn(
+            'hidden md:flex flex-col items-center justify-center w-max mt-4 rounded-lg ',
+            'p-1 bg-gradient-to-tr ',
+            valGradient
+          )}
+        >
+          <div className="bg-gray-50 dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-90 rounded-md">
+            <Image
+              className="rounded-md object-cover object-top	h-96"
+              src={'/static/images/valorant/champArt.webp'}
+              placeholder="empty"
+              alt="Valorant Mains"
+              width={200}
+              height={600}
+              quality={80}
+            />
+            <div className="w-full h-full relative flex flex-row">
+              <div className="text-center w-full bg-gray-50 bg-opacity-0 -mt-24">
+                <h1 className="font-bold text-4xl md:text-5xl bg-gray-50 hover:bg-gradient-to-r from-[#a96ff1] via-[#fa71ff] to-[#ff71b8]  rgbTextUtil -mt-1">
+                  {name}
+                </h1>
+                <h3 className="font-bold text-2xl md:text-lg bg-gray-50 hover:bg-gradient-to-r from-[#a96ff1] via-[#fa71ff] to-[#ff71b8] rgbTextUtil">
+                  #{tag}
+                </h3>
+              </div>
             </div>
-            <div className="text-center w-[52px] h-[52px] bg-gray-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-40 border border-transparent border-t-gray-800 border-r-gray-800 top-0 right-0 -mt-[53px] -mr-[25px] rotate-45 z-10 absolute"></div>
           </div>
         </div>
 
         {/* Highest */}
-        <div className="flex flex-col items-center justify-center w-full md:w-1/5 xl:w-1/6 md:ml-7 md:mt-28">
+        <div className="flex flex-col items-center justify-center w-full md:w-1/3 md:ml-7 md:mt-28">
           <Image
             src={highestRankImage}
             placeholder="empty"
@@ -83,14 +94,17 @@ export default function ValorantStats() {
             width={120}
             height={120}
           />
-          <h4 className="font-bold text-2xl mt-2 bg-gradient-to-r  from-[#becdd3] via-[#c2a2db] to-[#f2a0f5]   rgbTextUtil">
+          <h4
+            className={`font-bold text-2xl mt-2 bg-gray-900 dark:bg-gray-50 hover:bg-gradient-to-r ${valGradient} rgbTextUtil`}
+          >
             {highestRank}
           </h4>
-          <p className="font-bold text-lg bg-gradient-to-r  from-[#becdd3] via-[#c2a2db] to-[#f2a0f5]   rgbTextUtil">
+          <p
+            className={`font-bold text-lg bg-gray-900 dark:bg-gray-50 hover:bg-gradient-to-r ${valGradient} rgbTextUtil`}
+          >
             Highest Rank
           </p>
         </div>
-        <div className="hidden md:block w-1/6"></div>
       </div>
 
       {/* Stat Cards */}
@@ -100,7 +114,7 @@ export default function ValorantStats() {
           link={valLink}
           metric={totalGames}
           isCurrency={false}
-          gradient="from-[#3b2626] via-[#3d1010] to-[#410c0c]"
+          gradient={valGradient}
           showSvg={false}
         />
         <MetricCard
@@ -108,7 +122,7 @@ export default function ValorantStats() {
           link={valLink}
           metric={totalWins}
           isCurrency={false}
-          gradient="from-[#3b2626] via-[#3d1010] to-[#410c0c]"
+          gradient={valGradient}
           showSvg={false}
         />
         <MetricCard
@@ -116,7 +130,7 @@ export default function ValorantStats() {
           link={valLink}
           metric={1.2}
           isCurrency={false}
-          gradient="from-[#3b2626] via-[#3d1010] to-[#410c0c]"
+          gradient={valGradient}
           showSvg={false}
         />
         <MetricCard
@@ -124,7 +138,7 @@ export default function ValorantStats() {
           link={valLink}
           metric={winPercentage}
           isCurrency={false}
-          gradient="from-[#3b2626] via-[#3d1010] to-[#410c0c]"
+          gradient={valGradient}
           showSvg={false}
         />
       </div>

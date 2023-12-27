@@ -11,12 +11,12 @@ export default function MetricCard({
   return (
     <div
       className={cn(
-        'metric-card bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg max-w-72 w-full',
-        'bg-gradient-to-r p-1',
+        'metric-card rounded-lg max-w-72 w-full',
+        'p-1 bg-gradient-to-tr ',
         gradient
       )}
     >
-      <div className="flex flex-col justify-between h-full bg-white dark:bg-gray-900 rounded-md p-4">
+      <div className="flex flex-col justify-between h-full bg-gray-50 dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-90 rounded-md p-4">
         <a
           aria-label={header}
           target="_blank"

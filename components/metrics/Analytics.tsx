@@ -16,7 +16,7 @@ export default function AnalyticsCard() {
       link={link}
       metric={pageViews}
       isCurrency={false}
-      gradient="from-[#242136] via-[#10223d] to-[#240f38]"
+      gradient="from-[#425aff] via-[#be41ff] to-[#4059fe]"
     />
   );
 }
