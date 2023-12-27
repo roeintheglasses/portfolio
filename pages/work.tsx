@@ -31,6 +31,29 @@ export default function WorkPage() {
             <h4 className="text-neutral-600 dark:text-neutral-400 text-sm">
               SDE & Team Lead (Instream Video)
             </h4>
+            <div className="hidden md:flex flex-row justify-start flex-wrap">
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                TypeScript
+              </div>
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                NodeJs
+              </div>
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                ReactJs
+              </div>
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                Couchbase
+              </div>
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                RabbitMQ
+              </div>
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                Jest
+              </div>
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                Cypress
+              </div>
+            </div>
             <p>
               I joined <a href="https://adpushup.com/">Adpushup</a> in 2021 as
               an <strong> Associate Software Developer</strong>. Initially, I
@@ -97,6 +120,7 @@ export default function WorkPage() {
               Building a large scale system to crawl websites and generate
               previews for links and Even Creating custom videoJs plugins.
             </p>
+
             <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
           </>
           {/* QuikieApps */}
@@ -107,6 +131,26 @@ export default function WorkPage() {
             <h4 className="text-neutral-600 dark:text-neutral-400 text-sm">
               SDE, 2020 — 2021
             </h4>
+            <div className="hidden md:flex flex-row justify-start flex-wrap">
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                TypeScript
+              </div>
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                NextJS
+              </div>
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                ReactJs
+              </div>
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                React-Native
+              </div>
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                NodeJS
+              </div>
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                Firebase
+              </div>
+            </div>
             <p>
               QuikieApps is a IT service and consulting company specializing in
               fullstack development. Here I joined a team of Developers working
@@ -146,6 +190,17 @@ export default function WorkPage() {
             <h4 className="text-neutral-600 dark:text-neutral-400 text-sm">
               Testing Automation Intern, 2019 — 2019
             </h4>
+            <div className="hidden md:flex flex-row justify-start flex-wrap">
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                JavaScript
+              </div>
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                NodeJS
+              </div>
+              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+                TestCafe
+              </div>
+            </div>
             <p>
               Safe Security is a Cybersecurity and Digital Risk Assessment
               platform that helps organizations measure and mitigate

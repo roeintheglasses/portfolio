@@ -37,7 +37,7 @@ export default function CommandPalette({ navigation }) {
   return (
     <>
       <motion.button
-        className="ml-2 mr-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl transition-all duration-200 ease-in-out hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-800"
+        className="z-20 relative ml-2 mr-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl transition-all duration-200 ease-in-out hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-800"
         type="button"
         aria-label="Command palette"
         whileTap={{

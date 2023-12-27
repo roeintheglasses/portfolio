@@ -2,37 +2,13 @@ import { useEffect, useState } from 'react';
 
 import Footer from 'components/Footer';
 import Head from 'next/head';
-import MobileMenu from 'components/MobileMenu';
-import CommandPalette from 'components/Commands';
-import ThemeChange from './ThemeChange';
-import NextLink from 'next/link';
-import cn from 'classnames';
+
 import { useRouter } from 'next/router';
-import { useTheme } from 'next-themes';
-import { navigation } from 'data/nav';
-
-function NavItem({ href, text }) {
-  const router = useRouter();
-  const isActive = router.asPath === href;
-
-  return (
-    <NextLink
-      href={href}
-      className={cn(
-        isActive
-          ? 'font-semibold text-gray-800 dark:text-gray-200'
-          : 'font-normal text-gray-600 dark:text-gray-400',
-        'hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all'
-      )}
-    >
-      <span className="capsize">{text}</span>
-    </NextLink>
-  );
-}
+import StarsCanvas from './StarCanvas';
+import Navbar from './Navbar';
 
 export default function Container(props) {
   const [mounted, setMounted] = useState(false);
-  const { resolvedTheme, setTheme } = useTheme();
 
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);
@@ -74,31 +50,15 @@ export default function Container(props) {
           <meta property="article:published_time" content={meta.date} />
         )}
       </Head>
-      <div className="flex flex-col justify-center px-6">
-        <nav className="flex items-center justify-between w-full relative max-w-5xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16  text-gray-900 bg-gray-50  dark:bg-gray-900 bg-opacity-60 dark:text-gray-100">
-          <a href="#skip" className="skip-nav">
-            Skip to content
-          </a>
-          <div className="ml-[-0.60rem]">
-            <MobileMenu />
-            <NavItem href="/" text="Home" />
-            <NavItem href="/work" text="Work" />
-            <NavItem href="/about" text="About" />
-            <NavItem href="/blog" text="Blog" />
-            <NavItem href="/guestbook" text="Guestbook" />
-            <NavItem href="/snippets" text="Snippets" />
-          </div>
-          <div className="flex items-center justify-between gap-2">
-            <CommandPalette navigation={navigation} />
-            <ThemeChange />
-          </div>
-        </nav>
+      <StarsCanvas />
+      <div className="flex flex-col justify-center px-6 relative z-20">
+        <a href="#skip" className="skip-nav">
+          Skip to content
+        </a>
+        <Navbar />
       </div>
-      <main
-        id="skip"
-        className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900"
-      >
-        <div className="flex flex-col justify-center items-start max-w-5xl border-gray-200 dark:border-gray-700 mx-auto pb-16">
+      <main id="skip" className="flex flex-col justify-center px-8 ">
+        <div className="flex flex-col justify-center items-start max-w-5xl border-gray-200 dark:border-gray-700 mx-auto pb-16 bg-transparent z-10 ">
           {children}
         </div>
         <Footer />
