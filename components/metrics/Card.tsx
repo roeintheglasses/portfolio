@@ -12,7 +12,7 @@ export default function MetricCard({
     <div
       className={cn(
         'metric-card rounded-lg max-w-72 w-full',
-        'p-1 bg-gradient-to-tr ',
+        'p-1 animate-gradient-xy bg-gradient-to-tr ',
         gradient
       )}
     >

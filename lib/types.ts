@@ -110,3 +110,7 @@ export type Unsplash = {
   downloads: number;
   views: number;
 };
+
+export type Gradient = {
+  gradient: string;
+};

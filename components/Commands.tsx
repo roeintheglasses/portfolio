@@ -10,24 +10,25 @@ export default function CommandPalette({ navigation }) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const [ThemeSound] = useSound('/static/sounds/open.mp3');
+
+  const toggleIcon = () => {
+    ThemeSound();
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
         event.preventDefault();
-        setIsOpen(!isOpen);
+        toggleIcon();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
 
     return () => window.removeEventListener('keydown', handleKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
-
-  const toggleIcon = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const [ThemeSound] = useSound('/static/sounds/open.mp3');
 
   const filterednavigation = query
     ? navigation.pages.filter((page: { name: string }) =>
@@ -44,10 +45,7 @@ export default function CommandPalette({ navigation }) {
           scale: 0.7
         }}
         transition={{ duration: 0.1, ease: 'easeIn' }}
-        onClick={() => {
-          toggleIcon();
-          ThemeSound();
-        }}
+        onClick={toggleIcon}
       >
         <FiCommand />
       </motion.button>
@@ -68,15 +66,15 @@ export default function CommandPalette({ navigation }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-zinc-500/75 " />
+            <Dialog.Overlay className="fixed inset-0 bg-gray-900/75 " />
           </Transition.Child>
           <Transition.Child
             enter="duration-300 ease-out"
-            enterFrom="opacity-0 scale-95"
-            enterTo="opacity-100 scale-100"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
             leave="duration-200 ease-in"
-            leaveFrom="opacity-100 scale-100"
-            leaveTo="opacity-0 scale-95"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
             <Combobox
               value=""
@@ -85,7 +83,7 @@ export default function CommandPalette({ navigation }) {
                 router.push(`${page.href}`);
               }}
               as="div"
-              className="relative mx-auto max-h-[50vh] max-w-xl divide-y divide-gray-300 overflow-hidden overflow-y-scroll rounded-xl bg-zinc-200 shadow-2xl dark:divide-zinc-700 dark:bg-zinc-800"
+              className="relative mx-auto max-h-[50vh] max-w-xl divide-y divide-gray-300 overflow-hidden overflow-y-scroll rounded-lg bg-zinc-200 shadow-2xl dark:divide-zinc-700 dark:bg-zinc-800"
             >
               <div className="flex gap-4 items-center px-4">
                 <HiSearch className="h-6 w-6 text-white" />

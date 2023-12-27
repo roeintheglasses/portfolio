@@ -1,11 +1,21 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Container from 'components/Container';
+import ChipStack from 'components/ChipStack/ChipStack';
 
 export const metadata: Metadata = {
   title: 'Work',
   description: 'A summary of my work and contributions across companies.'
 };
+
+const apTech = [
+  'TypeScript',
+  'NodeJs',
+  'ReactJs',
+  'Couchbase',
+  'RabbitMQ',
+  'Jest',
+  'Cypress'
+];
 
 export default function WorkPage() {
   return (
@@ -31,29 +41,10 @@ export default function WorkPage() {
             <h4 className="text-neutral-600 dark:text-neutral-400 text-sm">
               SDE & Team Lead (Instream Video)
             </h4>
-            {/* <div className="hidden md:flex flex-row justify-start flex-wrap">
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                TypeScript
-              </div>
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                NodeJs
-              </div>
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                ReactJs
-              </div>
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                Couchbase
-              </div>
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                RabbitMQ
-              </div>
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                Jest
-              </div>
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                Cypress
-              </div>
-            </div> */}
+            <ChipStack
+              chipList={apTech}
+              gradient={'from-[#f2a6af] via-[#fb83c1] to-[#f9e862]'}
+            />
             <p>
               I joined <a href="https://adpushup.com/">Adpushup</a> in 2021 as
               an <strong> Associate Software Developer</strong>. Initially, I
