@@ -17,7 +17,7 @@ export default function WorkCard({ cardInfo, isDark, gradient }) {
       <div
         className={cn(
           styles.experienceCard,
-          'bg-white dark:bg-gray-950 h-full rounded-lg'
+          'bg-gray-50 dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-95 h-full rounded-lg'
         )}
       >
         <div
