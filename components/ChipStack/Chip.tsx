@@ -9,7 +9,7 @@ export default function Chip({ chipName, gradient, icon = null }) {
         gradient
       )}
     >
-      <div className="bg-gray-50 dark:bg-gray-900 bg-opacity-95 dark:bg-opacity-95 p-4 rounded-full text-gray-800 dark:text-gray-200 py-2 px-5 w-max">
+      <div className="bg-gray-50 dark:bg-gray-900 bg-opacity-95 dark:bg-opacity-95 rounded-full text-gray-800 dark:text-gray-200 py-2 px-5 w-max">
         {chipName}
       </div>
     </div>

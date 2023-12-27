@@ -29,6 +29,7 @@ export default function Snippets({
             slug={snippet.slug}
             logo={snippet.logo}
             description={snippet.description}
+            gradient="from-[#6499E9] via-[#9EDDFF] to-[#A6F6FF]"
           />
         ))}
       </div>

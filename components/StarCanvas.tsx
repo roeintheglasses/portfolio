@@ -47,7 +47,7 @@ const StarsCanvas = () => (
         </Suspense>
       </Canvas>
     </div>
-    <div className="w-full h-auto fixed inset-0 z-[5] bg-gray-200 dark:bg-gray-950 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md dark:backdrop-blur-sm bg-opacity-10 dark:bg-opacity-5"></div>
+    <div className="w-full h-auto fixed inset-0 z-[5] bg-gray-200 dark:bg-gray-950 rounded-md bg-clip-padding backdrop-filter backdrop-blur dark:backdrop-blur-xs bg-opacity-10 dark:bg-opacity-10"></div>
   </>
 );
 

@@ -41,10 +41,6 @@ export default function WorkPage() {
             <h4 className="text-neutral-600 dark:text-neutral-400 text-sm">
               SDE & Team Lead (Instream Video)
             </h4>
-            <ChipStack
-              chipList={apTech}
-              gradient={'from-[#f2a6af] via-[#fb83c1] to-[#f9e862]'}
-            />
             <p>
               I joined <a href="https://adpushup.com/">Adpushup</a> in 2021 as
               an <strong> Associate Software Developer</strong>. Initially, I

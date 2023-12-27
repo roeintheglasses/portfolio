@@ -93,6 +93,9 @@ module.exports = {
         xs: '300px',
         ...screens
       },
+      backdropBlur: {
+        xs: '2px'
+      },
       animation: {
         'gradient-x': 'gradient-x 15s ease infinite',
         'gradient-y': 'gradient-y 15s ease infinite',
