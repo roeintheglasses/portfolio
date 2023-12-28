@@ -39,14 +39,6 @@ export default function Footer() {
           </Link>
         </div>
         <div className="flex flex-col space-y-4">
-          <ExternalLink href="https://linkedin.com/roeintheglasses">
-            LinkedIn
-          </ExternalLink>
-          <ExternalLink href="https://github.com/roeintheglasses">
-            GitHub
-          </ExternalLink>
-        </div>
-        <div className="flex flex-col space-y-4">
           <Link
             href="/blog"
             className="text-gray-500 hover:text-blue-300 transition"
@@ -65,6 +57,21 @@ export default function Footer() {
           >
             Snippets
           </Link>
+          <Link
+            href="/privacy"
+            className="text-gray-500 hover:text-blue-300 transition"
+          >
+            Privacy Policy
+          </Link>
+        </div>
+        <div className="flex flex-col space-y-4">
+          <ExternalLink href="mailto:hrkjangir@gmail.com">Email</ExternalLink>
+          <ExternalLink href="https://linkedin.com/roeintheglasses">
+            LinkedIn
+          </ExternalLink>
+          <ExternalLink href="https://github.com/roeintheglasses">
+            GitHub
+          </ExternalLink>
         </div>
       </div>
     </footer>

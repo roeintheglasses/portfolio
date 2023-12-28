@@ -10,9 +10,6 @@ export default function PrivacyPolicy() {
   return (
     <Container title="Privacy Policy - roeintheglasses">
       <section>
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
-          Privacy Policy
-        </h1>
         <div className="text-gray-700 text-l dark:text-gray-300 mb-16 prose prose-lg prose-neutral prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:prose-a:text-gray-200 dark:prose-invert dark:hover:prose-a:text-blue-400 max-w-5xl">
           <h1>Privacy Policy</h1>
           <p>Last updated: December 26, 2023</p>

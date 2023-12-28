@@ -39,6 +39,13 @@ export default function Home() {
           </div>
         </div>
 
+        {/* tech stack */}
+        {/* <div className="mb-20">
+          <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
+            Work Experience
+          </h3>
+        </div> */}
+
         {/* tech ex */}
         <div className="mb-20">
           <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
