@@ -5,17 +5,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 import { navigation } from 'data/nav';
+import IconChip from './IconChip';
 
-const ExternalLink = ({ href, children }) => (
-  <a
-    className="text-gray-500 hover:text-gray-600 transition"
-    target="_blank"
-    rel="noopener noreferrer"
-    href={href}
-  >
-    {children}
-  </a>
-);
+import { IconBrandGithub } from '@tabler/icons-react';
+const githubLink = '//github.com/roeintheglasses';
 
 function NavItem({ href, text }) {
   const router = useRouter();
@@ -50,6 +43,7 @@ export default function Navbar() {
       </div>
       <div className="flex items-center justify-between gap-2">
         <CommandPalette navigation={navigation} />
+        <IconChip Icon={IconBrandGithub} link={githubLink} />
         <ThemeChange />
       </div>
     </nav>

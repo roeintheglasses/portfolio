@@ -1,21 +1,10 @@
 import type { Metadata } from 'next';
 import Container from 'components/Container';
-import ChipStack from 'components/ChipStack/ChipStack';
 
 export const metadata: Metadata = {
   title: 'Work',
   description: 'A summary of my work and contributions across companies.'
 };
-
-const apTech = [
-  'TypeScript',
-  'NodeJs',
-  'ReactJs',
-  'Couchbase',
-  'RabbitMQ',
-  'Jest',
-  'Cypress'
-];
 
 export default function WorkPage() {
   return (
@@ -118,26 +107,6 @@ export default function WorkPage() {
             <h4 className="text-neutral-600 dark:text-neutral-400 text-sm">
               SDE, 2020 — 2021
             </h4>
-            {/* <div className="hidden md:flex flex-row justify-start flex-wrap">
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                TypeScript
-              </div>
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                NextJS
-              </div>
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                ReactJs
-              </div>
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                React-Native
-              </div>
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                NodeJS
-              </div>
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                Firebase
-              </div>
-            </div> */}
             <p>
               QuikieApps is a IT service and consulting company specializing in
               fullstack development. Here I joined a team of Developers working
@@ -177,17 +146,6 @@ export default function WorkPage() {
             <h4 className="text-neutral-600 dark:text-neutral-400 text-sm">
               Testing Automation Intern, 2019 — 2019
             </h4>
-            {/* <div className="hidden md:flex flex-row justify-start flex-wrap">
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                JavaScript
-              </div>
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                NodeJS
-              </div>
-              <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-gray-800 dark:text-gray-200 py-2 px-5 border border-[#2E2E2E] w-max">
-                TestCafe
-              </div>
-            </div> */}
             <p>
               Safe Security is a Cybersecurity and Digital Risk Assessment
               platform that helps organizations measure and mitigate

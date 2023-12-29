@@ -114,3 +114,9 @@ export type Unsplash = {
 export type Gradient = {
   gradient: string;
 };
+
+export type ChipData = {
+  gradient: string;
+  chipName: string;
+  icon: any;
+};

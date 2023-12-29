@@ -1,10 +1,17 @@
 import Chip from './Chip';
 
-export default function ChipStack({ chipList, gradient }) {
+import { ChipData } from 'lib/types';
+
+export default function ChipStack({ chipList }) {
   return (
-    <div className="flex flex-row justify-start flex-wrap">
-      {chipList.map((chip: string, index) => (
-        <Chip chipName={chip} gradient={gradient} key={index} />
+    <div className="flex flex-row justify-center flex-wrap">
+      {chipList.map((chip: ChipData, index: number) => (
+        <Chip
+          chipName={chip.chipName}
+          gradient={chip.gradient}
+          ChipIcon={chip.icon}
+          key={index}
+        />
       ))}
     </div>
   );

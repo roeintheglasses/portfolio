@@ -74,6 +74,11 @@ export default function Footer() {
           </ExternalLink>
         </div>
       </div>
+      <div className="max-w-5xl mx-auto w-full flex justify-center ">
+        <p className="w-full md:w-1/3 xl:w-1/4 bg-transparent z-10 font-sans text-md text-center text-gray-700 dark:text-gray-300">
+          Made with ❤️ & 🪄
+        </p>
+      </div>
     </footer>
   );
 }
