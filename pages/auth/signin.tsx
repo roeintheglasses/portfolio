@@ -55,7 +55,6 @@ export default function SignIn({
             </h1>
             <div className="space-y-4 md:space-y-6">
               {Object.values(providers).map((provider) => {
-                console.log(provider);
                 let Icon = iconMapping[provider.id];
 
                 return (

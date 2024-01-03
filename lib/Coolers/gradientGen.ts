@@ -27,8 +27,5 @@ export function generateGradientString() {
   );
 
   let gradientString = `from-[${colorOne}] via-[${colorTwo}] to-[${colorThree}]`;
-
-  console.log(gradientString);
-
   return gradientString;
 }
