@@ -6,11 +6,11 @@ import TopTracks from 'components/TopTracks';
 import Valorant from 'components/metrics/Valorant';
 import Unsplash from 'components/metrics/Unsplash';
 import YouTube from 'components/metrics/Youtube';
-
+import SitePageviewsCard from 'components/metrics/Pageviews';
 import { preload } from 'swr';
 import fetcher from 'lib/fetcher';
 
-export default function Dashboard() {
+export default function About() {
   return (
     <Container
       title="About - Hrishikesh Jangir"
@@ -20,9 +20,55 @@ export default function Dashboard() {
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           About
         </h1>
-        <div className="mb-8 prose dark:prose-dark leading-6">
-          <h2>Links</h2>
+        <div className="mb-8 prose dark:prose-dark leading-6 max-w-5xl prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:prose-a:text-gray-200 dark:hover:prose-a:text-blue-400">
+          <p>
+            Hey there! I'm Hrishikesh Jangir, a 25-year-old Software Engineer
+            based in Delhi, India. I have a passion for designing, building &
+            shipping great tech products. Here are a few highlights about me:
+            <ul>
+              <li>
+                <strong>Education :</strong> I did my initial from Rajasthan and
+                then later moved to Delhi for higher education. I Hold a
+                Bachelor of Technology (B.Tech) in Computer Science and
+                Engineering from{' '}
+                <strong>
+                  Manav Rachna International Institute of Research and Studies.
+                </strong>
+              </li>
+              <li>
+                <strong>Professional Experience:</strong> Currently I work as a
+                SDE/Team Lead at{' '}
+                <a href="https://adpushup.com/">Adpushup Inc.</a> where me and
+                my team works on building, maintaining, improving, and scaling
+                the FrameRate player (An Instream Video Player) and FloorSense
+                (A Dynamic Floor price manager) across publisher websites.{' '}
+                <Link href={'/work'}>
+                  You can read more about my work here.
+                </Link>
+              </li>
+              <li>
+                <strong>Some Quirky Facts:</strong> When I'm not immersed in
+                coding, you can find me exploring the latest tech trends,
+                experimenting with new software tools, and sharing my knowledge
+                with the tech community. I'm also a huge fan of tinkering with
+                ai modals and algorithms (Real-ESRGAN being my most recent
+                obsession). I also enjoy writing about my tech experiences on my
+                personal portfolio/blog and Usually when I am done with tech you
+                can find me catching up to the latest manga chapters, Jamming on
+                spotify and playing Valorant.
+              </li>
+            </ul>
+          </p>
+          <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+            Links & Stats :{' '}
+          </h2>
           <ul>
+            <li>
+              LinkedIn:{' '}
+              <a href="https://www.linkedin.com/in/hrishikesh-jangir/">
+                Hrishikesh Jangir
+              </a>
+            </li>
             <li>
               GitHub:{' '}
               <a href="https://github.com/roeintheglasses">@roeintheglasses</a>
@@ -33,19 +79,14 @@ export default function Dashboard() {
                 roeintheglasses.tech
               </Link>
             </li>
-            <li>
-              LinkedIn:{' '}
-              <a href="https://www.linkedin.com/in/hrishikesh-jangir/">
-                Hrishikesh Jangir
-              </a>
-            </li>
           </ul>
         </div>
         {/* <div className="flex flex-col w-full">
         <Unsplash />
         <YouTube />
       </div> */}
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-3 my-2 w-full">
+          <SitePageviewsCard />
           <Analytics />
           <GitHub />
         </div>

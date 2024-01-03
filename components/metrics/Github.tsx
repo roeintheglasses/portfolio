@@ -16,7 +16,7 @@ export default function GitHubCard() {
       link={link}
       metric={stars}
       isCurrency={false}
-      gradient="from-[#425aff] via-[#be41ff] to-[#4059fe]"
+      gradient="from-[#40c6ff] via-[#5a2bff] to-[#4059fe]"
     />
   );
 }
