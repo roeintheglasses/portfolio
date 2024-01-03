@@ -7,7 +7,7 @@ const IconChip = ({ Icon, link = '#' }) => {
   const [ThemeSound] = useSound('/static/sounds/switch-on.mp3');
 
   return (
-    <div className="relative z-20 ml-1 cursor-pointer rounded-xl bg-zinc-300 ring-zinc-400 transition-all hover:bg-zinc-300 dark:bg-zinc-700 dark:ring-white dark:hover:bg-zinc-800">
+    <div className="relative z-20 ml-1 cursor-pointer rounded-xl bg-zinc-300 ring-zinc-400 transition-all hover:bg-zinc-400 dark:bg-zinc-700 dark:ring-white dark:hover:bg-zinc-800">
       <motion.a
         className="flex h-10 w-10 items-center justify-center p-2"
         whileTap={{
