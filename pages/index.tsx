@@ -123,7 +123,7 @@ export default function Home() {
               Code runs my fingers, fun fuels my designs. On a Journey to build
               accessible and future-proof products that empower others.
             </p>
-            <div className="flex flex-col md:flex-row gap-6 mb-16">
+            <div className="flex flex-col sm:flex-row gap-6 mb-16">
               <a
                 href={
                   '//drive.google.com/file/d/1PuoWY1FFYisu46B7zFlpX0pdqGft53T1/view?usp=sharing'
@@ -131,7 +131,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={
-                  'flex flex-row gap-2 text-center font-semibold text-gray-800 dark:text-gray-200 px-6 py-2 rounded-full bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600 transition-all'
+                  'flex flex-row justify-center sm:justify-start items-center gap-2 px-6 py-2 text-center font-semibold text-gray-800 dark:text-gray-200  rounded-full bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600 transition-all'
                 }
               >
                 <IconFileCode2 />
@@ -140,7 +140,7 @@ export default function Home() {
               <a
                 href={'#blogHome'}
                 className={
-                  'flex flex-row gap-2 text-center font-semibold text-gray-800 dark:text-gray-200 px-6 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all'
+                  'flex flex-row justify-center sm:justify-start items-center gap-2 px-6 py-2 text-center font-semibold text-gray-800 dark:text-gray-200  rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all'
                 }
               >
                 <IconBook2 />
