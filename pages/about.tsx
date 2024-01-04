@@ -20,7 +20,7 @@ export default function About() {
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           About
         </h1>
-        <div className="mb-8 prose dark:prose-dark leading-6 max-w-5xl prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:prose-a:text-gray-200 dark:hover:prose-a:text-blue-400">
+        <div className="text-gray-700 text-l dark:text-gray-300 mb-16 prose prose-lg prose-neutral prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:prose-a:text-gray-200 dark:prose-invert dark:hover:prose-a:text-blue-400 max-w-5xl">
           <p>
             Hey there! I'm Hrishikesh Jangir, a 25-year-old Software Engineer
             based in Delhi, India. I have a passion for designing, building &
@@ -90,16 +90,19 @@ export default function About() {
           <Analytics />
           <GitHub />
         </div>
-        <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
-          Valorant Stats
-        </h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
-          Sometimes, spreadsheets just don't cut it. When I need a brain break,
-          I head to Valorant for some good old-fashioned gamer-y mayhem.
-          Chamber's my architect of chaos, and Jett's the queen of outplays. My
-          stats might not scream pro-gamer, but hey, the K/D ratio isn't
-          everything (wink wink):
-        </p>
+
+        <div className="text-gray-700 text-l dark:text-gray-300 mb-16 prose prose-lg prose-neutral prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:prose-a:text-gray-200 dark:prose-invert dark:hover:prose-a:text-blue-400 max-w-5xl">
+          <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+            Valorant Stats
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            Sometimes, spreadsheets just don't cut it. When I need a brain
+            break, I head to Valorant for some good old-fashioned gamer-y
+            mayhem. Chamber's my architect of chaos, and Jett's the queen of
+            outplays. My stats might not scream pro-gamer, but hey, the K/D
+            ratio isn't everything (wink wink):
+          </p>
+        </div>
         <Valorant />
 
         <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
