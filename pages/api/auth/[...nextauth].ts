@@ -10,6 +10,10 @@ export const authConfig =
   {
     secret: process.env.NEXTAUTH_SECRET,
     providers: [
+      GoogleProvider({
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET
+      }),
       GithubProvider({
         clientId: process.env.OAUTH_CLIENT_KEY,
         clientSecret: process.env.OAUTH_CLIENT_SECRET
@@ -17,10 +21,6 @@ export const authConfig =
       DiscordProvider({
         clientId: process.env.DISCORD_CLIENT_ID,
         clientSecret: process.env.DISCORD_CLIENT_SECRET
-      }),
-      GoogleProvider({
-        clientId: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET
       })
     ],
     // pages: {
