@@ -45,7 +45,7 @@ export default function Projects() {
           <p>
             Hey there! Welcome to my Project Playground! 🚀 As a Full Stack
             developer, I'm all about turning cool ideas into digital reality.
-            Scroll through these projects to see the fun stuff I've built – from
+            Scroll through these projects to see the fun stuff I've built - from
             websites that look slick to behind-the-scenes magic that makes
             everything work. Each project is like a digital adventure, and I
             can't wait to show you around. Click on any project to see the tech
