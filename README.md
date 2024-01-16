@@ -1,5 +1,15 @@
 # roeintheglasses portolio
 
+## Features
+
+* Responsive design using Tailwind CSS
+* Dynamic blog articles using Next.js and Markdown
+* Animated gradient background using `@tabler/icons-react`
+* Customizable skills section with icons and gradients
+* Work experience section with customizable cards
+
+## Built With
+
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Database**: [PlanetScale](https://planetscale.com)
 - **ORM**: [Prisma](https://prisma.io/)
