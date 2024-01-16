@@ -215,6 +215,11 @@ export default function Home() {
               slug="javascript-s-back-end-future-is-rust"
               gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
             />
+             <BlogPostCard
+              title="Finding Memo : Unraveling the Path to React Forget!"
+              slug="unraveling-the-path-to-react-forget"
+              gradient="from-[#FDE68A] via-[#c48181] to-[#774e4e]"
+            />
           </div>
           <Link
             href="/blog"
