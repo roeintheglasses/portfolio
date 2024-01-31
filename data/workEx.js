@@ -1,11 +1,11 @@
 export const workEx = {
   adpushup: {
-    role: 'SDE',
+    role: 'SDE & Team Lead',
     company: 'Adpushup',
     companylogo:
       'https://roeintheglasses.tech/static/images/companies/Adpushup.jpg',
     color: '#ff4954',
-    date: 'Auguest 2021 - Present',
+    date: 'August 2021 - Present',
     desc: 'AdPushup is a revenue optimization platform that helps publishers increase their ad revenue. At Adpushup I Lead a team of 4 engineers working on the framerate video player that serves instream video ads at scale.'
   },
   quikieApps: {
