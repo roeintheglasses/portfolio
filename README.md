@@ -1,12 +1,18 @@
-# roeintheglasses portolio
+# roeintheglasses portfolio
 
 ## Features
 
+* Dark Mode
 * Responsive design using Tailwind CSS
 * Dynamic blog articles using Next.js and Markdown
-* Animated gradient background using `@tabler/icons-react`
+* Spotify and Valorant API Integration
+* Animated gradient background using THREE.js
 * Customizable skills section with icons and gradients
 * Work experience section with customizable cards
+* Blog section with customizable cards powered via Sanity CMS
+* Snippets section with customizable cards powered via Sanity CMS
+* Guestbook Messages with Oauth Support
+
 
 ## Built With
 
@@ -22,9 +28,8 @@
 
 - `layouts/*` - The different page layouts each MDX category (blog, snippets) uses.
 - `lib/*` - Short for "library", a collection of helpful utilities or code for external services.
-- `pages/api/*` - [API Routes](https://nextjs.org/docs/api-routes/introduction) powering [`/dashboard`](https://leerob.io/dashboard), newsletter subscription, guestbook, and post views.
+- `pages/api/*` - [API Routes](https://nextjs.org/docs/api-routes/introduction) powering auth, guestbook, and post views.
 - `pages/blog/*` - Static pre-rendered blog pages using MDX.
-- `pages/dashboard` - [Personal dashboard](https://leerob.io/dashboard) tracking metrics.
 - `pages/sitemap.xml.tsx` - Automatically generated sitemap.
 - `pages/feed.xml.tsx` - Automatically generated RSS feed.
 - `pages/*` - All other static pages.
@@ -41,4 +46,4 @@ yarn
 yarn dev
 ```
 
-Create a `.env` file similar to [`.env.example`](https://github.com/leerob/leerob.io/blob/main/.env.example).
+Create a `.env` file similar to `.env.example`.
