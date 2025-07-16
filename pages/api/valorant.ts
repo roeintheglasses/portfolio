@@ -1,6 +1,6 @@
 import { type NextRequest } from 'next/server';
 
-import { Valorant, CurrentRank, HighestRank } from 'lib/types';
+import { CurrentRank, HighestRank } from 'lib/types';
 
 export const config = {
   runtime: 'edge'
@@ -44,9 +44,9 @@ export default async function handler(req: NextRequest) {
   try {
     const valoPlayerUUID =
       process.env.VALORANT_PUUID || 'f08db3f6-25ac-51d1-8b79-043233cfcd77';
-    //
+    const valoAPIKey = process.env.VALORANT_API_KEY || '';
     const response = await fetch(
-      `https://api.henrikdev.xyz/valorant/v2/by-puuid/mmr/ap/${valoPlayerUUID}`,
+      `https://api.henrikdev.xyz/valorant/v2/by-puuid/mmr/ap/${valoPlayerUUID}?api_key=${valoAPIKey}`,
       {
         method: 'GET'
       }

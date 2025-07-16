@@ -2,12 +2,10 @@
  * @type {import('next').NextConfig}
  */
 module.exports = {
-  swcMinify: true,
   reactStrictMode: true,
   images: {
     domains: [
       'i.scdn.co', // Spotify Album Art
-      'roeintheglasses.tech',
       'media.valorant-api.com'
     ]
   },

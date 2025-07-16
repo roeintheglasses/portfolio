@@ -30,7 +30,7 @@ const StarBackground = (props: any) => {
           color={pointColor}
           size={0.005}
           sizeAttenuation={true}
-          dethWrite={false}
+          depthWrite={false}
         />
       </Points>
     </group>
