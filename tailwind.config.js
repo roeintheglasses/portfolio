@@ -1,7 +1,7 @@
 const { spacing, fontFamily, screens } = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  content: ['./pages/**/*.tsx', './components/**/*.tsx', './layouts/**/*.tsx'],
+  content: ['./pages/**/*.tsx', './components/**/*.tsx'],
   darkMode: ['class'],
   theme: {
     container: {
@@ -189,9 +189,6 @@ module.exports = {
         }
       }
     }
-  },
-  variants: {
-    typography: ['dark']
   },
   plugins: [require('@tailwindcss/typography'), require('tailwindcss-animate')]
 };

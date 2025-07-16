@@ -1,5 +1,4 @@
 import Container from 'components/Container';
-import Subscribe from 'components/Subscribe';
 
 export default function Newsletter() {
   return (

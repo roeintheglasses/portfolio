@@ -7,8 +7,6 @@ module.exports = {
   images: {
     domains: [
       'i.scdn.co', // Spotify Album Art
-      'pbs.twimg.com', // Twitter Profile Picture
-      'cdn.sanity.io',
       'roeintheglasses.tech',
       'media.valorant-api.com'
     ]
@@ -26,8 +24,8 @@ module.exports = {
 // https://nextjs.org/docs/advanced-features/security-headers
 const ContentSecurityPolicy = `
     default-src 'self' 'unsafe-inline';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com;
-    child-src 'self' *.youtube.com *.google.com *.twitter.com roeintheglasses.tech *.vercel.app;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    child-src 'self' *.google.com roeintheglasses.tech *.vercel.app;
     worker-src  'self' 'unsafe-inline' blob:;
     style-src 'self' 'unsafe-inline' *.googleapis.com;
     img-src * blob: data:;

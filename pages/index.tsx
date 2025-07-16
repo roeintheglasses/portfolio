@@ -1,4 +1,3 @@
-import BlogPostCard from '../components/BlogPostCard';
 import Container from '../components/Container';
 import WorkCard from '../components/WorkCard';
 import Image from 'next/image';
@@ -137,15 +136,6 @@ export default function Home() {
                 <IconFileCode2 />
                 My Resume
               </a>
-              <a
-                href={'#blogHome'}
-                className={
-                  'flex flex-row justify-center sm:justify-start items-center gap-2 px-6 py-2 text-center font-semibold text-gray-800 dark:text-gray-200  rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all'
-                }
-              >
-                <IconBook2 />
-                My Blog
-              </a>
             </div>
           </div>
           <div
@@ -204,44 +194,6 @@ export default function Home() {
           <ChipStack chipList={skills} />
         </div>
 
-        {/* Blog Articles */}
-        <div id="blogHome" className="mb-20">
-          <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
-            My Recent Posts
-          </h3>
-          <div className="mt-8 flex flex-row flex-wrap align-top justify-center gap-8 w-[105vw] xs:w-[85vw] lg:w-full">
-            <BlogPostCard
-              title="JavaScript's Back-End Future: Why Rust is Stealing the Show & the Tools Shaping the Landscape"
-              slug="javascript-s-back-end-future-is-rust"
-              gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
-            />
-             <BlogPostCard
-              title="Finding Memo : Unraveling the Path to React Forget!"
-              slug="unraveling-the-path-to-react-forget"
-              gradient="from-[#FDE68A] via-[#c48181] to-[#774e4e]"
-            />
-          </div>
-          <Link
-            href="/blog"
-            className="flex mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg hover:text-gray-800 dark:hover:text-gray-200 transition-all h-6"
-          >
-            Read all posts
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="h-6 w-6 ml-1"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17.5 12h-15m11.667-4l3.333 4-3.333-4zm3.333 4l-3.333 4 3.333-4z"
-              />
-            </svg>
-          </Link>
-        </div>
       </Container>
     </Suspense>
   );

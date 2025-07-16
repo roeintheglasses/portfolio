@@ -5,7 +5,6 @@ import Link from 'next/link';
 import TopTracks from 'components/TopTracks';
 import Valorant from 'components/metrics/Valorant';
 import Unsplash from 'components/metrics/Unsplash';
-import YouTube from 'components/metrics/Youtube';
 import SitePageviewsCard from 'components/metrics/Pageviews';
 import { preload } from 'swr';
 import fetcher from 'lib/fetcher';
@@ -53,7 +52,7 @@ export default function About() {
                 with the tech community. I'm also a huge fan of tinkering with
                 ai modals and algorithms (Real-ESRGAN being my most recent
                 obsession). I also enjoy writing about my tech experiences on my
-                personal portfolio/blog and Usually when I am done with tech you
+                personal portfolio and Usually when I am done with tech you
                 can find me catching up to the latest manga chapters, Jamming on
                 spotify and playing Valorant.
               </li>

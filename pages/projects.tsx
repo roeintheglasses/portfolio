@@ -15,7 +15,7 @@ let projectList = {
   portfolio: {
     title: 'roeintheglasses',
     description:
-      'roeintheglasses is my personal portfolio/blog built with React & NextJS 13. It uses Sanity CMS for the blog & the code snippets along with a PlanetScale database with a Prisma ORM layer, deployed on Vercel.',
+      'roeintheglasses is my personal portfolio built with React & NextJS 13. It uses a PlanetScale database with a Prisma ORM layer, deployed on Vercel.',
     link: 'https://roeintheglasses.tech/',
     image: '/static/images/projects/roeintheglasses.png',
     ProjectIcon: IconEyeBolt,

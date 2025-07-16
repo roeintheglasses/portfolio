@@ -38,9 +38,7 @@ export default function Navbar() {
         <NavItem href="/work" text="Work" />
         <NavItem href="/about" text="About" />
         <NavItem href="/projects" text="Projects" />
-        <NavItem href="/blog" text="Blog" />
         <NavItem href="/guestbook" text="Guestbook" />
-        <NavItem href="/snippets" text="Snippets" />
       </div>
       <div className="flex items-center justify-between gap-2">
         <CommandPalette navigation={navigation} />
