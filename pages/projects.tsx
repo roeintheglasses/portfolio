@@ -16,7 +16,7 @@ let projectList = {
     title: 'roeintheglasses',
     description:
       'roeintheglasses is my personal portfolio built with React & NextJS 13. It uses a PlanetScale database with a Prisma ORM layer, deployed on Vercel.',
-    link: 'https://roeintheglasses.tech/',
+    link: 'https://roeintheglasses.dev/',
     image: '/static/images/projects/roeintheglasses.png',
     ProjectIcon: IconEyeBolt,
     otherCta: 'https://github.com/roeintheglasses/'

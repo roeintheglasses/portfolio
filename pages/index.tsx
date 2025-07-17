@@ -117,10 +117,11 @@ export default function Home() {
               </a>
             </h2>
             <p className="text-gray-700 text-lg dark:text-gray-300 mb-6">
-              Currently taming ad-tech beasts, one bug at a time. I'm learning
-              about coding, designing, building & shipping great tech products.
-              Code runs my fingers, fun fuels my designs. On a Journey to build
-              accessible and future-proof products that empower others.
+              SDE/Team Lead at Adpushup, wrangling video players and ad-tech
+              systems. When I'm not debugging why the video player decided to
+              take a coffee break during peak traffic, I'm probably tinkering
+              with AI models or getting outplayed in Valorant. Building stuff
+              that scales, one merge request at a time.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 mb-16">
               <a
@@ -193,7 +194,6 @@ export default function Home() {
           </p>
           <ChipStack chipList={skills} />
         </div>
-
       </Container>
     </Suspense>
   );

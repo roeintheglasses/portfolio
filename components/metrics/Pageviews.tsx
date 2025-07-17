@@ -13,7 +13,7 @@ export default function SitePageviewsCard() {
     (Math.round(Math.random() * 50) +
       Math.round(Math.random() * 7) -
       Math.round(Math.random() * 13));
-  const link = 'https://roeintheglasses.tech';
+  const link = 'https://roeintheglasses.dev';
 
   return (
     <MetricCard

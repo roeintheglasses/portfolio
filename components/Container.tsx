@@ -18,7 +18,7 @@ export default function Container(props) {
   const meta = {
     title: 'Hrishikesh Jangir - Developer, writer, designer.',
     description: `Front-end developer, JavaScript enthusiast, and an avid valorant player.`,
-    image: 'https://roeintheglasses.tech/static/images/roe-banner.png',
+    image: 'https://roeintheglasses.dev/static/images/roe-banner.png',
     type: 'website',
     ...customMeta
   };
@@ -31,11 +31,11 @@ export default function Container(props) {
         <meta content={meta.description} name="description" />
         <meta
           property="og:url"
-          content={`https://roeintheglasses.tech${router.asPath}`}
+          content={`https://roeintheglasses.dev${router.asPath}`}
         />
         <link
           rel="canonical"
-          href={`https://roeintheglasses.tech${router.asPath}`}
+          href={`https://roeintheglasses.dev${router.asPath}`}
         />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Hrishikesh Jangir" />

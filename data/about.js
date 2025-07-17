@@ -1,6 +1,6 @@
 export const aboutData = {
   pageTitle: "About",
-  intro: "Hey there! I'm Hrishikesh Jangir, a 25-year-old Software Engineer based in Delhi, India. I have a passion for designing, building & shipping great tech products. Here are a few highlights about me:",
+  intro: "Hey there! I'm Hrishikesh Jangir, a 25-year-old Software Engineer based in Delhi, India. I build video players, wrangle ad-tech systems, and occasionally make AI do cool things. Here are a few highlights about me:",
   highlights: [
     {
       title: "Education",
@@ -20,7 +20,7 @@ export const aboutData = {
     },
     {
       title: "Some Quirky Facts",
-      content: "When I'm not immersed in coding, you can find me exploring the latest tech trends, experimenting with new software tools, and sharing my knowledge with the tech community. I'm also a huge fan of tinkering with ai modals and algorithms (Real-ESRGAN being my most recent obsession). I also enjoy writing about my tech experiences on my personal portfolio and Usually when I am done with tech you can find me catching up to the latest manga chapters, Jamming on spotify and playing Valorant."
+      content: "When I'm not debugging production issues, you'll find me experimenting with the latest AI tools - currently obsessed with building RAG systems and fine-tuning LLMs for specific use cases. I'm also diving deep into computer vision projects and exploring how to integrate AI into visual pipelines. When the code editor finally closes, I'm either catching up on the latest comic book chapters, discovering new music on Spotify, or getting absolutely destroyed in Valorant (Chamber main, but my aim says otherwise)."
     }
   ],
   linksAndStats: {
@@ -38,14 +38,14 @@ export const aboutData = {
       },
       {
         label: "Website",
-        text: "roeintheglasses.tech",
-        href: "https://roeintheglasses.tech"
+        text: "roeintheglasses.dev",
+        href: "https://roeintheglasses.dev"
       }
     ]
   },
   valorantSection: {
     title: "Valorant Stats",
-    description: "Sometimes, spreadsheets just don't cut it. When I need a brain break, I head to Valorant for some good old-fashioned gamer-y mayhem. Chamber's my architect of chaos, and Jett's the queen of outplays. My stats might not scream pro-gamer, but hey, the K/D ratio isn't everything (wink wink):"
+    description: "I play Valorant to unwind after debugging sessions. Chamber main, decent at setups, terrible at aiming. Here are my stats - they're not impressive, but at least I'm having fun and occasionally hitting those satisfying one-taps."
   },
   topTracksSection: {
     title: "Top Tracks",

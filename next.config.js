@@ -23,7 +23,7 @@ module.exports = {
 const ContentSecurityPolicy = `
     default-src 'self' 'unsafe-inline';
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
-    child-src 'self' *.google.com roeintheglasses.tech *.vercel.app;
+    child-src 'self' *.google.com roeintheglasses.dev *.vercel.app;
     worker-src  'self' 'unsafe-inline' blob:;
     style-src 'self' 'unsafe-inline' *.googleapis.com;
     img-src * blob: data:;
