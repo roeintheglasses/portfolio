@@ -81,11 +81,13 @@ export const workData = {
       name: "Safe Security",
       role: "Testing Automation Intern",
       period: "March 2019 — July 2019",
-      website: null,
+      website: "https://safe.security/",
       description: "Safe Security is a Cybersecurity and Digital Risk Assessment platform that helps organizations measure and mitigate enterprise-wide cyber risk in real-time. At Safe I worked as a testing automation intern over the summer of 2019 and automated their core test cases using TestCafe and raised test coverage by 16%.",
       highlights: [],
       summary: null,
-      links: []
+      links: [
+        { text: "TestCafe", url: "https://testcafe.io/" }
+      ]
     }
   ]
 };

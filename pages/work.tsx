@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Container from 'components/Container';
 import { workData } from 'data/work';
+import { LinkPreview } from '../components/ui/link-preview';
 
 export const metadata: Metadata = {
   title: 'Work',
@@ -33,7 +34,14 @@ export default function WorkPage() {
                 {company.website ? (
                   <>
                     {company.description.split(company.name)[0]}
-                    <a href={company.website}>{company.name}</a>
+                    <LinkPreview 
+                      url={company.website}
+                      width={250}
+                      height={150}
+                      className="font-semibold text-gray-800 hover:text-blue-400 dark:text-gray-200 dark:hover:text-blue-400 transition-colors"
+                    >
+                      {company.name}
+                    </LinkPreview>
                     {company.description.split(company.name)[1]}
                   </>
                 ) : (
@@ -51,6 +59,25 @@ export default function WorkPage() {
               
               {company.summary && (
                 <p dangerouslySetInnerHTML={{ __html: company.summary }} />
+              )}
+              
+              {company.links && company.links.length > 0 && (
+                <div className="mt-4">
+                  <h5 className="text-sm font-medium text-neutral-600 dark:text-neutral-400 mb-2">Related Technologies:</h5>
+                  <div className="flex flex-wrap gap-2">
+                    {company.links.map((link, linkIdx) => (
+                      <LinkPreview
+                        key={linkIdx}
+                        url={link.url}
+                        width={250}
+                        height={150}
+                        className="inline-block px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                      >
+                        {link.text}
+                      </LinkPreview>
+                    ))}
+                  </div>
+                </div>
               )}
             </div>
           ))}

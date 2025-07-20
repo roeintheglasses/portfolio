@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconBrandGithub } from '@tabler/icons-react';
+import { LinkPreview } from './ui/link-preview';
 
 export default function ProjectCard({
   title,
@@ -18,28 +19,24 @@ export default function ProjectCard({
         <p>
           {desc}
           <div className="flex flex-col sm:flex-row gap-8 my-6">
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={
-                'flex flex-row justify-center sm:justify-start items-center gap-2 px-6 py-2 text-center font-semibold text-gray-800 dark:text-gray-200 rounded-full bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600 transition-all'
-              }
+            <LinkPreview
+              url={link}
+              width={250}
+              height={150}
+              className="flex flex-row justify-center sm:justify-start items-center gap-2 px-6 py-2 text-center font-semibold text-gray-800 dark:text-gray-200 rounded-full bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600 transition-all"
             >
               <ProjectIcon />
               Checkout
-            </a>
-            <a
-              href={otherCta}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={
-                'flex flex-row justify-center sm:justify-start items-center gap-2 px-6 py-2 text-center font-semibold text-gray-800 dark:text-gray-200 rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all'
-              }
+            </LinkPreview>
+            <LinkPreview
+              url={otherCta}
+              width={250}
+              height={150}
+              className="flex flex-row justify-center sm:justify-start items-center gap-2 px-6 py-2 text-center font-semibold text-gray-800 dark:text-gray-200 rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all"
             >
               <IconBrandGithub />
               Repo
-            </a>
+            </LinkPreview>
           </div>
         </p>
         <Image

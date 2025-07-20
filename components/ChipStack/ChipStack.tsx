@@ -25,15 +25,10 @@ export default function ChipStack({ chipList }) {
         {chipList.map((chip: ChipData, index: number) => (
           <div
             key={index}
-            className={cn(
-              'p-0.5 rounded-full animate-gradient-x bg-gradient-to-r',
-              chip.gradient
-            )}
+            className={`p-0.5 rounded-full animate-gradient-x ${chip.gradient}`}
           >
             <Badge
-              className={cn(
-                'text-base bg-gray-50 dark:bg-gray-900 bg-opacity-95 dark:bg-opacity-95'
-              )}
+              className="text-base bg-gray-50 dark:bg-gray-900 bg-opacity-95 dark:bg-opacity-95"
               variant="secondary"
             >
               <chip.icon className="inline-block w-4 h-4 mr-2" />

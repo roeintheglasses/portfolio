@@ -7,7 +7,8 @@ let projectList = {
     title: 'Valpapers',
     description:
       'Valpapers is React-Native based Android app with a corresponding NextJS based web-app that allows users to download latest high-quality valorant wallpapers. Behind the scenes it uses a custom python service based on Real-ESRGAN algorithm to upscale the wallpapers to high quality. It also uses AWS S3 for bulk wallpaper storage with a AWS Cloudfront CDN and Route 53 DNS.',
-    link: 'https://valpapers.tech/',
+    link: 'https://valpapers-site.vercel.app/',
+    linkImage: '/static/images/projects/valpapers.png',
     image: '/static/images/projects/valpapers.png',
     ProjectIcon: IconEyeBolt,
     otherCta: 'https://github.com/roeintheglasses/valpapers/'

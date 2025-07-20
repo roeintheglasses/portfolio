@@ -6,7 +6,8 @@ module.exports = {
   images: {
     domains: [
       'i.scdn.co', // Spotify Album Art
-      'media.valorant-api.com'
+      'media.valorant-api.com',
+      'api.microlink.io' // Link preview images
     ]
   },
   async headers() {

@@ -4,18 +4,24 @@ export const aboutData = {
   highlights: [
     {
       title: "Education",
-      content: "I did my initial from Rajasthan and then later moved to Delhi for higher education. I Hold a Bachelor of Technology (B.Tech) in Computer Science and Engineering from Manav Rachna International Institute of Research and Studies."
+      content: "I did my initial education from Rajasthan and then later moved to Delhi for higher education. I Hold a Bachelor of Technology (B.Tech) in Computer Science and Engineering from Manav Rachna International Institute of Research and Studies."
     },
     {
       title: "Professional Experience",
-      content: "Currently I work as a Senior Fullstack Engineer at Pubx AI, an AI-driven price floor optimization platform. I focus on building scalable ad-tech solutions, including automated testing pipelines, publisher dashboards, and data aggregation systems. Previously, I worked as SDE & Team Lead at Adpushup Inc. where I led a team building the FrameRate player and FloorSense dynamic floor price manager.",
+      content: "Currently I work as a Senior Fullstack Engineer at {PUBX_AI}, an AI-driven price floor optimization platform. I focus on building scalable ad-tech solutions, including automated testing pipelines, publisher dashboards, and data aggregation systems. Previously, I worked as SDE & Team Lead at {ADPUSHUP} where I led a team building the FrameRate player and FloorSense dynamic floor price manager.",
       link: {
         text: "You can read more about my work here.",
         href: "/work"
       },
-      externalLink: {
-        text: "Pubx AI",
-        href: "https://pubx.ai/"
+      companyLinks: {
+        "PUBX_AI": {
+          text: "Pubx AI",
+          href: "https://pubx.ai/"
+        },
+        "ADPUSHUP": {
+          text: "Adpushup",
+          href: "https://adpushup.com/"
+        }
       }
     },
     {

@@ -9,6 +9,7 @@ import SitePageviewsCard from 'components/metrics/Pageviews';
 import { preload } from 'swr';
 import fetcher from 'lib/fetcher';
 import { aboutData } from 'data/about';
+import { LinkPreview } from '../components/ui/link-preview';
 
 export default function About() {
   return (
@@ -26,15 +27,55 @@ export default function About() {
             <ul>
               {aboutData.highlights.map((highlight, index) => (
                 <li key={index}>
-                  <strong>{highlight.title}:</strong> {highlight.content.split('Adpushup Inc.')[0]}
-                  {highlight.externalLink && (
-                    <a href={highlight.externalLink.href}>{highlight.externalLink.text}</a>
-                  )}
-                  {highlight.content.split('Adpushup Inc.')[1] && highlight.content.split('Adpushup Inc.')[1]}{' '}
-                  {highlight.link && (
-                    <Link href={highlight.link.href}>
-                      {highlight.link.text}
-                    </Link>
+                  <strong>{highlight.title}:</strong>{' '}
+                  {highlight.companyLinks ? (
+                    <>
+                      {highlight.content.split(/(\{[^}]+\})/).map((part, partIndex) => {
+                        const match = part.match(/\{([^}]+)\}/);
+                        if (match && highlight.companyLinks[match[1]]) {
+                          const company = highlight.companyLinks[match[1]];
+                          return (
+                            <LinkPreview
+                              key={partIndex}
+                              url={company.href}
+                              width={250}
+                              height={150}
+                              className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                            >
+                              {company.text}
+                            </LinkPreview>
+                          );
+                        }
+                        return part;
+                      })}
+                      {highlight.link && (
+                        <>
+                          {' '}
+                          <Link href={highlight.link.href} className="text-blue-600 dark:text-blue-400 hover:underline">
+                            {highlight.link.text}
+                          </Link>
+                        </>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      {highlight.content}{' '}
+                      {highlight.externalLink && (
+                        <LinkPreview
+                          url={highlight.externalLink.href}
+                          width={250}
+                          height={150}
+                          className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                        >
+                          {highlight.externalLink.text}
+                        </LinkPreview>
+                      )}{' '}
+                      {highlight.link && (
+                        <Link href={highlight.link.href} className="text-blue-600 dark:text-blue-400 hover:underline">
+                          {highlight.link.text}
+                        </Link>
+                      )}
+                    </>
                   )}
                 </li>
               ))}
@@ -48,7 +89,14 @@ export default function About() {
               <li key={index}>
                 {link.label}:{' '}
                 {link.href.startsWith('http') ? (
-                  <a href={link.href}>{link.text}</a>
+                  <LinkPreview
+                    url={link.href}
+                    width={250}
+                    height={150}
+                    className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                  >
+                    {link.text}
+                  </LinkPreview>
                 ) : (
                   <Link href={link.href}>{link.text}</Link>
                 )}
