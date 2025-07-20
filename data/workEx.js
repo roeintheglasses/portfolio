@@ -1,12 +1,21 @@
 export const workEx = {
+  pubxai: {
+    role: 'Senior Fullstack Engineer',
+    company: 'Pubx AI',
+    companylogo:
+      '/static/images/companies/Pubx.jpg', // You may want to add a Pubx AI logo
+    color: '#F05223',
+    date: 'August 2024 - Present',
+    desc: 'Pubx AI is an AI-driven price floor optimization platform that helps publishers increase ad revenues through dynamic floor pricing. I work on building automated modelling & testing pipelines, publisher dashboards, and large scale data aggregation systems.'
+  },
   adpushup: {
     role: 'SDE & Team Lead',
     company: 'Adpushup',
     companylogo:
       '/static/images/companies/Adpushup.jpg',
     color: '#ff4954',
-    date: 'August 2021 - Present',
-    desc: 'AdPushup is a revenue optimization platform that helps publishers increase their ad revenue. At Adpushup I Lead a team of 4 engineers working on the framerate video player that serves instream video ads at scale.'
+    date: 'August 2021 - July 2024',
+    desc: 'AdPushup is a revenue optimization platform that helps publishers increase their ad revenue. At Adpushup I led a team of 4 engineers working on the framerate video player that serves instream video ads at scale.'
   },
   quikieApps: {
     role: 'SDE',

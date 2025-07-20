@@ -8,14 +8,14 @@ export const aboutData = {
     },
     {
       title: "Professional Experience",
-      content: "Currently I work as a SDE/Team Lead at Adpushup Inc. where me and my team works on building, maintaining, improving, and scaling the FrameRate player (An Instream Video Player) and FloorSense (A Dynamic Floor price manager) across publisher websites.",
+      content: "Currently I work as a Senior Fullstack Engineer at Pubx AI, an AI-driven price floor optimization platform. I focus on building scalable ad-tech solutions, including automated testing pipelines, publisher dashboards, and data aggregation systems. Previously, I worked as SDE & Team Lead at Adpushup Inc. where I led a team building the FrameRate player and FloorSense dynamic floor price manager.",
       link: {
         text: "You can read more about my work here.",
         href: "/work"
       },
       externalLink: {
-        text: "Adpushup Inc.",
-        href: "https://adpushup.com/"
+        text: "Pubx AI",
+        href: "https://pubx.ai/"
       }
     },
     {
