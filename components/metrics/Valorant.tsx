@@ -1,4 +1,4 @@
-import useSWR, { preload } from 'swr';
+import useSWR from 'swr';
 
 import fetcher from 'lib/fetcher';
 import Image from 'next/image';

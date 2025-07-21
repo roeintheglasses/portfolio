@@ -3,7 +3,7 @@ import { useState, useEffect, Fragment } from 'react';
 import { HiSearch } from 'react-icons/hi';
 import { useRouter } from 'next/router';
 import { FiCommand } from 'react-icons/fi';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import useSound from 'use-sound';
 
 export default function CommandPalette({ navigation }) {

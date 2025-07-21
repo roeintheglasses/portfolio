@@ -1,29 +1,49 @@
 import useSWR from 'swr';
-import { useEffect } from 'react';
-// import { animate } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import fetcher from 'lib/fetcher';
 import { NowPlayingSong } from 'lib/types';
 
 function AnimatedBars() {
-  useEffect(() => {
-    // Animation disabled temporarily for build fix
-    // TODO: Re-implement with correct framer-motion API
-  }, []);
-
   return (
     <div className="w-auto flex items-end overflow-hidden">
-      <span
-        id="bar1"
+      <motion.span
         className="w-1 mr-[3px] h-2 bg-gray-300 dark:bg-gray-500 opacity-75"
+        animate={{
+          scaleY: [1, 1.5, 1],
+          translateY: ['0rem', '-0.082rem', '0rem']
+        }}
+        transition={{
+          duration: 1.0,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
       />
-      <span
-        id="bar2"
+      <motion.span
         className="w-1 mr-[3px] h-1 bg-gray-300 dark:bg-gray-500"
+        animate={{
+          scaleY: [1, 3, 1],
+          translateY: ['0rem', '-0.083rem', '0rem']
+        }}
+        transition={{
+          delay: 0.2,
+          duration: 1.5,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
       />
-      <span
-        id="bar3"
+      <motion.span
         className="w-1 h-3 bg-gray-300 dark:bg-gray-500 opacity-80"
+        animate={{
+          scaleY: [1, 0.5, 1],
+          translateY: ['0rem', '0.37rem', '0rem']
+        }}
+        transition={{
+          delay: 0.3,
+          duration: 1.5,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
       />
     </div>
   );

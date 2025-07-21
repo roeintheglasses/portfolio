@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { HiSun, HiMoon } from 'react-icons/hi';
 import useSound from 'use-sound';
 

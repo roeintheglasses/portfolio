@@ -6,19 +6,19 @@ export default function GuestbookPage({ fallbackData }) {
   return (
     <Container
       title="Guestbook - Hrishikesh Jangir"
-      description="Leave your mark here. Sign my digital guestbook and share some wisdom."
+      description="Drop a message - feedback, tech recommendations, or just say hi. Always curious to connect with fellow developers."
     >
       <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
         Guestbook
       </h1>
       <p className="text-gray-600 dark:text-gray-400 mb-4">
-        Code warrior by day, design enthusiast by night, I'm the fullstack dev
-        who can talk pixels and algorithms in the same breath. I'm on a mission
-        to build products that aren't just cool, but also make a positive
-        impact. Think accessible tech that empowers, future-proof solutions that
-        last, and a sprinkle of fun along the way. So grab a virtual cookie,
-        leave a message below. Could be anything - appreciation, information,
-        recommendation, or even humor. Surprise me!
+        Hey! I'm Hrishikesh, a 25-year-old fullstack engineer building ad-tech solutions 
+        and experimenting with AI. When I'm not debugging production issues or wrangling 
+        data pipelines, I'm working on products that make a positive impact - think accessible 
+        tech that empowers people and future-proof solutions that actually last. When the code 
+        editor closes, I'm probably tinkering with RAG systems or getting destroyed in Valorant. 
+        Drop a message below - could be feedback, a tech recommendation, appreciation, or even 
+        something completely random. Always curious to connect and see what surprises me.
       </p>
       <Guestbook fallbackData={fallbackData} />
     </Container>

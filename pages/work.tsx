@@ -1,12 +1,7 @@
-import type { Metadata } from 'next';
 import Container from 'components/Container';
 import { workData } from 'data/work';
 import { LinkPreview } from '../components/ui/link-preview';
 
-export const metadata: Metadata = {
-  title: 'Work',
-  description: 'A summary of my work and contributions across companies.'
-};
 
 export default function WorkPage() {
   return (

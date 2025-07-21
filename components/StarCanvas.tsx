@@ -13,7 +13,7 @@ const StarBackground = (props: any) => {
     random.inSphere(new Float32Array(5000), { radius: 1.2 })
   );
 
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
 
   useFrame((state, delta) => {
     ref.current.rotation.x -= delta / 10;

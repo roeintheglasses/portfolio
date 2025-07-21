@@ -6,8 +6,6 @@ import TopTracks from 'components/TopTracks';
 import Valorant from 'components/metrics/Valorant';
 import Unsplash from 'components/metrics/Unsplash';
 import SitePageviewsCard from 'components/metrics/Pageviews';
-import { preload } from 'swr';
-import fetcher from 'lib/fetcher';
 import { aboutData } from 'data/about';
 import { LinkPreview } from '../components/ui/link-preview';
 

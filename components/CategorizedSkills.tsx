@@ -7,14 +7,6 @@ interface CategorizedSkillsProps {
   className?: string;
 }
 
-// Bento grid layout configuration for full width coverage with varied sizes
-const bentoGridConfig: Record<string, string> = {
-  'Frontend': 'md:col-span-2',
-  'Backend': 'md:col-span-1', 
-  'Database': 'md:col-span-1',
-  'Messaging & Streaming': 'md:col-span-2',
-  'Testing': 'md:col-span-1'
-};
 
 export default function CategorizedSkills({ className = '' }: CategorizedSkillsProps) {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);

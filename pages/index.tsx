@@ -1,6 +1,4 @@
-import Container from '../components/Container';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Suspense } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -8,15 +6,21 @@ import StarsCanvas from '../components/StarCanvas';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-import { homeData, getHomeData } from '../data/home';
+import { homeData } from '../data/home';
 import CategorizedSkills from '../components/CategorizedSkills';
 import { Timeline } from '../components/ui/timeline';
 import { LinkPreview } from '../components/ui/link-preview';
+import { TimelineContent } from '../components/TimelineContent';
 import { IconFileCode2 } from '@tabler/icons-react';
 
 export default function Home() {
   const router = useRouter();
-  const homeDataWithLinks = getHomeData(LinkPreview);
+  
+  // Transform timeline data to include rendered content
+  const timelineData = homeData.workExperience.timeline.map(item => ({
+    title: item.title,
+    content: <TimelineContent item={item} />
+  }));
   const meta = {
     title: 'Hrishikesh Jangir - Developer, writer, designer.',
     description: `Front-end developer, JavaScript enthusiast, and an avid valorant player.`,
@@ -152,16 +156,16 @@ export default function Home() {
           <div className="flex flex-col justify-center items-start max-w-5xl border-gray-200 dark:border-gray-700 mx-auto pb-16 bg-transparent z-10">
             {/* work experience timeline */}
             <div id="workExperience" className="mb-16 sm:mb-32 w-full">
-              <Timeline data={homeDataWithLinks.workExperience.timeline} />
+              <Timeline data={timelineData} />
             </div>
 
             {/* tech stack */}
             <div id="techExperience" className="mb-12 sm:mb-20 w-full">
               <h3 className="font-bold text-xl sm:text-2xl md:text-4xl tracking-tight mb-4 sm:mb-6 text-black dark:text-white">
-                {homeDataWithLinks.techStack.title}
+                {homeData.techStack.title}
               </h3>
               <p className="text-gray-700 text-base sm:text-lg dark:text-gray-300 mb-4 sm:mb-6">
-                {homeDataWithLinks.techStack.description}
+                {homeData.techStack.description}
               </p>
               <CategorizedSkills />
             </div>

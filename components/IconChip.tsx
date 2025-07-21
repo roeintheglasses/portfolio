@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import useSound from 'use-sound';
 
 const IconChip = ({ Icon, link = '#' }) => {
