@@ -9,7 +9,8 @@ export default function ProjectCard({
   link = '#',
   desc,
   ProjectIcon,
-  otherCta = ''
+  otherCta = '',
+  technologies = []
 }) {
   return (
     <div className="text-gray-700 dark:text-gray-300 prose prose-lg prose-neutral prose-a:text-gray-800 dark:prose-a:text-gray-200 dark:prose-invert max-w-5xl">
@@ -38,6 +39,21 @@ export default function ProjectCard({
               Repo
             </LinkPreview>
           </div>
+          {technologies && technologies.length > 0 && (
+            <div className="mt-4">
+              <h5 className="text-sm font-medium text-neutral-600 dark:text-neutral-400 mb-2">Technologies:</h5>
+              <div className="flex flex-wrap gap-2">
+                {technologies.map((tech, techIdx) => (
+                  <span
+                    key={techIdx}
+                    className="inline-block px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </p>
         <Image
           className="border border-zinc-200 dark:border-zinc-800 rounded-xl aspect-video object-cover"
