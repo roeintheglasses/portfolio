@@ -9,7 +9,7 @@ export const homeData = {
     description: "Senior Fullstack Engineer at Pubx AI, building AI-driven price floor optimization platforms and scalable ad-tech solutions. When I'm not debugging automated testing pipelines or crafting publisher dashboards, I'm probably tinkering with AI models or getting outplayed in Valorant. Building stuff that scales, one merge request at a time.",
     resume: {
       text: "My Resume",
-      url: "//drive.google.com/file/d/1PuoWY1FFYisu46B7zFlpX0pdqGft53T1/view?usp=sharing"
+      url: "//drive.google.com/file/d/16qRB7uNx_nk3xPc3VhCrwNYGZ5pICaOb/view?usp=drive_link"
     },
     avatar: {
       src: "/avatar.png",
