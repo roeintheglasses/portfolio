@@ -55,7 +55,7 @@ export const TimelineContent: React.FC<TimelineContentProps> = ({ item }) => {
           alt={item.workImage.alt}
           width={item.workImage.width}
           height={item.workImage.height}
-          className="rounded-lg object-cover h-32 md:h-40 w-full shadow-lg"
+          className="rounded-lg object-cover h-32 md:h-56 w-full shadow-lg"
         />
       </div>
     </div>

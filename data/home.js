@@ -82,7 +82,7 @@ export const homeData = {
         role: "Testing Intern",
         description: "Started my career in cybersecurity, working on a platform that helps organizations measure and mitigate enterprise-wide cyber risk in real-time. Focused on automating core test cases and contributing to digital business risk assessment systems.",
         workImage: {
-          src: "/static/images/companies/safe_work.jpg",
+          src: "/static/images/companies/Safe_work.jpg",
           alt: "Hrishikesh at Safe Security",
           width: 300,
           height: 225

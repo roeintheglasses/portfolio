@@ -1,8 +1,33 @@
 import Container from 'components/Container';
 import ProjectCard from 'components/ProjectCard';
-import { IconEyeBolt, IconCards, IconCloud } from '@tabler/icons-react';
+import {
+  IconEyeBolt,
+  IconCards,
+  IconCloud,
+  IconDashboard
+} from '@tabler/icons-react';
 
 let projectList = {
+  heimdall: {
+    title: 'Heimdall',
+    description:
+      'Heimdall is a real-time personal dashboard for monitoring GitHub commits, Vercel deployments, and other webhook-enabled services. Built with a serverless event-driven architecture using Vercel Edge Functions, Go microservices, and Upstash QStash, it delivers fast, reliable updates via Server-Sent Events.',
+    link: 'https://heimdall-ashen.vercel.app/',
+    image: '/static/images/projects/heimdall.png',
+    ProjectIcon: IconDashboard,
+    otherCta: 'https://github.com/roeintheglasses/heimdall',
+    technologies: [
+      'Next.js 15',
+      'Go',
+      'PostgreSQL',
+      'Vercel Edge Functions',
+      'Upstash QStash',
+      'Server-Sent Events',
+      'Docker',
+      'TypeScript',
+      'Tailwind CSS'
+    ]
+  },
   clouding: {
     title: 'Clouding',
     description:
@@ -11,7 +36,18 @@ let projectList = {
     image: '/static/images/projects/clouding.jpg',
     ProjectIcon: IconCloud,
     otherCta: 'https://github.com/bipoool/clouding',
-    technologies: ['Go', 'Gin', 'PostgreSQL', 'Next.js 15', 'React Flow', 'TypeScript', 'Tailwind CSS', 'Shadcn/ui', 'AWS SDK', 'JWT']
+    technologies: [
+      'Go',
+      'Gin',
+      'PostgreSQL',
+      'Next.js 15',
+      'React Flow',
+      'TypeScript',
+      'Tailwind CSS',
+      'Shadcn/ui',
+      'AWS SDK',
+      'JWT'
+    ]
   },
   turupsgambit: {
     title: "Turup's Gambit",
@@ -21,7 +57,17 @@ let projectList = {
     image: '/static/images/projects/turup.jpg',
     ProjectIcon: IconCards,
     otherCta: 'https://github.com/roeintheglasses/turup-s-gambits',
-    technologies: ['Next.js 15', 'TypeScript', 'Supabase', 'Zustand', 'Framer Motion', 'Tailwind CSS', 'React', 'WebSocket', 'PostgreSQL']
+    technologies: [
+      'Next.js 15',
+      'TypeScript',
+      'Supabase',
+      'Zustand',
+      'Framer Motion',
+      'Tailwind CSS',
+      'React',
+      'WebSocket',
+      'PostgreSQL'
+    ]
   },
   portfolio: {
     title: 'roeintheglasses',
@@ -31,7 +77,16 @@ let projectList = {
     image: '/static/images/projects/roeintheglasses.png',
     ProjectIcon: IconEyeBolt,
     otherCta: 'https://github.com/roeintheglasses/',
-    technologies: ['Next.js 13', 'React', 'TypeScript', 'Prisma', 'PlanetScale', 'NextAuth.js', 'Tailwind CSS', 'Vercel']
+    technologies: [
+      'Next.js 13',
+      'React',
+      'TypeScript',
+      'Prisma',
+      'PlanetScale',
+      'NextAuth.js',
+      'Tailwind CSS',
+      'Vercel'
+    ]
   },
   valpapers: {
     title: 'Valpapers',
@@ -42,7 +97,17 @@ let projectList = {
     image: '/static/images/projects/valpapers.png',
     ProjectIcon: IconEyeBolt,
     otherCta: 'https://github.com/roeintheglasses/valpapers/',
-    technologies: ['React Native', 'Next.js', 'Python', 'Real-ESRGAN', 'AWS S3', 'CloudFront', 'Route 53', 'TypeScript', 'Expo']
+    technologies: [
+      'React Native',
+      'Next.js',
+      'Python',
+      'Real-ESRGAN',
+      'AWS S3',
+      'CloudFront',
+      'Route 53',
+      'TypeScript',
+      'Expo'
+    ]
   },
   homer: {
     title: 'Homer',
@@ -52,7 +117,14 @@ let projectList = {
     image: '/static/images/projects/homer.png',
     ProjectIcon: IconEyeBolt,
     otherCta: 'https://github.com/roeintheglasses/homer-v2',
-    technologies: ['Python', 'OpenCV', 'AKAZE Algorithm', 'Computer Vision', 'Image Processing', 'Machine Learning']
+    technologies: [
+      'Python',
+      'OpenCV',
+      'AKAZE Algorithm',
+      'Computer Vision',
+      'Image Processing',
+      'Machine Learning'
+    ]
   }
 };
 export default function Projects() {
@@ -67,14 +139,24 @@ export default function Projects() {
         </h1>
         <div className="text-gray-700 text-l dark:text-gray-300 prose prose-lg prose-neutral prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:prose-a:text-gray-200 dark:prose-invert dark:hover:prose-a:text-blue-400 max-w-5xl">
           <p>
-            Here are some projects I've built over the years - ranging from multiplayer 
-            games and infrastructure platforms to mobile apps and AI experiments. Each one 
-            taught me something new about building scalable systems, working with different 
-            tech stacks, or solving interesting problems. Currently working on real-time 
-            multiplayer experiences and developer tooling. Feel free to check out the live 
+            Here are some projects I've built over the years - ranging from
+            multiplayer games and infrastructure platforms to mobile apps and AI
+            experiments. Each one taught me something new about building
+            scalable systems, working with different tech stacks, or solving
+            interesting problems. Currently working on real-time multiplayer
+            experiences and developer tooling. Feel free to check out the live
             demos and source code.
           </p>
           <div className="flex flex-col divide-y divide-gray-200 dark:divide-gray-800">
+            <ProjectCard
+              title={projectList.heimdall.title}
+              image={projectList.heimdall.image}
+              link={projectList.heimdall.link}
+              ProjectIcon={projectList.heimdall.ProjectIcon}
+              desc={projectList.heimdall.description}
+              otherCta={projectList.heimdall.otherCta}
+              technologies={projectList.heimdall.technologies}
+            />
             <ProjectCard
               title={projectList.turupsgambit.title}
               image={projectList.turupsgambit.image}
