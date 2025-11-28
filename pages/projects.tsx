@@ -3,24 +3,24 @@ import ProjectCard from 'components/ProjectCard';
 import { IconEyeBolt, IconCards, IconCloud, IconDashboard } from '@tabler/icons-react';
 
 const projectList = {
-  heimdall: {
-    title: 'Heimdall',
+  turupsgambit: {
+    title: "Turup's Gambit",
     description:
-      'Heimdall is a real-time personal dashboard for monitoring GitHub commits, Vercel deployments, and other webhook-enabled services. Built with a serverless event-driven architecture using Vercel Edge Functions, Go microservices, and Upstash QStash, it delivers fast, reliable updates via Server-Sent Events.',
-    link: 'https://heimdall-ashen.vercel.app/',
-    image: '/static/images/projects/heimdall.png',
-    ProjectIcon: IconDashboard,
-    otherCta: 'https://github.com/roeintheglasses/heimdall',
+      'A modern multiplayer card game built with Next.js 15, featuring real-time gameplay and medieval aesthetics. Includes sophisticated bidding systems, real-time card animations, and Frenzy Mode with special powers. Built with Supabase realtime for seamless multiplayer experience, Zustand for state management, and Framer Motion for smooth animations.',
+    link: 'https://turupsgambit.roeintheglasses.dev/',
+    image: '/static/images/projects/turup.jpg',
+    ProjectIcon: IconCards,
+    otherCta: 'https://github.com/roeintheglasses/turup-s-gambits',
     technologies: [
       'Next.js 15',
-      'Go',
-      'PostgreSQL',
-      'Vercel Edge Functions',
-      'Upstash QStash',
-      'Server-Sent Events',
-      'Docker',
       'TypeScript',
+      'Supabase',
+      'Zustand',
+      'Framer Motion',
       'Tailwind CSS',
+      'React',
+      'WebSocket',
+      'PostgreSQL',
     ],
   },
   clouding: {
@@ -44,24 +44,24 @@ const projectList = {
       'JWT',
     ],
   },
-  turupsgambit: {
-    title: "Turup's Gambit",
+  heimdall: {
+    title: 'Heimdall',
     description:
-      'A modern multiplayer card game built with Next.js 15, featuring real-time gameplay and medieval aesthetics. Includes sophisticated bidding systems, real-time card animations, and Frenzy Mode with special powers. Built with Supabase realtime for seamless multiplayer experience, Zustand for state management, and Framer Motion for smooth animations.',
-    link: 'https://turupsgambits.vercel.app/',
-    image: '/static/images/projects/turup.jpg',
-    ProjectIcon: IconCards,
-    otherCta: 'https://github.com/roeintheglasses/turup-s-gambits',
+      'Heimdall is a real-time personal dashboard for monitoring GitHub commits, Vercel deployments, and other webhook-enabled services. Built with a serverless event-driven architecture using Vercel Edge Functions, Go microservices, and Upstash QStash, it delivers fast, reliable updates via Server-Sent Events.',
+    link: 'https://heimdall-ashen.vercel.app/',
+    image: '/static/images/projects/heimdall.png',
+    ProjectIcon: IconDashboard,
+    otherCta: 'https://github.com/roeintheglasses/heimdall',
     technologies: [
       'Next.js 15',
-      'TypeScript',
-      'Supabase',
-      'Zustand',
-      'Framer Motion',
-      'Tailwind CSS',
-      'React',
-      'WebSocket',
+      'Go',
       'PostgreSQL',
+      'Vercel Edge Functions',
+      'Upstash QStash',
+      'Server-Sent Events',
+      'Docker',
+      'TypeScript',
+      'Tailwind CSS',
     ],
   },
   portfolio: {
