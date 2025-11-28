@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Question or Discussion
+    url: https://github.com/roeintheglasses/portfolio/discussions
+    about: For questions or general discussion, please use GitHub Discussions.

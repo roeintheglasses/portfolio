@@ -1,229 +1,214 @@
-# roeintheglasses portfolio
+# Portfolio
 
-A modern, responsive portfolio website built with Next.js showcasing work experience, skills, and personal projects.
+A modern, responsive portfolio website built with Next.js 15, featuring real-time integrations, interactive animations, and a beautiful UI.
 
-[![Next.js](https://img.shields.io/badge/Next.js-15.4.1-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.1.0-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-4.7.3-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![Prisma](https://img.shields.io/badge/Prisma-4.0.0-2D3748?style=for-the-badge&logo=prisma)](https://prisma.io/)
-[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel)](https://vercel.com/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-## ✨ Features
+![Portfolio Preview](public/static/images/roe-banner.png)
 
-- **🌙 Dark/Light Mode** - Seamless theme switching with next-themes
-- **📱 Responsive Design** - Mobile-first design using Tailwind CSS
-- **🎨 Interactive Components** - Animated gradient backgrounds using THREE.js and Framer Motion
-- **🎵 Real-time Spotify Integration** - Now Playing and Top Tracks via Spotify API
-- **🎮 Gaming Integration** - Valorant stats display via Valorant API
-- **💬 Guestbook System** - User messages with OAuth authentication via NextAuth.js
-- **📊 Analytics** - Vercel Analytics and Speed Insights integration
-- **🔍 SEO Ready** - Automatic sitemap generation and meta tags
-- **🎯 Sound Effects** - Interactive sound feedback using use-sound
-- **📈 View Counter** - Page view tracking with Prisma and PostgreSQL
+## Features
 
-## 🛠️ Tech Stack
+- **Dark/Light Mode** - Seamless theme switching with next-themes
+- **Responsive Design** - Mobile-first design using Tailwind CSS
+- **Interactive 3D Background** - Animated star field using Three.js
+- **Spotify Integration** - Now Playing and Top Tracks display
+- **Valorant Stats** - Gaming statistics via Henrik API
+- **Guestbook** - User messages with OAuth authentication
+- **View Counter** - Page view tracking with PostgreSQL
+- **CI/CD Pipeline** - GitHub Actions for linting, testing, and building
 
-### Frontend
+## Tech Stack
 
-- **[Next.js 15](https://nextjs.org/)** - React framework with App Router
-- **[React 19](https://reactjs.org/)** - UI library with latest features
-- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
-- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
-- **[Framer Motion](https://www.framer.com/motion/)** - Animation library
-- **[Three.js](https://threejs.org/)** - 3D graphics with React Three Fiber
+| Category        | Technologies                          |
+| --------------- | ------------------------------------- |
+| **Framework**   | Next.js 15 (Pages Router), React 19   |
+| **Language**    | TypeScript 5.7                        |
+| **Styling**     | Tailwind CSS, Motion (Framer Motion)  |
+| **Database**    | PostgreSQL (Neon), Prisma ORM         |
+| **Auth**        | NextAuth.js (GitHub, Google, Discord) |
+| **3D Graphics** | Three.js, React Three Fiber           |
+| **Testing**     | Vitest, Playwright, Testing Library   |
+| **CI/CD**       | GitHub Actions, Dependabot            |
 
-### Backend & Database
-
-- **[PostgreSQL](https://www.postgresql.org/)** - Primary database
-- **[Prisma ORM](https://prisma.io/)** - Database toolkit and ORM
-- **[NextAuth.js](https://next-auth.js.org/)** - Authentication solution
-
-### APIs & Integrations
-
-- **[Spotify Web API](https://developer.spotify.com/)** - Music integration
-- **[Valorant API](https://henrikdev.xyz/)** - Gaming statistics
-- **[Vercel Analytics](https://vercel.com/analytics)** - Performance monitoring
-
-### UI Components & Icons
-
-- **[Tabler Icons](https://tabler-icons.io/)** - Icon library
-- **[Lucide React](https://lucide.dev/)** - Beautiful icons
-- **[React Icons](https://react-icons.github.io/react-icons/)** - Icon collection
-- **[Headless UI](https://headlessui.com/)** - Unstyled UI components
-
-### Development Tools
-
-- **[ESLint](https://eslint.org/)** - Code linting
-- **[Prettier](https://prettier.io/)** - Code formatting
-- **[SWR](https://swr.vercel.app/)** - Data fetching library
-
-## 📁 Project Structure
-
-```
-portfolio/
-├── components/           # Reusable React components
-│   ├── ChipStack/       # Interactive skill chips
-│   ├── metrics/         # Analytics and API integrations
-│   └── ...              # UI components
-├── data/                # Static data files
-│   ├── workEx.js        # Work experience data
-│   ├── about.js         # About information
-│   └── nav.js           # Navigation configuration
-├── lib/                 # Utility functions and helpers
-│   ├── Coolers/         # Color and gradient generators
-│   ├── spotify.ts       # Spotify API client
-│   ├── prisma.ts        # Database client
-│   └── utils.ts         # Utility functions
-├── pages/               # Next.js pages and API routes
-│   ├── api/             # Backend API endpoints
-│   │   ├── auth/        # Authentication routes
-│   │   ├── guestbook/   # Guestbook API
-│   │   ├── now-playing.ts
-│   │   ├── top-tracks.ts
-│   │   └── valorant.ts
-│   └── ...              # Frontend pages
-├── prisma/              # Database schema and migrations
-├── public/              # Static assets
-│   ├── static/          # Images and media
-│   └── sounds/          # Audio files
-└── styles/              # Global CSS and component styles
-```
-
-## 🚀 Key Features Implementation
-
-### 💼 Work Experience
-
-- Dynamic work cards with gradient backgrounds
-- Detailed company information and achievements
-- Responsive timeline layout with company logos
-- Current role at Adpushup as SDE & Team Lead
-
-### 🎯 Tech Stack & Skills
-
-- Interactive skill chips with custom gradients
-- Icon integration for visual appeal
-- Categorized technology expertise including:
-  - **Frontend**: React, React Native, Next.js, TypeScript, JavaScript, CSS, TailwindCSS
-  - **Backend**: Node.js, Express
-  - **Testing**: Jest, Cypress
-  - **Databases**: MongoDB, Couchbase, RabbitMQ
-
-### 🎵 Real-time Integrations
-
-- **Spotify**: Now playing track and top tracks display
-- **Valorant**: Gaming statistics and rank information
-- **GitHub**: Repository information and contributions
-
-### 🎨 Interactive Elements
-
-- Animated gradient backgrounds using Three.js
-- Smooth page transitions with Framer Motion
-- Sound effects for user interactions
-- Responsive mobile menu with animations
-- Theme switching with persistent state
-
-### 📊 Analytics & Performance
-
-- Vercel Analytics integration
-- Page view tracking
-- Performance monitoring
-- SEO optimization
-
-## 🏃‍♂️ Getting Started
+## Quick Start
 
 ### Prerequisites
 
-- Node.js 16.13+
-- PostgreSQL database (recommended: Neon's serverless postgres)
-- Spotify API credentials (optional)
-- Valorant API access (optional)
+- Node.js 18.17+
+- Yarn package manager
+- PostgreSQL database ([Neon](https://neon.tech/) recommended)
 
 ### Installation
 
-1. **Clone the repository**
-
 ```bash
-git clone <repository-url>
+# Clone the repository
+git clone https://github.com/roeintheglasses/portfolio.git
 cd portfolio
-```
 
-2. **Install dependencies**
-
-```bash
+# Install dependencies
 yarn install
-```
 
-3. **Set up environment variables**
-   Create a `.env.local` file with the following variables:
+# Set up environment variables
+cp .env.example .env.local
 
-```env
-# Database
-DATABASE_URL="postgresql://..."
+# Set up database
+yarn db:generate
+yarn db:push
 
-# Authentication
-NEXTAUTH_SECRET="your-secret"
-NEXTAUTH_URL="http://localhost:3000"
-
-# Spotify API (optional)
-SPOTIFY_CLIENT_ID="your-spotify-client-id"
-SPOTIFY_CLIENT_SECRET="your-spotify-client-secret"
-
-# Valorant API (optional)
-VALORANT_API_KEY="your-valorant-api-key"
-VALORANT_PUUID="your-valorant-puuid"
-```
-
-4. **Set up the database**
-
-```bash
-npx prisma generate
-npx prisma db push
-```
-
-5. **Run the development server**
-
-```bash
+# Start development server
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the application.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-## 🚀 Deployment
+### Environment Variables
 
-The application is optimized for deployment on Vercel:
+Create a `.env.local` file with:
 
-1. Connect your repository to Vercel
-2. Set up environment variables in Vercel dashboard
-3. Deploy automatically on push to main branch
+```env
+# Required
+DATABASE_URL="postgresql://..."
+NEXTAUTH_SECRET="your-secret-key"
+NEXTAUTH_URL="http://localhost:3000"
 
-## 🎨 Customization
+# OAuth Providers (at least one required for guestbook)
+GITHUB_CLIENT_ID="..."
+GITHUB_CLIENT_SECRET="..."
 
-### Adding Work Experience
+# Optional Integrations
+SPOTIFY_CLIENT_ID="..."
+SPOTIFY_CLIENT_SECRET="..."
+SPOTIFY_REFRESH_TOKEN="..."
 
-Edit `data/workEx.js` to add or modify work experience entries.
+VALORANT_API_KEY="..."
+VALORANT_PUUID="..."
+```
 
-### Updating Skills
+## Project Structure
 
-Modify the skills array in `pages/index.tsx` to update your tech stack.
+```
+portfolio/
+├── components/           # React components
+│   ├── metrics/          # API integration components (Spotify, Valorant, etc.)
+│   ├── ui/               # Reusable UI components
+│   └── ...
+├── config/
+│   └── site.ts           # Site configuration (customize this!)
+├── data/                 # Static data
+│   ├── work.ts           # Work experience
+│   ├── about.ts          # About page content
+│   └── nav.ts            # Navigation config
+├── lib/                  # Utilities
+│   ├── spotify.ts        # Spotify API client
+│   ├── prisma.ts         # Database client
+│   └── types.ts          # TypeScript types
+├── pages/                # Next.js pages
+│   └── api/              # API routes
+├── prisma/               # Database schema
+└── public/               # Static assets
+```
 
-### Styling
+## Available Scripts
 
-The application uses Tailwind CSS for styling. Custom styles can be added in `styles/global.css`.
+```bash
+yarn dev          # Start development server
+yarn build        # Build for production
+yarn start        # Start production server
+yarn lint         # Run ESLint
+yarn typecheck    # Run TypeScript checks
+yarn test         # Run unit tests
+yarn test:e2e     # Run E2E tests
+yarn validate     # Run all checks (typecheck, lint, format)
+```
 
-### Adding New Integrations
+## Using as a Template
 
-- Create new API routes in `pages/api/`
-- Add corresponding components in `components/metrics/`
-- Update types in `lib/types.ts`
+Want to use this as your own portfolio? Follow these steps:
 
-## 📝 License
+### 1. Fork & Clone
 
-This project is licensed under License I made up - see the [LICENSE.txt](LICENSE.txt) file for details.
+```bash
+git clone https://github.com/YOUR_USERNAME/portfolio.git
+cd portfolio
+```
+
+### 2. Update Site Configuration
+
+Edit `config/site.ts` with your personal information:
+
+```typescript
+export const siteConfig = {
+  name: 'Your Name',
+  title: 'Your Title',
+  description: 'Your description',
+  url: 'https://your-domain.com',
+  social: {
+    github: 'https://github.com/yourusername',
+    linkedin: 'https://linkedin.com/in/yourprofile',
+  },
+  // ...
+};
+```
+
+### 3. Update Content
+
+| File                    | Content                           |
+| ----------------------- | --------------------------------- |
+| `data/about.ts`         | About page content and highlights |
+| `data/work.ts`          | Work experience entries           |
+| `pages/projects.tsx`    | Your projects                     |
+| `public/static/images/` | Your images                       |
+
+### 4. Update Metadata
+
+- Replace `public/static/images/roe-banner.png` with your OG image
+- Update `public/favicon.ico`
+- Update social preview images
+
+### 5. Configure Integrations (Optional)
+
+- **Spotify**: Follow the [Spotify API setup guide](https://developer.spotify.com/documentation/web-api)
+- **Valorant**: Get an API key from [Henrik's API](https://docs.henrikdev.xyz/)
+- **OAuth**: Set up providers in the [NextAuth.js dashboard](https://next-auth.js.org/providers/)
+
+### 6. Deploy
+
+Deploy to [Vercel](https://vercel.com/) with one click:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/roeintheglasses/portfolio)
+
+## Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before submitting a PR.
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Run checks (`yarn validate && yarn test`)
+5. Commit with conventional commits (`git commit -m 'feat: add amazing feature'`)
+6. Push and open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [Next.js](https://nextjs.org/) - The React framework
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
+- [Vercel](https://vercel.com/) - Deployment platform
+- [Henrik's Valorant API](https://docs.henrikdev.xyz/) - Gaming stats
+- [Spotify Web API](https://developer.spotify.com/) - Music integration
 
 ---
 
 <div align="center">
-  <p>Built with ❤️ by <a href="https://github.com/roeintheglasses">Hrishikesh Jangir</a></p>
-  <p>Feel free to ⭐ this repository if you found it helpful!</p>
+  <p>Built with care by <a href="https://github.com/roeintheglasses">Hrishikesh Jangir</a></p>
+  <p>If you found this helpful, please consider giving it a star!</p>
 </div>

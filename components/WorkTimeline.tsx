@@ -83,14 +83,14 @@ function TimelineCard({
 
       {/* Card */}
       <div
-        className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white/50 backdrop-blur-sm transition-all duration-300 hover:border-gray-300 dark:border-gray-800 dark:bg-gray-900/50 dark:hover:border-gray-700"
+        className="group relative rounded-xl border border-gray-200 bg-white/50 backdrop-blur-sm transition-all duration-300 hover:border-gray-300 dark:border-gray-800 dark:bg-gray-900/50 dark:hover:border-gray-700"
         style={{
           boxShadow: isExpanded ? `0 4px 20px -4px ${company.color}20` : 'none',
         }}
       >
         {/* Gradient accent */}
         <div
-          className="absolute left-0 right-0 top-0 h-1"
+          className="absolute left-0 right-0 top-0 h-1 rounded-t-xl"
           style={{ backgroundColor: company.color }}
         />
 
