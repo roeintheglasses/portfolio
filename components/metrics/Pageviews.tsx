@@ -5,14 +5,15 @@ import { Views } from 'lib/types';
 import MetricCard from 'components/metrics/Card';
 
 export default function SitePageviewsCard() {
-  const { data } = useSWR<Views>('/api/views', fetcher);
+  const { data, isLoading } = useSWR<Views>('/api/views', fetcher);
 
-  const pageViews = new Number(data?.total);
-  const siteViews =
-    7 * Number(pageViews) -
-    (Math.round(Math.random() * 50) +
-      Math.round(Math.random() * 7) -
-      Math.round(Math.random() * 13));
+  const pageViews = data?.total ?? 0;
+  const siteViews = isLoading
+    ? 0
+    : 7 * pageViews -
+      (Math.round(Math.random() * 50) +
+        Math.round(Math.random() * 7) -
+        Math.round(Math.random() * 13));
   const link = 'https://roeintheglasses.dev';
 
   return (
@@ -22,6 +23,7 @@ export default function SitePageviewsCard() {
       metric={siteViews}
       isCurrency={false}
       gradient="from-[#40c6ff] via-[#5a2bff] to-[#4059fe]"
+      isLoading={isLoading}
     />
   );
 }

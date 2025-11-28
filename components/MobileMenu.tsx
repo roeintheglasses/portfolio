@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 
 import Link from 'next/link';
 import cn from 'classnames';
@@ -8,26 +8,51 @@ import { navigation } from '../data/nav';
 
 export default function MobileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
-    isMenuOpen,
-    {
-      enterDelay: 20,
-      exitDelay: 300
-    }
-  );
+  const menuRef = useRef<HTMLUListElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(isMenuOpen, {
+    enterDelay: 20,
+    exitDelay: 300,
+  });
 
-  function toggleMenu() {
+  const closeMenu = useCallback(() => {
+    setIsMenuOpen(false);
+    document.body.style.overflow = '';
+    buttonRef.current?.focus();
+  }, []);
+
+  const toggleMenu = useCallback(() => {
     if (isMenuOpen) {
-      setIsMenuOpen(false);
-      document.body.style.overflow = '';
+      closeMenu();
     } else {
       setIsMenuOpen(true);
       document.body.style.overflow = 'hidden';
     }
-  }
+  }, [isMenuOpen, closeMenu]);
 
+  // Handle Escape key
   useEffect(() => {
-    return function cleanup() {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isMenuOpen, closeMenu]);
+
+  // Focus first menu item when opened
+  useEffect(() => {
+    if (isMenuRendered && menuRef.current) {
+      const firstLink = menuRef.current.querySelector('a');
+      firstLink?.focus();
+    }
+  }, [isMenuRendered]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
       document.body.style.overflow = '';
     };
   }, []);
@@ -35,46 +60,57 @@ export default function MobileMenu() {
   return (
     <>
       <button
-        className={cn(styles.burger, 'visible md:hidden z-20')}
-        aria-label="Toggle menu"
+        ref={buttonRef}
+        className={cn(
+          styles.burger,
+          'visible z-20 md:hidden',
+          'rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900'
+        )}
+        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={isMenuOpen}
+        aria-controls="mobile-menu"
         type="button"
         onClick={toggleMenu}
       >
-        <MenuIcon data-hide={isMenuOpen} />
-        <CrossIcon data-hide={!isMenuOpen} />
+        <MenuIcon data-hide={isMenuOpen} aria-hidden="true" />
+        <CrossIcon data-hide={!isMenuOpen} aria-hidden="true" />
       </button>
       {isMenuMounted && (
-        <ul
-          className={cn(
-            styles.menu,
-            'flex flex-col fixed bg-gray-100 dark:bg-gray-900',
-            isMenuRendered && styles.menuRendered
-          )}
-        >
-          {navigation &&
-            navigation.pages.map((page, index) => {
-              return (
-                <li
-                  key={index}
-                  className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
-                  style={{ transitionDelay: '150ms' }}
+        <nav id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+          <ul
+            ref={menuRef}
+            className={cn(
+              styles.menu,
+              'fixed flex flex-col bg-gray-100 dark:bg-gray-900',
+              isMenuRendered && styles.menuRendered
+            )}
+          >
+            {navigation?.pages.map((page, index) => (
+              <li
+                key={index}
+                className="border-b border-gray-300 text-sm font-semibold text-gray-900 dark:border-gray-700 dark:text-gray-100"
+                style={{ transitionDelay: `${150 + index * 50}ms` }}
+              >
+                <Link
+                  href={page.href}
+                  className="flex w-auto pb-4 transition-colors focus:outline-none focus-visible:text-blue-500 dark:focus-visible:text-blue-400"
+                  onClick={closeMenu}
                 >
-                  <Link href={page.href} className="flex w-auto pb-4">
-                    {page.name}
-                  </Link>
-                </li>
-              );
-            })}
-        </ul>
+                  {page.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       )}
     </>
   );
 }
 
-function MenuIcon(props: JSX.IntrinsicElements['svg']) {
+function MenuIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      className="h-5 w-5 absolute text-gray-900 dark:text-gray-100"
+      className="absolute h-5 w-5 text-gray-900 dark:text-gray-100"
       width="20"
       height="20"
       viewBox="0 0 20 20"
@@ -99,10 +135,10 @@ function MenuIcon(props: JSX.IntrinsicElements['svg']) {
   );
 }
 
-function CrossIcon(props: JSX.IntrinsicElements['svg']) {
+function CrossIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      className="h-5 w-5 absolute text-gray-900 dark:text-gray-100"
+      className="absolute h-5 w-5 text-gray-900 dark:text-gray-100"
       viewBox="0 0 24 24"
       width="24"
       height="24"

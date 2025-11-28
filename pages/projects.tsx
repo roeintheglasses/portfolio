@@ -1,13 +1,8 @@
 import Container from 'components/Container';
 import ProjectCard from 'components/ProjectCard';
-import {
-  IconEyeBolt,
-  IconCards,
-  IconCloud,
-  IconDashboard
-} from '@tabler/icons-react';
+import { IconEyeBolt, IconCards, IconCloud, IconDashboard } from '@tabler/icons-react';
 
-let projectList = {
+const projectList = {
   heimdall: {
     title: 'Heimdall',
     description:
@@ -25,8 +20,8 @@ let projectList = {
       'Server-Sent Events',
       'Docker',
       'TypeScript',
-      'Tailwind CSS'
-    ]
+      'Tailwind CSS',
+    ],
   },
   clouding: {
     title: 'Clouding',
@@ -46,8 +41,8 @@ let projectList = {
       'Tailwind CSS',
       'Shadcn/ui',
       'AWS SDK',
-      'JWT'
-    ]
+      'JWT',
+    ],
   },
   turupsgambit: {
     title: "Turup's Gambit",
@@ -66,8 +61,8 @@ let projectList = {
       'Tailwind CSS',
       'React',
       'WebSocket',
-      'PostgreSQL'
-    ]
+      'PostgreSQL',
+    ],
   },
   portfolio: {
     title: 'roeintheglasses',
@@ -85,8 +80,8 @@ let projectList = {
       'PlanetScale',
       'NextAuth.js',
       'Tailwind CSS',
-      'Vercel'
-    ]
+      'Vercel',
+    ],
   },
   valpapers: {
     title: 'Valpapers',
@@ -106,8 +101,8 @@ let projectList = {
       'CloudFront',
       'Route 53',
       'TypeScript',
-      'Expo'
-    ]
+      'Expo',
+    ],
   },
   homer: {
     title: 'Homer',
@@ -123,9 +118,9 @@ let projectList = {
       'AKAZE Algorithm',
       'Computer Vision',
       'Image Processing',
-      'Machine Learning'
-    ]
-  }
+      'Machine Learning',
+    ],
+  },
 };
 export default function Projects() {
   return (
@@ -133,19 +128,17 @@ export default function Projects() {
       title="Projects - Hrishikesh Jangir"
       description="All the info you can need about the projects I've built recently."
     >
-      <div className="max-w-5xl mx-auto mb-16">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+      <div className="mx-auto mb-16 max-w-5xl">
+        <h1 className="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
           Projects
         </h1>
-        <div className="text-gray-700 text-l dark:text-gray-300 prose prose-lg prose-neutral prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:prose-a:text-gray-200 dark:prose-invert dark:hover:prose-a:text-blue-400 max-w-5xl">
+        <div className="text-l prose prose-lg prose-neutral max-w-5xl text-gray-700 dark:prose-invert prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:text-gray-300 dark:prose-a:text-gray-200 dark:hover:prose-a:text-blue-400">
           <p>
-            Here are some projects I've built over the years - ranging from
-            multiplayer games and infrastructure platforms to mobile apps and AI
-            experiments. Each one taught me something new about building
-            scalable systems, working with different tech stacks, or solving
-            interesting problems. Currently working on real-time multiplayer
-            experiences and developer tooling. Feel free to check out the live
-            demos and source code.
+            Here are some projects I've built over the years - ranging from multiplayer games and
+            infrastructure platforms to mobile apps and AI experiments. Each one taught me something
+            new about building scalable systems, working with different tech stacks, or solving
+            interesting problems. Currently working on real-time multiplayer experiences and
+            developer tooling. Feel free to check out the live demos and source code.
           </p>
           <div className="flex flex-col divide-y divide-gray-200 dark:divide-gray-800">
             <ProjectCard

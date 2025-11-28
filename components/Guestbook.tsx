@@ -15,7 +15,7 @@ function GuestbookEntry({ entry, user }) {
     e.preventDefault();
 
     await fetch(`/api/guestbook/${entry.id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
     });
 
     mutate('/api/guestbook');
@@ -23,20 +23,19 @@ function GuestbookEntry({ entry, user }) {
 
   return (
     <div className="flex flex-col space-y-2">
-      <div className="prose dark:prose-dark w-full">{entry.body}</div>
+      <div className="prose w-full dark:prose-dark">{entry.body}</div>
       <div className="flex items-center space-x-3">
         <p className="text-sm text-gray-500">{entry.created_by}</p>
-        <span className=" text-gray-200 dark:text-gray-800">/</span>
+        <span className="text-gray-400 dark:text-gray-600" aria-hidden="true">
+          /
+        </span>
         <p className="text-sm text-gray-400 dark:text-gray-600">
           {format(new Date(entry.updated_at), "d MMM yyyy 'at' h:mm bb")}
         </p>
         {user && entry.created_by === user.name && (
           <>
             <span className="text-gray-200 dark:text-gray-800">/</span>
-            <button
-              className="text-sm text-red-600 dark:text-red-400"
-              onClick={deleteEntry}
-            >
+            <button className="text-sm text-red-600 dark:text-red-400" onClick={deleteEntry}>
               Delete
             </button>
           </>
@@ -50,9 +49,9 @@ export default function Guestbook({ fallbackData }) {
   const { data: session } = useSession();
   const { mutate } = useSWRConfig();
   const [form, setForm] = useState<FormState>({ state: Form.Initial });
-  const inputEl = useRef(null);
+  const inputEl = useRef<HTMLInputElement>(null);
   const { data: entries } = useSWR<any>('/api/guestbook', fetcher, {
-    fallbackData
+    fallbackData,
   });
 
   const leaveEntry = async (e) => {
@@ -61,28 +60,30 @@ export default function Guestbook({ fallbackData }) {
 
     const res = await fetch('/api/guestbook', {
       body: JSON.stringify({
-        body: inputEl.current.value
+        body: inputEl.current?.value ?? '',
       }),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      method: 'POST'
+      method: 'POST',
     });
 
     const { error } = await res.json();
     if (error) {
       setForm({
         state: Form.Error,
-        message: error
+        message: error,
       });
       return;
     }
 
-    inputEl.current.value = '';
+    if (inputEl.current) {
+      inputEl.current.value = '';
+    }
     mutate('/api/guestbook');
     setForm({
       state: Form.Success,
-      message: `Hooray! Thanks for signing my Guestbook.`
+      message: `Hooray! Thanks for signing my Guestbook.`,
     });
   };
 
@@ -90,11 +91,11 @@ export default function Guestbook({ fallbackData }) {
     <>
       <div
         className={
-          'rounded-xl w-full animate-gradient-xy bg-gradient-to-r from-[#F3F8FF] via-[#7E30E1] to-[#E26EE5] p-1'
+          'w-full animate-gradient-xy rounded-xl bg-gradient-to-r from-[#F3F8FF] via-[#7E30E1] to-[#E26EE5] p-1'
         }
       >
-        <div className="rounded-lg p-6 w-full bg-gray-50 dark:bg-gray-900 bg-opacity-80 dark:bg-opacity-95">
-          <h5 className="text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100">
+        <div className="w-full rounded-lg bg-gray-50 bg-opacity-80 p-6 dark:bg-gray-900 dark:bg-opacity-95">
+          <h5 className="text-lg font-bold text-gray-900 dark:text-gray-100 md:text-xl">
             Sign the Guestbook
           </h5>
           <p className="my-1 text-gray-800 dark:text-gray-200">
@@ -104,7 +105,7 @@ export default function Guestbook({ fallbackData }) {
             // eslint-disable-next-line @next/next/no-html-link-for-pages
             <a
               href="/api/auth/signin"
-              className="flex items-center justify-center my-4 font-bold h-8 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28"
+              className="my-4 flex h-8 w-28 items-center justify-center rounded bg-gray-200 font-bold text-gray-900 dark:bg-gray-700 dark:text-gray-100"
               onClick={(e) => {
                 e.preventDefault();
                 signIn();
@@ -120,11 +121,13 @@ export default function Guestbook({ fallbackData }) {
                 aria-label="Your message"
                 placeholder="Your message..."
                 required
-                className="pl-4 pr-32 py-2 mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full border-gray-300 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                className="mt-1 block w-full rounded-md border-gray-300 bg-white py-2 pl-4 pr-32 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:text-gray-100"
               />
               <button
-                className="flex items-center justify-center absolute right-1 top-1 px-4 pt-1 font-medium h-8 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28"
+                className="absolute right-1 top-1 flex h-8 w-28 items-center justify-center rounded bg-gray-100 px-4 pt-1 font-medium text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-700 dark:text-gray-100"
                 type="submit"
+                aria-busy={form.state === Form.Loading}
+                disabled={form.state === Form.Loading}
               >
                 {form.state === Form.Loading ? <LoadingSpinner /> : 'Sign'}
               </button>
@@ -136,8 +139,7 @@ export default function Guestbook({ fallbackData }) {
             <SuccessMessage>{form.message}</SuccessMessage>
           ) : (
             <p className="text-sm text-gray-800 dark:text-gray-200">
-              Your information is only used to display your name and reply by
-              email.
+              Your information is only used to display your name and reply by email.
             </p>
           )}
         </div>

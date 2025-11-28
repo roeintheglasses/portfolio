@@ -1,9 +1,8 @@
-
 export enum Form {
   Initial,
   Loading,
   Success,
-  Error
+  Error,
 }
 
 export type FormState = {
@@ -23,6 +22,7 @@ export type Song = {
   songUrl: string;
   artist: string;
   title: string;
+  albumImageUrl: string;
 };
 
 export type NowPlayingSong = {
@@ -37,7 +37,6 @@ export type NowPlayingSong = {
 export type TopTracks = {
   tracks: Song[];
 };
-
 
 export type GitHub = {
   stars: number;

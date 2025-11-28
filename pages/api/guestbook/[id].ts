@@ -4,39 +4,41 @@ import { authConfig } from 'pages/api/auth/[...nextauth]';
 
 import prisma from 'lib/prisma';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const session = await getServerSession(req, res, authConfig);
 
   const { id } = req.query;
-  const { email } = session.user;
 
   const entry = await prisma.guestbook.findUnique({
     where: {
-      id: Number(id)
-    }
+      id: Number(id),
+    },
   });
+
+  if (!entry) {
+    return res.status(404).send('Entry not found');
+  }
 
   if (req.method === 'GET') {
     return res.json({
       id: entry.id.toString(),
       body: entry.body,
       created_by: entry.created_by,
-      updated_at: entry.updated_at
+      updated_at: entry.updated_at,
     });
   }
 
-  if (!session || email !== entry.email) {
+  const email = session?.user?.email;
+
+  if (!session || !email || email !== entry.email) {
     return res.status(403).send('Unauthorized');
   }
 
   if (req.method === 'DELETE') {
     await prisma.guestbook.delete({
       where: {
-        id: Number(id)
-      }
+        id: Number(id),
+      },
     });
 
     return res.status(204).json({});
@@ -47,17 +49,17 @@ export default async function handler(
 
     await prisma.guestbook.update({
       where: {
-        id: Number(id)
+        id: Number(id),
       },
       data: {
         body,
-        updated_at: new Date().toISOString()
-      }
+        updated_at: new Date().toISOString(),
+      },
     });
 
     return res.status(201).json({
       ...entry,
-      body
+      body,
     });
   }
 

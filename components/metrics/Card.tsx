@@ -1,33 +1,43 @@
 import cn from 'classnames';
+
+interface MetricCardProps {
+  header: string;
+  link: string;
+  metric: number;
+  isCurrency?: boolean;
+  gradient?: string;
+  isPercentage?: boolean;
+  showSvg?: boolean;
+  isLoading?: boolean;
+}
+
 export default function MetricCard({
   header,
   link,
   metric,
-  isCurrency,
+  isCurrency = false,
   gradient = 'from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]',
   isPercentage = false,
-  showSvg = true
-}) {
+  showSvg = true,
+  isLoading = false,
+}: MetricCardProps) {
+  const numericMetric = Number(metric);
+
   return (
     <div
       className={cn(
-        'metric-card rounded-lg max-w-72 w-full',
-        'p-1 animate-gradient-xy bg-gradient-to-tr ',
+        'metric-card w-full max-w-72 rounded-lg',
+        'bg-gradient-to-tr p-1 motion-safe:animate-gradient-xy',
         gradient
       )}
     >
-      <div className="flex flex-col justify-between h-full bg-gray-50 dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-90 rounded-md p-4">
-        <a
-          aria-label={header}
-          target="_blank"
-          rel="noopener noreferrer"
-          href={link}
-        >
+      <div className="flex h-full flex-col justify-between rounded-md bg-gray-50 bg-opacity-90 p-4 dark:bg-gray-900 dark:bg-opacity-90">
+        <a aria-label={header} target="_blank" rel="noopener noreferrer" href={link}>
           <div className="flex items-center text-gray-900 dark:text-gray-100">
             {header}
             {showSvg && (
               <svg
-                className="h-4 w-4 ml-1"
+                className="ml-1 h-4 w-4"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -43,11 +53,15 @@ export default function MetricCard({
             )}
           </div>
         </a>
-        <p className="mt-2 text-3xl font-bold spacing-sm text-black dark:text-white">
-          {metric > 0 && isCurrency && '$'}
-          {metric > 0 ? metric.toLocaleString() : '-'}
-          {metric > 0 && isPercentage && '%'}
-        </p>
+        {isLoading ? (
+          <div className="mt-2 h-9 w-24 animate-pulse rounded bg-gray-200 motion-reduce:animate-none dark:bg-gray-700" />
+        ) : (
+          <p className="spacing-sm mt-2 text-3xl font-bold text-black dark:text-white">
+            {numericMetric > 0 && isCurrency && '$'}
+            {numericMetric > 0 ? numericMetric.toLocaleString() : '-'}
+            {numericMetric > 0 && isPercentage && '%'}
+          </p>
+        )}
       </div>
     </div>
   );

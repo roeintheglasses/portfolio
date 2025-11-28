@@ -4,22 +4,18 @@ import GitHub from 'components/metrics/Github';
 import Link from 'next/link';
 import TopTracks from 'components/TopTracks';
 import Valorant from 'components/metrics/Valorant';
-import Unsplash from 'components/metrics/Unsplash';
 import SitePageviewsCard from 'components/metrics/Pageviews';
-import { aboutData } from 'data/about';
+import { aboutData } from '../data/about';
 import { LinkPreview } from '../components/ui/link-preview';
 
 export default function About() {
   return (
-    <Container
-      title="About - Hrishikesh Jangir"
-      description="All the info you can need about me."
-    >
-      <div className="max-w-5xl mx-auto mb-16">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+    <Container title="About - Hrishikesh Jangir" description="All the info you can need about me.">
+      <div className="mx-auto mb-16 max-w-5xl">
+        <h1 className="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
           {aboutData.pageTitle}
         </h1>
-        <div className="text-gray-700 text-l dark:text-gray-300 mb-16 prose prose-lg prose-neutral prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:prose-a:text-gray-200 dark:prose-invert dark:hover:prose-a:text-blue-400 max-w-5xl">
+        <div className="text-l prose prose-lg prose-neutral mb-16 max-w-5xl text-gray-700 dark:prose-invert prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:text-gray-300 dark:prose-a:text-gray-200 dark:hover:prose-a:text-blue-400">
           <p>
             {aboutData.intro}
             <ul>
@@ -30,15 +26,17 @@ export default function About() {
                     <>
                       {highlight.content.split(/(\{[^}]+\})/).map((part, partIndex) => {
                         const match = part.match(/\{([^}]+)\}/);
-                        if (match && highlight.companyLinks[match[1]]) {
-                          const company = highlight.companyLinks[match[1]];
+                        const companyKey = match?.[1];
+                        if (companyKey && highlight.companyLinks?.[companyKey]) {
+                          const company = highlight.companyLinks[companyKey];
+                          if (!company) return part;
                           return (
                             <LinkPreview
                               key={partIndex}
                               url={company.href}
                               width={250}
                               height={150}
-                              className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                              className="font-semibold text-blue-600 hover:underline dark:text-blue-400"
                             >
                               {company.text}
                             </LinkPreview>
@@ -49,7 +47,10 @@ export default function About() {
                       {highlight.link && (
                         <>
                           {' '}
-                          <Link href={highlight.link.href} className="text-blue-600 dark:text-blue-400 hover:underline">
+                          <Link
+                            href={highlight.link.href}
+                            className="text-blue-600 hover:underline dark:text-blue-400"
+                          >
                             {highlight.link.text}
                           </Link>
                         </>
@@ -63,13 +64,16 @@ export default function About() {
                           url={highlight.externalLink.href}
                           width={250}
                           height={150}
-                          className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                          className="font-semibold text-blue-600 hover:underline dark:text-blue-400"
                         >
                           {highlight.externalLink.text}
                         </LinkPreview>
                       )}{' '}
                       {highlight.link && (
-                        <Link href={highlight.link.href} className="text-blue-600 dark:text-blue-400 hover:underline">
+                        <Link
+                          href={highlight.link.href}
+                          className="text-blue-600 hover:underline dark:text-blue-400"
+                        >
                           {highlight.link.text}
                         </Link>
                       )}
@@ -79,7 +83,7 @@ export default function About() {
               ))}
             </ul>
           </p>
-          <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+          <h2 className="mb-4 mt-16 text-3xl font-bold tracking-tight text-black dark:text-white">
             {aboutData.linksAndStats.title}
           </h2>
           <ul>
@@ -91,7 +95,7 @@ export default function About() {
                     url={link.href}
                     width={250}
                     height={150}
-                    className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                    className="font-semibold text-blue-600 hover:underline dark:text-blue-400"
                   >
                     {link.text}
                   </LinkPreview>
@@ -106,29 +110,33 @@ export default function About() {
         <Unsplash />
         <YouTube />
       </div> */}
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-3 my-2 w-full">
+        <div className="my-2 grid w-full grid-cols-1 gap-4 sm:grid-cols-3">
           <SitePageviewsCard />
           <Analytics />
           <GitHub />
         </div>
 
-        <div className="text-gray-700 text-l dark:text-gray-300 mb-16 prose prose-lg prose-neutral prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:prose-a:text-gray-200 dark:prose-invert dark:hover:prose-a:text-blue-400 max-w-5xl">
-          <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+        {/* Valorant Section */}
+        <section className="mt-16">
+          <h2 className="mb-3 text-3xl font-bold tracking-tight text-black dark:text-white">
             {aboutData.valorantSection.title}
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
+          <p className="mb-6 max-w-2xl text-gray-600 dark:text-gray-400">
             {aboutData.valorantSection.description}
           </p>
-        </div>
-        <Valorant />
+          <Valorant />
+        </section>
 
-        <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
-          {aboutData.topTracksSection.title}
-        </h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
-          {aboutData.topTracksSection.description}
-        </p>
-        <TopTracks />
+        {/* Top Tracks Section */}
+        <section className="mt-16">
+          <h2 className="mb-3 text-3xl font-bold tracking-tight text-black dark:text-white">
+            {aboutData.topTracksSection.title}
+          </h2>
+          <p className="mb-6 max-w-2xl text-gray-600 dark:text-gray-400">
+            {aboutData.topTracksSection.description}
+          </p>
+          <TopTracks />
+        </section>
       </div>
     </Container>
   );

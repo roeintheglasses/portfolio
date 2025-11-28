@@ -1,32 +1,49 @@
-import { type NextRequest } from 'next/server';
 import { getTopTracks } from 'lib/spotify';
 
 export const config = {
-  runtime: 'edge'
+  runtime: 'edge',
 };
 
-export default async function handler(req: NextRequest) {
+interface SpotifyTrack {
+  name: string;
+  artists: { name: string }[];
+  external_urls: { spotify: string };
+  album?: { images?: { url: string }[] };
+}
+
+const emptyTracksResponse = () =>
+  new Response(JSON.stringify({ tracks: [] }), {
+    status: 200,
+    headers: { 'content-type': 'application/json' },
+  });
+
+export default async function handler() {
   try {
     const response = await getTopTracks();
-    const { items } = await response.json();
+
+    if (!response) {
+      return emptyTracksResponse();
+    }
+
+    const data = await response.json();
+    const items: SpotifyTrack[] = data?.items ?? [];
 
     const tracks = items.slice(0, 10).map((track) => ({
-      artist: track.artists.map((_artist) => _artist.name).join(', '),
+      artist: track.artists.map((a) => a.name).join(', '),
       songUrl: track.external_urls.spotify,
       title: track.name,
-      albumImageUrl: track?.album?.images[0]?.url
+      albumImageUrl: track?.album?.images?.[0]?.url ?? '',
     }));
 
     return new Response(JSON.stringify({ tracks }), {
       status: 200,
       headers: {
         'content-type': 'application/json',
-        'cache-control': 'public, s-maxage=86400, stale-while-revalidate=43200'
-      }
+        'cache-control': 'public, s-maxage=86400, stale-while-revalidate=43200',
+      },
     });
   } catch (err) {
-    console.log('====================================');
-    console.log(err);
-    console.log('====================================');
+    console.error('Failed to fetch top tracks:', err);
+    return emptyTracksResponse();
   }
 }

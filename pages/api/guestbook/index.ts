@@ -3,15 +3,12 @@ import { getServerSession } from 'next-auth/next';
 import prisma from 'lib/prisma';
 import { authConfig } from 'pages/api/auth/[...nextauth]';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     const entries = await prisma.guestbook.findMany({
       orderBy: {
-        updated_at: 'desc'
-      }
+        updated_at: 'desc',
+      },
     });
 
     return res.json(
@@ -19,32 +16,33 @@ export default async function handler(
         id: entry.id.toString(),
         body: entry.body,
         created_by: entry.created_by,
-        updated_at: entry.updated_at
+        updated_at: entry.updated_at,
       }))
     );
   }
 
   const session = await getServerSession(req, res, authConfig);
-  const { email, name } = session.user;
 
-  if (!session) {
+  if (!session?.user?.email || !session?.user?.name) {
     return res.status(403).send('Unauthorized');
   }
+
+  const { email, name } = session.user;
 
   if (req.method === 'POST') {
     const newEntry = await prisma.guestbook.create({
       data: {
         email,
         body: (req.body.body || '').slice(0, 500),
-        created_by: name
-      }
+        created_by: name,
+      },
     });
 
     return res.status(200).json({
       id: newEntry.id.toString(),
       body: newEntry.body,
       created_by: newEntry.created_by,
-      updated_at: newEntry.updated_at
+      updated_at: newEntry.updated_at,
     });
   }
 

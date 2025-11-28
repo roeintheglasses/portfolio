@@ -1,29 +1,40 @@
 import Image from 'next/image';
-export default function Track(track) {
+
+// Simple gray blur placeholder for external images
+const BLUR_DATA_URL =
+  'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMCwsLCgwJDRMNDg0QCQwNEhAREhMTExMLDxQVFRQSFRMTEv/2wBDAQMEBAUEBQkFBQkSDAsMEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhL/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgIBAwQDAAAAAAAAAAAAAQIDBAAFBhEHEiExQVFh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQACAwEAAAAAAAAAAAAAAAABAgADESH/2gAMAwEAAhEDEEAwF//Z';
+
+interface TrackProps {
+  ranking: number;
+  albumImageUrl: string;
+  title: string;
+  songUrl: string;
+  artist: string;
+}
+
+export default function Track({ ranking, albumImageUrl, title, songUrl, artist }: TrackProps) {
   return (
-    <div className="flex flex-row items-center border-b border-gray-200 dark:border-gray-800 w-full mt-4">
-      <p className="text-sm font-bold text-gray-400 dark:text-gray-600">
-        {track.ranking}
-      </p>
+    <div className="mt-4 flex w-full flex-row items-center border-b border-gray-200 dark:border-gray-800">
+      <p className="text-sm font-bold text-gray-400 dark:text-gray-600">{ranking}</p>
       <Image
-        className="mx-3 rounded-md top-5 self-center"
-        src={track.albumImageUrl}
-        alt={track.title}
+        className="top-5 mx-3 self-center rounded-md"
+        src={albumImageUrl}
+        alt={title}
         width={45}
         height={45}
+        placeholder="blur"
+        blurDataURL={BLUR_DATA_URL}
       />
-      <div className="flex flex-col my-2">
+      <div className="my-2 flex flex-col">
         <a
-          className="font-medium text-gray-900 dark:text-gray-100 truncate w-60 xl:w-96"
-          href={track.songUrl}
+          className="w-60 truncate font-medium text-gray-900 dark:text-gray-100 xl:w-96"
+          href={songUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
-          {track.title}
+          {title}
         </a>
-        <p className="text-gray-500 truncate w-60 xl:w-96" color="gray.500">
-          {track.artist}
-        </p>
+        <p className="w-60 truncate text-gray-500 xl:w-96">{artist}</p>
       </div>
     </div>
   );

@@ -5,9 +5,9 @@ import { GitHub } from 'lib/types';
 import MetricCard from 'components/metrics/Card';
 
 export default function GitHubCard() {
-  const { data } = useSWR<GitHub>('/api/github', fetcher);
+  const { data, isLoading } = useSWR<GitHub>('/api/github', fetcher);
 
-  const stars = new Number(data?.stars);
+  const stars = data?.stars ?? 0;
   const link = 'https://github.com/roeintheglasses';
 
   return (
@@ -17,6 +17,7 @@ export default function GitHubCard() {
       metric={stars}
       isCurrency={false}
       gradient="from-[#40c6ff] via-[#5a2bff] to-[#4059fe]"
+      isLoading={isLoading}
     />
   );
 }

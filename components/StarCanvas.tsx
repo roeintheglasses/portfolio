@@ -3,21 +3,23 @@
 import React, { useState, useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial, Preload } from '@react-three/drei';
-// @ts-ignore
 import * as random from 'maath/random';
 import { useTheme } from 'next-themes';
+import * as THREE from 'three';
 
-const StarBackground = (props: any) => {
-  const ref: any = useRef();
-  const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(5000), { radius: 1.2 })
+const StarBackground = (props: Record<string, unknown>) => {
+  const ref = useRef<THREE.Points>(null);
+  const [sphere] = useState<Float32Array>(
+    () => random.inSphere(new Float32Array(5000), { radius: 1.2 }) as Float32Array
   );
 
   const { theme } = useTheme();
 
-  useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10;
-    ref.current.rotation.y -= delta / 15;
+  useFrame((_state, delta) => {
+    if (ref.current) {
+      ref.current.rotation.x -= delta / 10;
+      ref.current.rotation.y -= delta / 15;
+    }
   });
 
   const pointColor = theme === 'dark' ? '#fff' : '#222';
@@ -39,7 +41,7 @@ const StarBackground = (props: any) => {
 
 const StarsCanvas = () => (
   <>
-    <div className="w-full h-auto fixed inset-0 z-0 ">
+    <div className="fixed inset-0 z-0 h-auto w-full">
       <Canvas camera={{ position: [0, 0, 1] }}>
         <Suspense fallback={null}>
           <StarBackground />
@@ -47,7 +49,7 @@ const StarsCanvas = () => (
         </Suspense>
       </Canvas>
     </div>
-    <div className="w-full h-auto fixed inset-0 z-[5] bg-gray-200 dark:bg-gray-950 rounded-md bg-clip-padding backdrop-filter backdrop-blur dark:backdrop-blur-xs bg-opacity-10 dark:bg-opacity-10"></div>
+    <div className="fixed inset-0 z-[5] h-auto w-full rounded-md bg-gray-200 bg-opacity-10 bg-clip-padding backdrop-blur backdrop-filter dark:bg-gray-950 dark:bg-opacity-10 dark:backdrop-blur-xs"></div>
   </>
 );
 

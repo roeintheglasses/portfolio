@@ -5,9 +5,9 @@ import { Views } from 'lib/types';
 import MetricCard from 'components/metrics/Card';
 
 export default function AnalyticsCard() {
-  const { data } = useSWR<Views>('/api/views', fetcher);
+  const { data, isLoading } = useSWR<Views>('/api/views', fetcher);
 
-  const pageViews = new Number(data?.total);
+  const pageViews = data?.total ?? 0;
   const link = 'https://roeintheglasses.dev';
 
   return (
@@ -17,6 +17,7 @@ export default function AnalyticsCard() {
       metric={pageViews}
       isCurrency={false}
       gradient="from-[#40c6ff] via-[#5a2bff] to-[#4059fe]"
+      isLoading={isLoading}
     />
   );
 }

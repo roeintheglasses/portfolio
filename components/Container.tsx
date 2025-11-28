@@ -1,18 +1,27 @@
-import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 
 import Footer from 'components/Footer';
 import Head from 'next/head';
 
 import { useRouter } from 'next/router';
-import StarsCanvas from './StarCanvas';
 import Navbar from './Navbar';
 
-export default function Container(props) {
-  const [mounted, setMounted] = useState(false);
+// Lazy load Three.js canvas - reduces initial bundle by ~300KB
+const StarsCanvas = dynamic(() => import('./StarCanvas'), {
+  ssr: false,
+  loading: () => <div className="fixed inset-0 z-0 h-full w-full bg-gray-50 dark:bg-gray-900" />,
+});
 
-  // After mounting, we have access to the theme
-  useEffect(() => setMounted(true), []);
+interface ContainerProps {
+  children: React.ReactNode;
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: string;
+  date?: string;
+}
 
+export default function Container(props: ContainerProps) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
@@ -20,7 +29,7 @@ export default function Container(props) {
     description: `Front-end developer, JavaScript enthusiast, and an avid valorant player.`,
     image: 'https://roeintheglasses.dev/static/images/roe-banner.png',
     type: 'website',
-    ...customMeta
+    ...customMeta,
   };
 
   return (
@@ -29,14 +38,8 @@ export default function Container(props) {
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
-        <meta
-          property="og:url"
-          content={`https://roeintheglasses.dev${router.asPath}`}
-        />
-        <link
-          rel="canonical"
-          href={`https://roeintheglasses.dev${router.asPath}`}
-        />
+        <meta property="og:url" content={`https://roeintheglasses.dev${router.asPath}`} />
+        <link rel="canonical" href={`https://roeintheglasses.dev${router.asPath}`} />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Hrishikesh Jangir" />
         <meta property="og:description" content={meta.description} />
@@ -46,19 +49,14 @@ export default function Container(props) {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
-        {meta.date && (
-          <meta property="article:published_time" content={meta.date} />
-        )}
+        {meta.date && <meta property="article:published_time" content={meta.date} />}
       </Head>
       <StarsCanvas />
-      <div className="flex flex-col justify-center px-6 relative z-20">
-        <a href="#skip" className="skip-nav">
-          Skip to content
-        </a>
+      <div className="relative z-20 flex flex-col justify-center px-6">
         <Navbar />
       </div>
-      <main id="skip" className="flex flex-col justify-center px-8 ">
-        <div className="flex flex-col justify-center items-start max-w-5xl border-gray-200 dark:border-gray-700 mx-auto pb-16 bg-transparent z-10 ">
+      <main className="flex flex-col justify-center px-8">
+        <div className="z-10 mx-auto flex max-w-5xl flex-col items-start justify-center border-gray-200 bg-transparent pb-16 dark:border-gray-700">
           {children}
         </div>
         <Footer />

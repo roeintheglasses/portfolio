@@ -5,25 +5,27 @@ import { Unsplash } from 'lib/types';
 import MetricCard from 'components/metrics/Card';
 
 export default function UnsplashCard() {
-  const { data } = useSWR<Unsplash>('/api/unsplash', fetcher);
+  const { data, isLoading } = useSWR<Unsplash>('/api/unsplash', fetcher);
 
-  const downloads = new Number(data?.downloads);
-  const views = new Number(data?.views);
+  const downloads = data?.downloads ?? 0;
+  const views = data?.views ?? 0;
   const link = 'https://unsplash.com/@user';
 
   return (
-    <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
+    <div className="my-2 grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
       <MetricCard
         header="Unsplash Downloads"
         link={link}
         metric={downloads}
         isCurrency={false}
+        isLoading={isLoading}
       />
       <MetricCard
         header="Unsplash Views"
         link={link}
         metric={views}
         isCurrency={false}
+        isLoading={isLoading}
       />
     </div>
   );
