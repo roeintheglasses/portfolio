@@ -63,17 +63,6 @@ test.describe('Projects Page', () => {
 });
 
 test.describe('Accessibility', () => {
-  test('skip navigation should be accessible via keyboard', async ({ page }) => {
-    await page.goto('/');
-
-    // Tab to skip nav link
-    await page.keyboard.press('Tab');
-
-    // Skip nav should be visible when focused
-    const skipNav = page.locator('.skip-nav');
-    await expect(skipNav).toBeFocused();
-  });
-
   test('navigation links should have focus styles', async ({ page }) => {
     await page.goto('/');
 

@@ -15,17 +15,17 @@ import { IconFileCode2 } from '@tabler/icons-react';
 
 export default function Home() {
   const router = useRouter();
-  
+
   // Transform timeline data to include rendered content
-  const timelineData = homeData.workExperience.timeline.map(item => ({
+  const timelineData = homeData.workExperience.timeline.map((item) => ({
     title: item.title,
-    content: <TimelineContent item={item} />
+    content: <TimelineContent item={item} />,
   }));
   const meta = {
     title: 'Hrishikesh Jangir - Developer, writer, designer.',
     description: `Front-end developer, JavaScript enthusiast, and an avid valorant player.`,
     image: 'https://roeintheglasses.dev/static/images/roe-banner.png',
-    type: 'website'
+    type: 'website',
   };
 
   return (
@@ -34,14 +34,8 @@ export default function Home() {
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
-        <meta
-          property="og:url"
-          content={`https://roeintheglasses.dev${router.asPath}`}
-        />
-        <link
-          rel="canonical"
-          href={`https://roeintheglasses.dev${router.asPath}`}
-        />
+        <meta property="og:url" content={`https://roeintheglasses.dev${router.asPath}`} />
+        <link rel="canonical" href={`https://roeintheglasses.dev${router.asPath}`} />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Hrishikesh Jangir" />
         <meta property="og:description" content={meta.description} />
@@ -55,48 +49,45 @@ export default function Home() {
       <StarsCanvas />
 
       {/* Navbar - Global */}
-      <div className="flex flex-col justify-center px-6 relative z-30">
-        <a href="#skip" className="skip-nav">
-          Skip to content
-        </a>
+      <div className="relative z-30 flex flex-col justify-center px-6">
         <Navbar />
       </div>
 
       <Suspense fallback={null}>
         {/* First Fold - Hero Section */}
-        <div className="min-h-screen md:h-screen flex flex-col relative -mt-36">
+        <div className="relative -mt-36 flex min-h-screen flex-col md:h-screen">
           {/* Hero Content */}
-          <div className="flex-1 flex items-center justify-center px-4 md:px-8 relative z-20 pt-36 pb-20">
-            <div className="max-w-5xl w-full">
+          <div className="relative z-20 flex flex-1 items-center justify-center px-4 pb-20 pt-36 md:px-8">
+            <div className="w-full max-w-5xl">
               <div
                 id="heroHome"
-                className="w-full flex flex-col-reverse sm:flex-row items-center sm:items-start justify-between"
+                className="flex w-full flex-col-reverse items-center justify-between sm:flex-row sm:items-start"
               >
-                <div className="flex flex-col max-w-2xl pr-0 sm:pr-8">
-                  <h1 className="font-bold text-3xl sm:text-4xl md:text-6xl tracking-tight mb-1 text-black dark:text-white text-center sm:text-left">
+                <div className="flex max-w-2xl flex-col pr-0 sm:pr-8">
+                  <h1 className="mb-1 text-center text-3xl font-bold tracking-tight text-black dark:text-white sm:text-left sm:text-4xl md:text-6xl">
                     {homeData.hero.name}
                   </h1>
-                  <h2 className="text-gray-700 text-lg sm:text-xl md:text-2xl dark:text-gray-200 mb-6 prose prose-lg prose-neutral prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:prose-a:text-gray-200 dark:prose-invert dark:hover:prose-a:text-blue-400 text-center sm:text-left">
+                  <h2 className="prose prose-lg prose-neutral mb-6 text-center text-lg text-gray-700 dark:prose-invert prose-a:text-gray-800 hover:prose-a:text-blue-400 dark:text-gray-200 dark:prose-a:text-gray-200 dark:hover:prose-a:text-blue-400 sm:text-left sm:text-xl md:text-2xl">
                     {homeData.hero.title}{' '}
                     <LinkPreview
                       url={homeData.hero.company.url}
-                      className="font-semibold text-gray-800 hover:text-blue-400 dark:text-gray-200 dark:hover:text-blue-400 transition-colors"
+                      className="font-semibold text-gray-800 transition-colors hover:text-blue-400 dark:text-gray-200 dark:hover:text-blue-400"
                       width={250}
                       height={150}
                     >
                       {homeData.hero.company.name}
                     </LinkPreview>
                   </h2>
-                  <p className="text-gray-700 text-lg sm:text-xl dark:text-gray-300 mb-6 text-center sm:text-left">
+                  <p className="mb-6 text-center text-lg text-gray-700 dark:text-gray-300 sm:text-left sm:text-xl">
                     {homeData.hero.description}
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-6 mb-8 sm:mb-16">
+                  <div className="mb-8 flex flex-col gap-6 sm:mb-16 sm:flex-row">
                     <a
                       href={homeData.hero.resume.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={
-                        'flex flex-row justify-center sm:justify-start items-center gap-2 px-6 py-2 text-center font-semibold text-gray-800 dark:text-gray-200  rounded-full bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600 transition-all'
+                        'flex flex-row items-center justify-center gap-2 rounded-full bg-zinc-300 px-6 py-2 text-center font-semibold text-gray-800 transition-all hover:bg-zinc-400 dark:bg-zinc-700 dark:text-gray-200 dark:hover:bg-zinc-600 sm:justify-start'
                       }
                     >
                       <IconFileCode2 />
@@ -106,7 +97,7 @@ export default function Home() {
                 </div>
                 <div
                   className={
-                    'mt-8 sm:-mt-4 mb-6 sm:mb-10 transform hover:-translate-y-2 hover:scale-105 transition-all rounded-full w-max animate-gradient-xy bg-gradient-to-r from-[#FDE68A] via-[#FCA5A5] to-[#FECACA] p-1 mx-auto sm:mx-0'
+                    'mx-auto mb-6 mt-8 w-max transform animate-gradient-xy rounded-full bg-gradient-to-r from-[#FDE68A] via-[#FCA5A5] to-[#FECACA] p-1 transition-all hover:-translate-y-2 hover:scale-105 sm:mx-0 sm:-mt-4 sm:mb-10'
                   }
                 >
                   <Image
@@ -116,7 +107,7 @@ export default function Home() {
                     src={homeData.hero.avatar.src}
                     sizes="35vw"
                     priority
-                    className="rounded-full bg-gray-50 dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-90"
+                    className="rounded-full bg-gray-50 bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-90"
                   />
                 </div>
               </div>
@@ -124,22 +115,15 @@ export default function Home() {
           </div>
 
           {/* Scroll Down Button */}
-          <div className="hidden sm:block absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+          <div className="absolute bottom-4 left-1/2 z-30 hidden -translate-x-1/2 transform sm:bottom-8 sm:block">
             <button
               onClick={() =>
-                document
-                  .getElementById('workExperience')
-                  ?.scrollIntoView({ behavior: 'smooth' })
+                document.getElementById('workExperience')?.scrollIntoView({ behavior: 'smooth' })
               }
-              className="animate-bounce flex items-center gap-3 px-6 py-3 text-center font-semibold text-gray-800 dark:text-gray-200 rounded-full bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600 transition-all"
+              className="flex animate-bounce items-center gap-3 rounded-full bg-zinc-300 px-6 py-3 text-center font-semibold text-gray-800 transition-all hover:bg-zinc-400 dark:bg-zinc-700 dark:text-gray-200 dark:hover:bg-zinc-600"
             >
               <span className="text-sm font-medium">Scroll Down</span>
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -152,19 +136,19 @@ export default function Home() {
         </div>
 
         {/* Second Fold - Timeline and Tech Stack */}
-        <main id="skip" className="flex flex-col justify-center px-4 md:px-8">
-          <div className="flex flex-col justify-center items-start max-w-5xl border-gray-200 dark:border-gray-700 mx-auto pb-16 bg-transparent z-10">
+        <main className="flex flex-col justify-center px-4 md:px-8">
+          <div className="z-10 mx-auto flex max-w-5xl flex-col items-start justify-center border-gray-200 bg-transparent pb-16 dark:border-gray-700">
             {/* work experience timeline */}
-            <div id="workExperience" className="mb-16 sm:mb-32 w-full">
+            <div id="workExperience" className="mb-16 w-full sm:mb-32">
               <Timeline data={timelineData} />
             </div>
 
             {/* tech stack */}
-            <div id="techExperience" className="mb-12 sm:mb-20 w-full">
-              <h3 className="font-bold text-xl sm:text-2xl md:text-4xl tracking-tight mb-4 sm:mb-6 text-black dark:text-white">
+            <div id="techExperience" className="mb-12 w-full sm:mb-20">
+              <h3 className="mb-4 text-xl font-bold tracking-tight text-black dark:text-white sm:mb-6 sm:text-2xl md:text-4xl">
                 {homeData.techStack.title}
               </h3>
-              <p className="text-gray-700 text-base sm:text-lg dark:text-gray-300 mb-4 sm:mb-6">
+              <p className="mb-4 text-base text-gray-700 dark:text-gray-300 sm:mb-6 sm:text-lg">
                 {homeData.techStack.description}
               </p>
               <CategorizedSkills />

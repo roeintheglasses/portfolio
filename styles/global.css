@@ -148,10 +148,6 @@ html {
   display: table;
 }
 
-.skip-nav {
-  @apply absolute left-4 z-50 -translate-y-full transform rounded-md bg-blue-600 px-4 py-3 font-semibold text-white transition-transform duration-200 focus:top-4 focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2;
-}
-
 /* Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -169,10 +165,6 @@ html {
   .animate-bounce {
     animation: none !important;
   }
-}
-
-#skip {
-  scroll-margin-top: 1.125rem;
 }
 
 @supports not (backdrop-filter: none) {
