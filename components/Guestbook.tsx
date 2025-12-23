@@ -1,6 +1,7 @@
 import { useState, useRef, Suspense } from 'react';
 import { format } from 'date-fns';
 import { signIn, useSession } from 'next-auth/react';
+import type { Session } from 'next-auth';
 import useSWR, { useSWRConfig } from 'swr';
 
 import fetcher from 'lib/fetcher';
@@ -9,9 +10,21 @@ import SuccessMessage from 'components/SuccessMessage';
 import ErrorMessage from 'components/ErrorMessage';
 import LoadingSpinner from 'components/LoadingSpinner';
 
-function GuestbookEntry({ entry, user }) {
+interface GuestbookEntryData {
+  id: string;
+  body: string;
+  created_by: string;
+  updated_at: string;
+}
+
+interface GuestbookEntryProps {
+  entry: GuestbookEntryData;
+  user: Session['user'] | undefined;
+}
+
+function GuestbookEntry({ entry, user }: GuestbookEntryProps) {
   const { mutate } = useSWRConfig();
-  const deleteEntry = async (e) => {
+  const deleteEntry = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     await fetch(`/api/guestbook/${entry.id}`, {
@@ -45,16 +58,20 @@ function GuestbookEntry({ entry, user }) {
   );
 }
 
-export default function Guestbook({ fallbackData }) {
+interface GuestbookProps {
+  fallbackData: GuestbookEntryData[];
+}
+
+export default function Guestbook({ fallbackData }: GuestbookProps) {
   const { data: session } = useSession();
   const { mutate } = useSWRConfig();
   const [form, setForm] = useState<FormState>({ state: Form.Initial });
   const inputEl = useRef<HTMLInputElement>(null);
-  const { data: entries } = useSWR<any>('/api/guestbook', fetcher, {
+  const { data: entries } = useSWR<GuestbookEntryData[]>('/api/guestbook', fetcher, {
     fallbackData,
   });
 
-  const leaveEntry = async (e) => {
+  const leaveEntry = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setForm({ state: Form.Loading });
 
@@ -119,8 +136,11 @@ export default function Guestbook({ fallbackData }) {
               <input
                 ref={inputEl}
                 aria-label="Your message"
+                aria-required="true"
+                aria-describedby="guestbook-hint"
                 placeholder="Your message..."
                 required
+                maxLength={500}
                 className="mt-1 block w-full rounded-md border-gray-300 bg-white py-2 pl-4 pr-32 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:text-gray-100"
               />
               <button
@@ -133,15 +153,16 @@ export default function Guestbook({ fallbackData }) {
               </button>
             </form>
           )}
-          {form.state === Form.Error ? (
-            <ErrorMessage>{form.message}</ErrorMessage>
-          ) : form.state === Form.Success ? (
-            <SuccessMessage>{form.message}</SuccessMessage>
-          ) : (
-            <p className="text-sm text-gray-800 dark:text-gray-200">
-              Your information is only used to display your name and reply by email.
-            </p>
-          )}
+          <div aria-live="polite" aria-atomic="true">
+            {form.state === Form.Error ? (
+              <ErrorMessage>{form.message}</ErrorMessage>
+            ) : form.state === Form.Success ? (
+              <SuccessMessage>{form.message}</SuccessMessage>
+            ) : null}
+          </div>
+          <p id="guestbook-hint" className="text-sm text-gray-800 dark:text-gray-200">
+            Your information is only used to display your name and reply by email.
+          </p>
         </div>
       </div>
 

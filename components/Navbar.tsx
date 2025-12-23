@@ -3,7 +3,7 @@ import CommandPalette from 'components/Commands';
 import ThemeChange from './ThemeChange';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import cn from 'classnames';
+import { cn } from 'lib/utils';
 import { navigation } from 'data/nav';
 import IconChip from './IconChip';
 

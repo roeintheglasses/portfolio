@@ -4,6 +4,8 @@ export const config = {
   runtime: 'edge',
 };
 
+const TOP_TRACKS_LIMIT = 10;
+
 interface SpotifyTrack {
   name: string;
   artists: { name: string }[];
@@ -28,7 +30,7 @@ export default async function handler() {
     const data = await response.json();
     const items: SpotifyTrack[] = data?.items ?? [];
 
-    const tracks = items.slice(0, 10).map((track) => ({
+    const tracks = items.slice(0, TOP_TRACKS_LIMIT).map((track) => ({
       artist: track.artists.map((a) => a.name).join(', '),
       songUrl: track.external_urls.spotify,
       title: track.name,

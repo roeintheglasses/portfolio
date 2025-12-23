@@ -1,5 +1,5 @@
 import { motion, type HTMLMotionProps } from 'motion/react';
-import cn from 'classnames';
+import { cn } from 'lib/utils';
 import { ReactNode, forwardRef } from 'react';
 
 export interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'children'> {

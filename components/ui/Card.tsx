@@ -1,4 +1,4 @@
-import cn from 'classnames';
+import { cn } from 'lib/utils';
 import { ReactNode, HTMLAttributes, forwardRef } from 'react';
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {

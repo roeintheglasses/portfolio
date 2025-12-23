@@ -14,6 +14,10 @@ export default async function handler() {
       'https://api.github.com/users/roeintheglasses/repos?per_page=100'
     );
 
+    if (!userResponse.ok || !userReposResponse.ok) {
+      throw new Error(`GitHub API error: ${userResponse.status} / ${userReposResponse.status}`);
+    }
+
     const user = await userResponse.json();
     const repositories: GitHubRepo[] = await userReposResponse.json();
 

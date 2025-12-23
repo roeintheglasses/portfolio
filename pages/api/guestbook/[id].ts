@@ -1,8 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth/next';
+import { z } from 'zod';
 import { authConfig } from 'pages/api/auth/[...nextauth]';
 
 import prisma from 'lib/prisma';
+
+const guestbookUpdateSchema = z.object({
+  body: z
+    .string()
+    .min(1, 'Message is required')
+    .max(500, 'Message must be 500 characters or less')
+    .transform((val) => val.trim()),
+});
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const session = await getServerSession(req, res, authConfig);
@@ -16,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   });
 
   if (!entry) {
-    return res.status(404).send('Entry not found');
+    return res.status(404).json({ error: 'Entry not found' });
   }
 
   if (req.method === 'GET') {
@@ -31,7 +40,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const email = session?.user?.email;
 
   if (!session || !email || email !== entry.email) {
-    return res.status(403).send('Unauthorized');
+    return res.status(403).json({ error: 'Unauthorized' });
   }
 
   if (req.method === 'DELETE') {
@@ -45,23 +54,29 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   if (req.method === 'PUT') {
-    const body = (req.body.body || '').slice(0, 500);
+    const validation = guestbookUpdateSchema.safeParse(req.body);
+
+    if (!validation.success) {
+      return res.status(400).json({
+        error: validation.error.errors[0]?.message || 'Invalid input',
+      });
+    }
 
     await prisma.guestbook.update({
       where: {
         id: Number(id),
       },
       data: {
-        body,
+        body: validation.data.body,
         updated_at: new Date().toISOString(),
       },
     });
 
-    return res.status(201).json({
+    return res.status(200).json({
       ...entry,
-      body,
+      body: validation.data.body,
     });
   }
 
-  return res.send('Method not allowed.');
+  return res.status(405).json({ error: 'Method not allowed' });
 }
