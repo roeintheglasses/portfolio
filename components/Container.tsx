@@ -19,10 +19,12 @@ interface ContainerProps {
   image?: string;
   type?: string;
   date?: string;
+  fullWidth?: boolean;
+  hideFooter?: boolean;
 }
 
 export default function Container(props: ContainerProps) {
-  const { children, ...customMeta } = props;
+  const { children, fullWidth, hideFooter, ...customMeta } = props;
   const router = useRouter();
   const meta = {
     title: 'Hrishikesh Jangir - Developer, writer, designer.',
@@ -55,11 +57,17 @@ export default function Container(props: ContainerProps) {
       <div className="relative z-20 flex flex-col justify-center px-6">
         <Navbar />
       </div>
-      <main className="flex flex-col justify-center px-8">
-        <div className="z-10 mx-auto flex max-w-5xl flex-col items-start justify-center border-gray-200 bg-transparent pb-16 dark:border-gray-700">
+      <main className={fullWidth ? 'flex flex-col' : 'flex flex-col justify-center px-8'}>
+        <div
+          className={
+            fullWidth
+              ? 'z-10 flex flex-col bg-transparent'
+              : 'z-10 mx-auto flex max-w-5xl flex-col items-start justify-center border-gray-200 bg-transparent pb-16 dark:border-gray-700'
+          }
+        >
           {children}
         </div>
-        <Footer />
+        {!hideFooter && <Footer />}
       </main>
     </div>
   );

@@ -1,7 +1,7 @@
 const { spacing, fontFamily, screens } = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  content: ['./pages/**/*.tsx', './components/**/*.tsx', './data/**/*.{js,ts}'],
+  content: ['./pages/**/*.tsx', './components/**/*.tsx', './data/**/*.{js,ts}', './sanity/**/*.{js,ts,tsx}'],
   safelist: ['bg-gradient-to-r', 'animate-gradient-x', 'animate-gradient-xy'],
   darkMode: ['class'],
   theme: {

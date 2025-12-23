@@ -47,6 +47,7 @@ export default function Navbar() {
         <NavItem href="/work" text="Work" />
         <NavItem href="/about" text="About" />
         <NavItem href="/projects" text="Projects" />
+        <NavItem href="/stories" text="Stories" />
         <NavItem href="/guestbook" text="Guestbook" />
       </div>
       <div className="flex items-center justify-between gap-2">

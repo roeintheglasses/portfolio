@@ -67,6 +67,11 @@ module.exports = withBundleAnalyzer({
         protocol: 'https',
         hostname: 'api.microlink.io',
         pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        pathname: '/**'
       }
     ]
   },

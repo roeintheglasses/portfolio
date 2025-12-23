@@ -93,3 +93,196 @@ export type ChipData = {
   chipName: string;
   icon: any;
 };
+
+// Stories & Journal Types
+
+export interface GeoPoint {
+  lat: number;
+  lng: number;
+}
+
+export interface RoutePoint extends GeoPoint {
+  elevation?: number;
+}
+
+export interface ExifData {
+  camera?: string;
+  lens?: string;
+  aperture?: string;
+  shutter?: string;
+  iso?: number;
+  focalLength?: string;
+  takenAt?: string;
+}
+
+export interface SanityImageAsset {
+  _ref: string;
+  _type: 'reference';
+}
+
+export interface SanityImageAssetExpanded {
+  _id: string;
+  url: string;
+  metadata?: {
+    dimensions?: {
+      width: number;
+      height: number;
+      aspectRatio: number;
+    };
+    lqip?: string;
+  };
+}
+
+export interface SanityImage {
+  _type: 'image';
+  asset: SanityImageAsset | SanityImageAssetExpanded;
+  hotspot?: {
+    x: number;
+    y: number;
+    height: number;
+    width: number;
+  };
+  crop?: {
+    top: number;
+    bottom: number;
+    left: number;
+    right: number;
+  };
+}
+
+export interface StoryPhoto {
+  _key: string;
+  _type: 'storyPhoto';
+  image: SanityImage;
+  caption?: string;
+  locationName?: string;
+  coordinates?: GeoPoint;
+  exif?: ExifData;
+  isFullBleed?: boolean;
+}
+
+// Alias for backward compatibility
+export type WalkPhoto = StoryPhoto;
+
+export interface TextBlock {
+  _key: string;
+  _type: 'block';
+  children: Array<{
+    _key: string;
+    _type: 'span';
+    text: string;
+    marks?: string[];
+  }>;
+  markDefs?: Array<{
+    _key: string;
+    _type: string;
+    href?: string;
+  }>;
+  style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'blockquote';
+}
+
+export interface PhotoStory {
+  _id: string;
+  _type: 'photoStory';
+  title: string;
+  slug:
+    | {
+        _type: 'slug';
+        current: string;
+      }
+    | string;
+  coverImage: SanityImage;
+  date?: string;
+  location: {
+    name: string;
+    coordinates: GeoPoint;
+  };
+  summary?: string;
+  route: RoutePoint[];
+  photos: StoryPhoto[];
+  tags?: string[];
+  published: boolean;
+  featured?: boolean;
+}
+
+export interface PhotoStoryPreview {
+  _id: string;
+  title: string;
+  slug: string;
+  coverImageUrl: string;
+  coverImageLqip?: string;
+  date?: string;
+  location: {
+    name: string;
+    coordinates: GeoPoint;
+  };
+  summary?: string;
+  photoCount: number;
+  tags?: string[];
+  featured?: boolean;
+}
+
+// Aliases for backward compatibility
+export type PhotoWalk = PhotoStory;
+export type PhotoWalkPreview = PhotoStoryPreview;
+
+export interface GeoJSONFeature {
+  type: 'Feature';
+  geometry: {
+    type: 'Point';
+    coordinates: [number, number]; // [lng, lat]
+  };
+  properties: {
+    id: string;
+    title: string;
+    slug: string;
+    coverImageUrl: string;
+    location: string;
+    photoCount: number;
+  };
+}
+
+export interface GeoJSONFeatureCollection {
+  type: 'FeatureCollection';
+  features: GeoJSONFeature[];
+}
+
+export interface ClusterProperties {
+  cluster: boolean;
+  cluster_id?: number;
+  point_count?: number;
+  point_count_abbreviated?: string;
+}
+
+export type ClusterFeature = GeoJSONFeature & {
+  properties: GeoJSONFeature['properties'] & ClusterProperties;
+};
+
+// Geocoding Types
+
+export interface GeocodeResult {
+  id: string;
+  name: string;
+  fullName: string;
+  coordinates: GeoPoint;
+  placeType: string;
+}
+
+export type CoordinateSource = 'exif' | 'geocoded' | 'manual';
+
+export interface MapboxGeocodeFeature {
+  id: string;
+  place_name: string;
+  center: [number, number]; // [lng, lat]
+  place_type: string[];
+  text: string;
+  context?: Array<{
+    id: string;
+    text: string;
+  }>;
+}
+
+export interface MapboxGeocodeResponse {
+  features: MapboxGeocodeFeature[];
+  query: string[];
+}
