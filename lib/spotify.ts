@@ -1,3 +1,5 @@
+import { z } from 'zod';
+
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
@@ -7,9 +9,15 @@ const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-pla
 const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
-interface AccessTokenResponse {
-  access_token: string;
-}
+// Zod schema for validating Spotify token response
+const AccessTokenResponseSchema = z.object({
+  access_token: z.string(),
+  token_type: z.string().optional(),
+  expires_in: z.number().optional(),
+  scope: z.string().optional(),
+});
+
+type AccessTokenResponse = z.infer<typeof AccessTokenResponseSchema>;
 
 const getAccessToken = async (): Promise<AccessTokenResponse | null> => {
   try {
@@ -25,7 +33,20 @@ const getAccessToken = async (): Promise<AccessTokenResponse | null> => {
       }),
     });
 
-    return response.json() as Promise<AccessTokenResponse>;
+    if (!response.ok) {
+      console.error(`Spotify token request failed: ${response.status}`);
+      return null;
+    }
+
+    const data = await response.json();
+    const parsed = AccessTokenResponseSchema.safeParse(data);
+
+    if (!parsed.success) {
+      console.error('Invalid Spotify token response:', parsed.error.message);
+      return null;
+    }
+
+    return parsed.data;
   } catch (err) {
     console.error('Failed to get Spotify access token:', err);
     return null;

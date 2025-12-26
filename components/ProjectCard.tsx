@@ -24,7 +24,6 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div className="prose prose-lg prose-neutral max-w-5xl text-gray-700 dark:prose-invert prose-a:text-gray-800 dark:text-gray-300 dark:prose-a:text-gray-200">
-      <div></div>
       <h2 className="p-1 text-3xl">{title}</h2>
       <div className="flex flex-col-reverse items-start justify-between gap-x-6 md:flex-row">
         <p>

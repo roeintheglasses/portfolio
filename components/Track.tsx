@@ -1,8 +1,5 @@
 import Image from 'next/image';
-
-// Simple gray blur placeholder for external images
-const BLUR_DATA_URL =
-  'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMCwsLCgwJDRMNDg0QCQwNEhAREhMTExMLDxQVFRQSFRMTEv/2wBDAQMEBAUEBQkFBQkSDAsMEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhL/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgIBAwQDAAAAAAAAAAAAAQIDBAAFBhEHEiExQVFh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQACAwEAAAAAAAAAAAAAAAABAgADESH/2gAMAwEAAhEDEEAwF//Z';
+import { BLUR_DATA_URL } from '@/lib/constants';
 
 interface TrackProps {
   ranking: number;
@@ -31,6 +28,7 @@ export default function Track({ ranking, albumImageUrl, title, songUrl, artist }
           href={songUrl}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`Listen to ${title} by ${artist} on Spotify`}
         >
           {title}
         </a>

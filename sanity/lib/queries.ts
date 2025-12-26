@@ -152,3 +152,13 @@ export const adjacentStoriesQuery = groq`
 
 // Alias for backward compatibility
 export const adjacentWalksQuery = adjacentStoriesQuery;
+
+/**
+ * Get all story slugs with dates for sitemap generation
+ */
+export const storySitemapQuery = groq`
+  *[_type == "photoStory" && published == true] | order(date desc) {
+    "slug": slug.current,
+    "lastModified": coalesce(_updatedAt, date, _createdAt)
+  }
+`;

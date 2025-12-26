@@ -88,10 +88,14 @@ export type Gradient = {
   gradient: string;
 };
 
+// Icon type from @tabler/icons-react
+// Using ComponentType to properly type icon components that accept className prop
+export type TablerIconComponent = React.ComponentType<{ className?: string }>;
+
 export type ChipData = {
   gradient: string;
   chipName: string;
-  icon: any;
+  icon: TablerIconComponent;
 };
 
 // Stories & Journal Types

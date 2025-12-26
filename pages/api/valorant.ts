@@ -1,3 +1,4 @@
+import { z } from 'zod';
 import { CurrentRank, HighestRank } from 'lib/types';
 
 export const config = {
@@ -60,30 +61,109 @@ const emptyValoData = {
   totalGames: 0,
 };
 
+const emptyResponse = () =>
+  new Response(JSON.stringify(emptyValoData), {
+    status: 200,
+    headers: { 'content-type': 'application/json' },
+  });
+
+// Schema for validating Valorant API response
+const ValorantImagesSchema = z.object({
+  small: z.string(),
+  large: z.string(),
+  triangle_down: z.string(),
+  triangle_up: z.string(),
+});
+
+const ValorantCurrentDataSchema = z.object({
+  currenttier: z.number(),
+  currenttierpatched: z.string(),
+  images: ValorantImagesSchema,
+  ranking_in_tier: z.number().optional(),
+  mmr_change_to_last_game: z.number().optional(),
+  elo: z.number().optional(),
+  games_needed_for_rating: z.number().optional(),
+  old: z.boolean().optional(),
+});
+
+const ValorantHighestRankSchema = z.object({
+  old: z.boolean().optional(),
+  tier: z.number(),
+  patched_tier: z.string(),
+  season: z.string().optional(),
+  converted: z.number().optional(),
+});
+
+const ValorantSeasonSchema = z.object({
+  wins: z.number().optional(),
+  number_of_games: z.number().optional(),
+});
+
+const ValorantDataSchema = z.object({
+  name: z.string().optional(),
+  tag: z.string().optional(),
+  current_data: ValorantCurrentDataSchema.nullable().optional(),
+  highest_rank: ValorantHighestRankSchema.nullable().optional(),
+  by_season: z.record(ValorantSeasonSchema).optional(),
+});
+
+const ValorantResponseSchema = z.object({
+  status: z.number(),
+  data: ValorantDataSchema.optional(),
+});
+
 export default async function handler() {
   try {
-    const valoPlayerUUID = process.env.VALORANT_PUUID || 'f08db3f6-25ac-51d1-8b79-043233cfcd77';
-    const valoAPIKey = process.env.VALORANT_API_KEY || '';
+    const valoPlayerUUID = process.env.VALORANT_PUUID;
+    const valoAPIKey = process.env.VALORANT_API_KEY;
+
+    if (!valoPlayerUUID || !valoAPIKey) {
+      console.error('Valorant API credentials not configured');
+      return emptyResponse();
+    }
+
     const response = await fetch(
-      `https://api.henrikdev.xyz/valorant/v2/by-puuid/mmr/ap/${valoPlayerUUID}?api_key=${valoAPIKey}`,
+      `https://api.henrikdev.xyz/valorant/v2/by-puuid/mmr/ap/${valoPlayerUUID}`,
       {
         method: 'GET',
+        headers: {
+          Authorization: valoAPIKey,
+        },
       }
     );
 
-    const data = await response.json();
-
-    if (data?.status !== 200) {
-      return new Response(JSON.stringify(emptyValoData), {
-        status: 200,
-        headers: { 'content-type': 'application/json' },
-      });
+    if (!response.ok) {
+      console.error(`Valorant API returned status: ${response.status}`);
+      return emptyResponse();
     }
 
-    const fetchedData = data.data;
+    let rawData: unknown;
+    try {
+      rawData = await response.json();
+    } catch (parseError) {
+      console.error('Failed to parse Valorant response JSON:', parseError);
+      return emptyResponse();
+    }
+
+    // Validate response structure
+    const parsed = ValorantResponseSchema.safeParse(rawData);
+
+    if (!parsed.success) {
+      console.error('Invalid Valorant response structure:', parsed.error.message);
+      return emptyResponse();
+    }
+
+    if (parsed.data.status !== 200 || !parsed.data.data) {
+      return emptyResponse();
+    }
+
+    const fetchedData = parsed.data.data;
     const { name, tag, highest_rank, current_data, by_season } = fetchedData;
     const { wins, games } = fetchTotalNumberOfMatchesPlayed(by_season ?? {});
-    const tierData = fetchTierData(current_data, highest_rank);
+    const tierData = fetchTierData(
+      current_data as CurrentRank | null,
+      highest_rank as HighestRank | null
+    );
 
     const valoData = {
       name: name ?? '',
@@ -105,9 +185,6 @@ export default async function handler() {
     });
   } catch (err) {
     console.error('Failed to fetch Valorant data:', err);
-    return new Response(JSON.stringify(emptyValoData), {
-      status: 200,
-      headers: { 'content-type': 'application/json' },
-    });
+    return emptyResponse();
   }
 }

@@ -106,10 +106,6 @@ export default function About() {
             ))}
           </ul>
         </div>
-        {/* <div className="flex flex-col w-full">
-        <Unsplash />
-        <YouTube />
-      </div> */}
         <div className="my-2 grid w-full grid-cols-1 gap-4 sm:grid-cols-3">
           <SitePageviewsCard />
           <Analytics />

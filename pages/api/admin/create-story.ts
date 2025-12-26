@@ -1,35 +1,59 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { z } from 'zod';
 import { nanoid } from 'nanoid';
 import { withAdminAuth } from '@/lib/admin-auth';
 import { previewClient, isSanityConfigured } from '@/sanity/lib/client';
-import type { StoryPhoto, GeoPoint, ExifData, SanityImage } from '@/lib/types';
+import type { StoryPhoto, SanityImage } from '@/lib/types';
 
-interface PhotoData {
-  assetId: string;
-  caption?: string;
-  coordinates?: GeoPoint;
-  exif?: ExifData;
-  isFullBleed?: boolean;
-}
+// Zod schemas for request validation
+const GeoPointSchema = z.object({
+  lat: z.number(),
+  lng: z.number(),
+});
 
-interface CreateStoryRequest {
-  title: string;
-  slug: string;
-  date: string;
-  location: {
-    name: string;
-    coordinates?: GeoPoint;
-  };
-  summary: string;
-  photos: PhotoData[];
-  tags: string[];
-  published: boolean;
-  featured: boolean;
-}
+const ExifDataSchema = z.object({
+  camera: z.string().optional(),
+  lens: z.string().optional(),
+  aperture: z.string().optional(),
+  shutter: z.string().optional(),
+  iso: z.number().optional(),
+  focalLength: z.string().optional(),
+  takenAt: z.string().optional(),
+});
+
+const PhotoDataSchema = z.object({
+  assetId: z.string().min(1, 'Asset ID is required'),
+  caption: z.string().optional(),
+  coordinates: GeoPointSchema.optional(),
+  exif: ExifDataSchema.optional(),
+  isFullBleed: z.boolean().optional(),
+});
+
+const CreateStoryRequestSchema = z.object({
+  title: z.string().min(1, 'Title is required'),
+  slug: z
+    .string()
+    .min(1, 'Slug is required')
+    .regex(/^[a-z0-9-]+$/, 'Slug must be lowercase with hyphens'),
+  date: z.string().optional(),
+  location: z.object({
+    name: z.string().min(1, 'Location name is required'),
+    coordinates: GeoPointSchema.optional(),
+  }),
+  summary: z.string().optional(),
+  photos: z.array(PhotoDataSchema).min(1, 'At least one photo is required'),
+  tags: z.array(z.string()).optional().default([]),
+  published: z.boolean().optional().default(false),
+  featured: z.boolean().optional().default(false),
+});
+
+type CreateStoryRequest = z.infer<typeof CreateStoryRequestSchema>;
+type PhotoData = z.infer<typeof PhotoDataSchema>;
 
 interface CreateStoryResponse {
   slug?: string;
   error?: string;
+  details?: z.ZodIssue[];
 }
 
 function createStoryPhoto(photo: PhotoData): StoryPhoto {
@@ -59,17 +83,19 @@ async function handler(req: NextApiRequest, res: NextApiResponse<CreateStoryResp
     return res.status(500).json({ error: 'Sanity is not configured' });
   }
 
+  // Validate request body with Zod
+  const validation = CreateStoryRequestSchema.safeParse(req.body);
+
+  if (!validation.success) {
+    return res.status(400).json({
+      error: 'Invalid request data',
+      details: validation.error.issues,
+    });
+  }
+
   try {
-    const body = req.body as CreateStoryRequest;
+    const body = validation.data;
     const { title, slug, date, location, summary, photos, tags, published, featured } = body;
-
-    if (!title || !slug || !location.name) {
-      return res.status(400).json({ error: 'Title, slug, and location are required' });
-    }
-
-    if (photos.length === 0) {
-      return res.status(400).json({ error: 'At least one photo is required' });
-    }
 
     // Build the photos array
     const storyPhotos = photos.map((photo) => createStoryPhoto(photo));
@@ -82,11 +108,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse<CreateStoryResp
         lng: p.coordinates!.lng,
       }));
 
-    // Get cover photo (first photo)
-    const coverPhoto = photos[0];
-    if (!coverPhoto) {
-      return res.status(400).json({ error: 'Cover photo is required' });
-    }
+    // Get cover photo (first photo) - guaranteed to exist due to Zod validation (min: 1)
+    const coverPhoto = photos[0]!;
 
     // Create the document
     const document = {

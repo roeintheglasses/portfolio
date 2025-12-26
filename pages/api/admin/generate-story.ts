@@ -1,20 +1,45 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { z } from 'zod';
 import { withAdminAuth } from '@/lib/admin-auth';
-import {
-  generateWalkContent,
-  type PhotoMetadata,
-  type StoryContext,
-  type GeneratedContent,
-} from '@/lib/gemini';
+import { generateWalkContent, type GeneratedContent } from '@/lib/gemini';
 
-interface GenerateContentRequest {
-  photos: PhotoMetadata[];
-  context: StoryContext;
-}
+// Zod schemas for request validation
+const GeoPointSchema = z.object({
+  lat: z.number(),
+  lng: z.number(),
+});
+
+const PhotoMetadataSchema = z.object({
+  index: z.number(),
+  filename: z.string(),
+  camera: z.string().optional(),
+  lens: z.string().optional(),
+  aperture: z.string().optional(),
+  shutterSpeed: z.string().optional(),
+  iso: z.string().optional(),
+  focalLength: z.string().optional(),
+  date: z.string().optional(),
+  location: GeoPointSchema.optional(),
+});
+
+const StoryContextSchema = z.object({
+  title: z.string().min(1, 'Title is required'),
+  location: z.string().min(1, 'Location is required'),
+  date: z.string(),
+  mood: z.string().optional(),
+  storyHints: z.string().optional(),
+  highlights: z.string().optional(),
+});
+
+const GenerateContentRequestSchema = z.object({
+  photos: z.array(PhotoMetadataSchema).min(1, 'At least one photo is required'),
+  context: StoryContextSchema,
+});
 
 interface GenerateContentResponse {
   content?: GeneratedContent;
   error?: string;
+  details?: z.ZodIssue[];
 }
 
 async function handler(req: NextApiRequest, res: NextApiResponse<GenerateContentResponse>) {
@@ -22,16 +47,18 @@ async function handler(req: NextApiRequest, res: NextApiResponse<GenerateContent
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  // Validate request body with Zod
+  const validation = GenerateContentRequestSchema.safeParse(req.body);
+
+  if (!validation.success) {
+    return res.status(400).json({
+      error: 'Invalid request data',
+      details: validation.error.issues,
+    });
+  }
+
   try {
-    const { photos, context } = req.body as GenerateContentRequest;
-
-    if (!photos || photos.length === 0) {
-      return res.status(400).json({ error: 'No photos provided' });
-    }
-
-    if (!context.title || !context.location) {
-      return res.status(400).json({ error: 'Title and location are required' });
-    }
+    const { photos, context } = validation.data;
 
     const content = await generateWalkContent(photos, context);
 

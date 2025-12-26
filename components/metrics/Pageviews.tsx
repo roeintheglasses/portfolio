@@ -3,9 +3,10 @@ import useSWR from 'swr';
 import fetcher from 'lib/fetcher';
 import { Views } from 'lib/types';
 import MetricCard from 'components/metrics/Card';
+import { SWR_CONFIG } from '@/lib/constants';
 
 export default function SitePageviewsCard() {
-  const { data, isLoading } = useSWR<Views>('/api/views', fetcher);
+  const { data, isLoading } = useSWR<Views>('/api/views', fetcher, SWR_CONFIG);
 
   const pageViews = data?.total ?? 0;
   const siteViews = isLoading

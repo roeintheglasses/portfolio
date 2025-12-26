@@ -3,9 +3,10 @@ import useSWR from 'swr';
 import fetcher from 'lib/fetcher';
 import { GitHub } from 'lib/types';
 import MetricCard from 'components/metrics/Card';
+import { SWR_CONFIG } from '@/lib/constants';
 
 export default function GitHubCard() {
-  const { data, isLoading } = useSWR<GitHub>('/api/github', fetcher);
+  const { data, isLoading } = useSWR<GitHub>('/api/github', fetcher, SWR_CONFIG);
 
   const stars = data?.stars ?? 0;
   const link = 'https://github.com/roeintheglasses';

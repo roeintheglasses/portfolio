@@ -6,6 +6,7 @@ import { motion } from 'motion/react';
 import fetcher from 'lib/fetcher';
 import { Valorant } from 'lib/types';
 import { Skeleton } from 'components/ui/Skeleton';
+import { ICON_BLUR_DATA_URL, SWR_CONFIG } from '@/lib/constants';
 
 // Valorant-inspired gradient
 const valGradient = {
@@ -13,10 +14,6 @@ const valGradient = {
   text: 'from-[#ff4655] to-[#ff7b8a]',
   glow: 'rgba(255, 70, 85, 0.15)',
 };
-
-// Blur placeholder for rank images
-const RANK_BLUR =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAP0lEQVQY02NgGCDAyMj4nxGK0QATAwMDA4M4IyMjA5gDEmBkYGBg+M/IyMgA5sA4YBoYGRj+g2lgZGRgYGAAABNxB0K6nBrVAAAAAElFTkSuQmCC';
 
 function ValorantSkeleton() {
   return (
@@ -77,7 +74,7 @@ function RankDisplay({ image, rank, label, isPeak = false }: RankDisplayProps) {
         <Image
           src={image}
           placeholder="blur"
-          blurDataURL={RANK_BLUR}
+          blurDataURL={ICON_BLUR_DATA_URL}
           alt={`${rank} rank icon`}
           width={80}
           height={80}
@@ -115,7 +112,7 @@ function StatItem({ value, label, highlight = false }: StatItemProps) {
 }
 
 export default function ValorantStats() {
-  const { data, error, isLoading } = useSWR<Valorant>('/api/valorant', fetcher);
+  const { data, error, isLoading } = useSWR<Valorant>('/api/valorant', fetcher, SWR_CONFIG);
 
   if (error) {
     return (
