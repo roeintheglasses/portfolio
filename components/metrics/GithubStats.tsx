@@ -124,7 +124,7 @@ export default function GithubStatsCard() {
     >
       {/* Main card with gradient border */}
       <div
-        className={`rounded-xl bg-gradient-to-r p-[1px] ${githubGradient.border} motion-safe:animate-gradient-xy`}
+        className={`rounded-xl bg-gradient-to-r p-[2px] ${githubGradient.border} motion-safe:animate-gradient-xy`}
       >
         <div className="rounded-xl bg-gray-50 p-5 dark:bg-gray-900 sm:p-6">
           {/* Header */}

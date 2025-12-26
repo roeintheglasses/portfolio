@@ -22,7 +22,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
         <div
           ref={ref}
           className={cn(
-            'animate-gradient-xy rounded-xl bg-gradient-to-tr p-[1px]',
+            'animate-gradient-xy rounded-xl bg-gradient-to-tr p-[2px]',
             gradient,
             className
           )}
@@ -30,7 +30,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
         >
           <div
             className={cn(
-              'h-full rounded-[11px] bg-gray-50 bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-90',
+              'h-full rounded-[11px] bg-gray-50 dark:bg-gray-900',
               paddingSizes[padding],
               hover && 'transition-transform duration-200 hover:scale-[1.01]'
             )}
