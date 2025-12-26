@@ -30,6 +30,10 @@ interface AboutData {
     title: string;
     links: AboutLink[];
   };
+  githubSection: {
+    title: string;
+    description: string;
+  };
   valorantSection: {
     title: string;
     description: string;
@@ -94,6 +98,11 @@ export const aboutData: AboutData = {
         href: 'https://roeintheglasses.dev',
       },
     ],
+  },
+  githubSection: {
+    title: 'GitHub Activity',
+    description:
+      "Here's a breakdown of my coding activity on GitHub - languages I work with, repositories I maintain, and my overall contribution footprint.",
   },
   valorantSection: {
     title: 'Valorant Stats',

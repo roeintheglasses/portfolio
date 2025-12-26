@@ -1,6 +1,7 @@
 import Analytics from 'components/metrics/Analytics';
 import Container from 'components/Container';
 import GitHub from 'components/metrics/Github';
+import GithubStats from 'components/metrics/GithubStats';
 import Link from 'next/link';
 import TopTracks from 'components/TopTracks';
 import Valorant from 'components/metrics/Valorant';
@@ -111,6 +112,17 @@ export default function About() {
           <Analytics />
           <GitHub />
         </div>
+
+        {/* GitHub Activity Section */}
+        <section className="mt-16">
+          <h2 className="mb-3 text-3xl font-bold tracking-tight text-black dark:text-white">
+            {aboutData.githubSection.title}
+          </h2>
+          <p className="mb-6 max-w-2xl text-gray-600 dark:text-gray-400">
+            {aboutData.githubSection.description}
+          </p>
+          <GithubStats />
+        </section>
 
         {/* Valorant Section */}
         <section className="mt-16">

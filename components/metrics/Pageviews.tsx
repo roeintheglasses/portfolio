@@ -8,20 +8,14 @@ import { SWR_CONFIG } from '@/lib/constants';
 export default function SitePageviewsCard() {
   const { data, isLoading } = useSWR<Views>('/api/views', fetcher, SWR_CONFIG);
 
-  const pageViews = data?.total ?? 0;
-  const siteViews = isLoading
-    ? 0
-    : 7 * pageViews -
-      (Math.round(Math.random() * 50) +
-        Math.round(Math.random() * 7) -
-        Math.round(Math.random() * 13));
+  const totalViews = data?.total ?? 0;
   const link = 'https://roeintheglasses.dev';
 
   return (
     <MetricCard
-      header="All-Time Site Views"
+      header="Page Views"
       link={link}
-      metric={siteViews}
+      metric={totalViews}
       isCurrency={false}
       gradient="from-[#40c6ff] via-[#5a2bff] to-[#4059fe]"
       isLoading={isLoading}

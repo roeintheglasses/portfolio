@@ -5,6 +5,7 @@ import Head from 'next/head';
 
 import { useRouter } from 'next/router';
 import Navbar from './Navbar';
+import { useViewTracker } from '@/lib/useViewTracker';
 
 // Lazy load Three.js canvas - reduces initial bundle by ~300KB
 const StarsCanvas = dynamic(() => import('./StarCanvas'), {
@@ -26,6 +27,10 @@ interface ContainerProps {
 export default function Container(props: ContainerProps) {
   const { children, fullWidth, hideFooter, ...customMeta } = props;
   const router = useRouter();
+
+  // Track page views
+  useViewTracker(router.asPath);
+
   const meta = {
     title: 'Hrishikesh Jangir - Developer, writer, designer.',
     description: `Front-end developer, JavaScript enthusiast, and an avid valorant player.`,

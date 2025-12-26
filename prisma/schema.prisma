@@ -20,3 +20,10 @@ model views {
   slug  String @id @db.VarChar(255)
   count Int    @default(1)
 }
+
+model visitors {
+  id         String   @id @db.VarChar(36)
+  first_seen DateTime @default(now())
+  last_seen  DateTime @default(now())
+  page_views Int      @default(1)
+}

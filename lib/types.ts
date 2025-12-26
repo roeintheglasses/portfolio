@@ -16,6 +16,7 @@ export type Subscribers = {
 
 export type Views = {
   total: number;
+  visitors: number;
 };
 
 export type Song = {
@@ -40,6 +41,22 @@ export type TopTracks = {
 
 export type GitHub = {
   stars: number;
+};
+
+export type LanguageStats = {
+  name: string;
+  bytes: number;
+  percentage: number;
+  color: string;
+};
+
+export type GitHubStats = {
+  totalRepos: number;
+  totalStars: number;
+  followers: number;
+  languages: LanguageStats[];
+  topLanguage: LanguageStats | null;
+  accountAge: number;
 };
 
 export type Valorant = {
