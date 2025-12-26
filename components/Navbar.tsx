@@ -1,10 +1,9 @@
 import MobileMenu from 'components/MobileMenu';
-import CommandPalette from 'components/Commands';
+import CommandPalette from 'components/CommandPalette';
 import ThemeChange from './ThemeChange';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { cn } from 'lib/utils';
-import { navigation } from 'data/nav';
 import IconChip from './IconChip';
 
 import { IconBrandGithub } from '@tabler/icons-react';
@@ -51,7 +50,7 @@ export default function Navbar() {
         <NavItem href="/guestbook" text="Guestbook" />
       </div>
       <div className="flex items-center justify-between gap-2">
-        <CommandPalette navigation={navigation} />
+        <CommandPalette />
         <IconChip Icon={IconBrandGithub} link={githubLink} />
         <ThemeChange />
       </div>
