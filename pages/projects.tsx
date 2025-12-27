@@ -1,6 +1,6 @@
 import Container from 'components/Container';
 import ProjectCard from 'components/ProjectCard';
-import { IconEyeBolt, IconCards, IconCloud, IconDashboard } from '@tabler/icons-react';
+import { IconEyeBolt, IconCards, IconCloud, IconDashboard, IconAntenna } from '@tabler/icons-react';
 
 const projectList = {
   turupsgambit: {
@@ -121,6 +121,25 @@ const projectList = {
       'Machine Learning',
     ],
   },
+  entercomm: {
+    title: 'Enter-Comm',
+    description:
+      'An Android bike intercom app that creates a mesh network using WiFi Direct for offline voice communication between cyclists. Features real-time audio over 100-200m ranges, multi-hop routing for extended coverage, and dynamic network healing when devices move in/out of range. Built with Kotlin, Jetpack Compose, and Android WiFi P2P APIs.',
+    link: 'https://github.com/roeintheglasses/enter-comm',
+    image: '/static/images/projects/entercomm.png',
+    ProjectIcon: IconAntenna,
+    otherCta: 'https://github.com/roeintheglasses/enter-comm',
+    technologies: [
+      'Kotlin',
+      'Jetpack Compose',
+      'Android',
+      'WiFi Direct',
+      'Mesh Networking',
+      'Real-time Audio',
+      'MVVM',
+      'Coroutines',
+    ],
+  },
 };
 export default function Projects() {
   return (
@@ -149,6 +168,15 @@ export default function Projects() {
               desc={projectList.heimdall.description}
               otherCta={projectList.heimdall.otherCta}
               technologies={projectList.heimdall.technologies}
+            />
+            <ProjectCard
+              title={projectList.entercomm.title}
+              image={projectList.entercomm.image}
+              link={projectList.entercomm.link}
+              ProjectIcon={projectList.entercomm.ProjectIcon}
+              desc={projectList.entercomm.description}
+              otherCta={projectList.entercomm.otherCta}
+              technologies={projectList.entercomm.technologies}
             />
             <ProjectCard
               title={projectList.turupsgambit.title}
