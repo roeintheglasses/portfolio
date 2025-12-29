@@ -91,7 +91,7 @@ export default function Home() {
                       }
                     >
                       <IconDashboard />
-                      {homeData.hero.dashboard.text}
+                      {homeData.hero.resume.text}
                     </a>
                     <a
                       href={homeData.hero.dashboard.url}
@@ -102,7 +102,7 @@ export default function Home() {
                       }
                     >
                       <IconFileCode2 />
-                      {homeData.hero.resume.text}
+                      {homeData.hero.dashboard.text}
                     </a>
                   </div>
                 </div>
