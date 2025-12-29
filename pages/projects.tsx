@@ -47,19 +47,21 @@ const projectList = {
   heimdall: {
     title: 'Heimdall',
     description:
-      'Heimdall is a real-time personal dashboard for monitoring GitHub commits, Vercel deployments, and other webhook-enabled services. Built with a serverless event-driven architecture using Vercel Edge Functions, Go microservices, and Upstash QStash, it delivers fast, reliable updates via Server-Sent Events.',
+      'A real-time webhook monitoring dashboard that aggregates events from GitHub, Vercel, and Railway into a unified view with intelligent categorization. Features a three-tier architecture with Next.js 15 + React 19 frontend on Vercel, Go backend on Railway, and PostgreSQL on Neon. Uses Edge Functions for webhook ingestion, QStash for reliable message queuing, and Server-Sent Events for real-time updates.',
     link: 'https://heimdall-ashen.vercel.app/',
     image: '/static/images/projects/heimdall.png',
     ProjectIcon: IconDashboard,
     otherCta: 'https://github.com/roeintheglasses/heimdall',
     technologies: [
       'Next.js 15',
+      'React 19',
       'Go',
       'PostgreSQL',
+      'Neon',
       'Vercel Edge Functions',
       'Upstash QStash',
       'Server-Sent Events',
-      'Docker',
+      'Railway',
       'TypeScript',
       'Tailwind CSS',
     ],

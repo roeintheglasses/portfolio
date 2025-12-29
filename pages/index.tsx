@@ -11,7 +11,7 @@ import CategorizedSkills from '../components/CategorizedSkills';
 import { Timeline } from '../components/ui/timeline';
 import { LinkPreview } from '../components/ui/link-preview';
 import { TimelineContent } from '../components/TimelineContent';
-import { IconFileCode2 } from '@tabler/icons-react';
+import { IconFileCode2, IconDashboard } from '@tabler/icons-react';
 
 export default function Home() {
   const router = useRouter();
@@ -84,6 +84,17 @@ export default function Home() {
                   <div className="mb-8 flex flex-col gap-6 sm:mb-16 sm:flex-row">
                     <a
                       href={homeData.hero.resume.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={
+                        'flex flex-row items-center justify-center gap-2 rounded-full bg-zinc-300 px-6 py-2 text-center font-semibold text-gray-800 transition-all hover:bg-zinc-400 dark:bg-zinc-700 dark:text-gray-200 dark:hover:bg-zinc-600 sm:justify-start'
+                      }
+                    >
+                      <IconDashboard />
+                      {homeData.hero.dashboard.text}
+                    </a>
+                    <a
+                      href={homeData.hero.dashboard.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={
