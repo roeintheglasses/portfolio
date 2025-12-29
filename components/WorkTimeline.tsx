@@ -254,7 +254,7 @@ function TimelineCard({
 
 export default function WorkTimeline({ companies }: WorkTimelineProps) {
   return (
-    <div className="relative">
+    <div className="relative w-full">
       {/* Section header */}
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
         <p className="mb-1 text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">

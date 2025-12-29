@@ -8,7 +8,7 @@ export default function WorkPage() {
       title="Work - Hrishikesh Jangir"
       description="My professional journey and work experience."
     >
-      <section className="mx-auto w-full max-w-4xl">
+      <section className="mx-auto w-full max-w-5xl">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
           {workData.pageTitle}
         </h1>
